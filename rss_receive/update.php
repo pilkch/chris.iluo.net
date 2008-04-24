@@ -3,6 +3,9 @@
   // This php file is not meant for human consumption.
   // It is only meant for running from a cron job every 30 minutes or so.
 
+  // For some reason when running from a cron job this has not been set
+  $_SERVER['DOCUMENT_ROOT'] = "/home/pilch/chris.iluo.net";
+
   require_once($_SERVER['DOCUMENT_ROOT'] . '/util/util.php');
 
   // Make sure SimplePie is included. You may need to change this to match the location of simplepie.inc.

@@ -1,17 +1,24 @@
 <?php
 
+  // This php file is not meant for human consumption.
+  // It is only meant for running from a cron job every 30 minutes or so.
+
   require_once($_SERVER['DOCUMENT_ROOT'] . '/util/util.php');
 
   // Make sure SimplePie is included. You may need to change this to match the location of simplepie.inc.
   require_once($_SERVER['DOCUMENT_ROOT'] . '/rss_receive/simplepie/simplepie.inc');
 
+  function StripHTMLEntities($str)
+  {
+    return preg_replace("/&#?[a-z0-9]+;/i", "", $str);
+  }
 
   function AddArticle($util, $feed_id, $rss_item)
   {
     //echo "AddArticle<br/>";
     // Get id, we pass true to get a unique hash
     $hash = mysql_real_escape_string($rss_item->get_id(true));
-    $title = mysql_real_escape_string($rss_item->get_title());
+    $title = StripHTMLEntities(mysql_real_escape_string($rss_item->get_title()));
     $url = mysql_real_escape_string($rss_item->get_permalink());
     $description = mysql_real_escape_string($rss_item->get_description());
     $author = mysql_real_escape_string($rss_item->get_author() . " " . $rss_item->get_contributor());
@@ -75,47 +82,6 @@
       ForEachChannel($util, $channel_id);
     }
   }
-
-    //$sql = 'SELECT * FROM `rss_channel`';
-    //$sql = 'SELECT * FROM `rss_feed`';
-
-    // We'll process this feed with all of the default options.
-
-
-    /*$rss_out = new RSSWriter($rss_in->get_permalink(), $rss_in->get_title(), $rss_in->get_description(), "ABOUT");
-    $rss_out->useModule("content", "http://purl.org/rss/1.0/modules/content/");
-
-    // Here, we'll loop through all of the items in the feed, and $item represents the current item in the loop.
-    foreach ($rss_in->get_items() as $item) {
-      $rss_out->addItem($item->get_permalink(), $item->get_title(),
-          array("description" => $item->get_description(),
-              "content:encoded" => $item->get_description(),
-              "dc:creator" => $item->get_author(),
-              "dc:date" => $item->get_date('j F Y | g:i a'),
-              "dc:subject" => $item->get_category()));
-    }*/
-
-  /*if ("add_top"==$action)
-  {
-    $theme->article_addline("add_top " . $util->query);
-    $todo_content = $_REQUEST['content'];
-
-    if($todo_content != "")
-    {
-      // Find out if we have any other entries with priority 0, if we do, increment the whole table
-      $result = $util->db->Select("todo", "", "", " ORDER BY `todo_priority` ASC");
-      $num = $util->db->GetRows($result);
-
-      // Increment all priorities
-      if (($num > 0) && (mysql_result($result, 0, "todo_priority") < 1))
-        $util->db->Query("UPDATE todo SET todo_priority=todo_priority + 1 WHERE 1");
-
-      $result = $util->db->query("INSERT INTO todo (todo_id, todo_content, todo_priority) " .
-        "VALUES ('', '$todo_content', '0');");
-    }
-    else
-      $theme->article_addline("No Content Entered.  ");
-  }*/
 
   $util->Delete();
 

@@ -1,0 +1,96 @@
+#
+# Apache/PHP/site settings:
+#
+
+# Protect files and directories from prying eyes:
+<Files ~ "(\.(conf|inc|module|pl|sh|sql|theme)|Entries|Repositories|Root|scripts|updates)$">
+  order deny,allow
+  deny from all
+</Files>
+
+# Set some options
+#Options -Indexes
+Options +FollowSymLinks
+
+# Set the default handler to index.php:
+# DirectoryIndex index.php
+
+# By passing the charset you avoid the 500 error display
+AddDefaultCharset utf-8
+
+
+
+# Customized server error messages:
+ErrorDocument 400 /errors/error_401.php
+ErrorDocument 402 /errors/error_503.php
+
+ErrorDocument 401 /errors/error_401.php
+ErrorDocument 403 /errors/error_403.php
+ErrorDocument 404 /errors/error_404.php
+ErrorDocument 500 /errors/error_500.php
+ErrorDocument 503 /errors/error_503.php
+
+# Overload PHP variables:
+<IfModule mod_php4.c>
+#   php_value register_globals        0
+#   php_value track_vars              1
+#   php_value short_open_tag          1
+#   php_value magic_quotes_gpc        0
+#   php_value magic_quotes_runtime    0
+#   php_value magic_quotes_sybase     0
+#   php_value arg_separator.output    "&amp;"
+#   php_value session.cache_expire    200000
+#   php_value session.cookie_lifetime 2000000
+#   php_value session.auto_start      1
+#   php_value session.save_handler    user
+#   php_value session.cache_limiter   none
+#   php_value allow_call_time_pass_reference  Off
+</IfModule>
+
+
+
+# Various rewrite rules
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteBase /
+
+  # Rewrite "triki" and "triki/" to "triki.php"
+  RewriteRule ^triki$ triki.php
+  RewriteRule ^triki/$ triki.php
+
+  # Rewrite "triki/query" to "triki.php/query"
+  RewriteRule ^triki/(.+)$ triki.php/$1
+
+
+  # Rewrite "rss" and "rss/" to "/rss.php"
+  RewriteRule ^rss$ /rss.php
+  RewriteRule ^rss/$ /rss.php
+
+  # Rewrite "rss/query" to "/rss.php/query"
+  RewriteRule ^rss/(.+)$ rss.php/$1
+
+
+  # Rewrite "dropbox" and "dropbox/" to "dropbox/index.php"
+  # RewriteRule ^dropbox$ dropbox/index.php
+  # RewriteRule ^dropbox/$ dropbox/index.php
+
+  # Rewrite "dropbox/query" to "dropbox/index.php/query
+  # RewriteRule ^dropbox(.+)$ dropbox/index.php/$1
+</IfModule>
+
+<Files triki/>
+  ForceType application/x-httpd-php
+</Files>
+
+<Files triki>
+  ForceType application/x-httpd-php
+</Files>
+
+
+# <Files dropbox/>
+#   ForceType application/x-httpd-php
+# </Files>
+
+# <Files dropbox>
+#   ForceType application/x-httpd-php
+# </Files>

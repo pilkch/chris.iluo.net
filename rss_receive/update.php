@@ -26,17 +26,19 @@
     $description = mysql_real_escape_string($rss_item->get_description());
     $author = mysql_real_escape_string($rss_item->get_author() . " " . $rss_item->get_contributor());
     $date = $rss_item->get_date("ymdHis");//'j F Y | g:i a');
-    echo "Adding Article now=" . date("ymdHis") . " date=" . $date . "<br/>\n";
     $content = utf8_encode(utf8_decode(mysql_real_escape_string($rss_item->get_content())));
-    $get_category = mysql_real_escape_string($rss_item->get_category());
+    $category = $rss_item->get_category();
+    if (isset($category)) $category = mysql_real_escape_string($category[0]);
 
-    /*echo "hash=$hash<br/>" .
+    /*echo "Adding Article now=" . date("ymdHis") . " date=" . $date . "<br/>" .
+      "hash=$hash<br/>" .
       "title=$title<br/>" .
       "url=$url<br/>" .
       "description=$description<br/>" .
+      "author=$author<br/>" .
       "date=$date<br/>" .
       "content=$content<br/>" .
-      "author=$author<br/><br/>";*/
+      "category=$category<br/><br/>";*/
 
     // Just go ahead and insert, relying on the fact that hash is unique so we can't add doubles
     $util->db->Query("INSERT INTO rss_article (feed_id, hash, title, url, description, author, date, content, category) VALUES" .

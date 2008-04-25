@@ -1,14 +1,7 @@
 <?php
-/**
- *  A convenience class to make it easy to write Atom classes
- *
- *  @package sf-active
- *  @subpackage syndication
- *  @author Edd Dumbill <edd+rsswriter@usefulinc.com>
- *  @edited-by lotus <lotus@indymedia.org>
- *
- *  2.0 changes based on http://www.engadget.com/common/videos/pt/rss.xml
- */
+//
+// A convenience class to make it easy to write Atom classes
+//
 
 class AtomWriter
 {
@@ -34,7 +27,7 @@ class AtomWriter
     $this->return_value = "";
   }
 
-  //$int_date: current date in UNIX timestamp
+  //$int_date: Date in UNIX timestamp
   function get_iso_8601_date($int_date)
   {
     $date_mod = date('Y-m-d\TH:i:s', $int_date);
@@ -106,17 +99,18 @@ class AtomWriter
   {
     $text = str_replace("&nbsp;", " ", $text);
     $text = str_replace("&nbsp;", "&amp;nbsp;", $text);
-    $text = str_replace("& ", "&amp;", $text);
-    //$text = preg_replace("/&(?!amp;)/i", "&amp;", $text);
-    //$text = preg_replace("/&amp;#(\d+);/i", "&#$1;", $text); // For numeric entities
-    //$text = preg_replace("/&amp;(\w+);/i", "&$1;", $text); // For literal entities
+    $text = preg_replace("/&(?!amp;)/i", "&amp;", $text);
+    $text = preg_replace("/&amp;#(\d+);/i", "&#$1;", $text); // For numeric entities
+    $text = preg_replace("/&amp;(\w+);/i", "&$1;", $text); // For literal entities
+    $text = str_replace("& ", "&amp; ", $text);
     return $text;
   }
 
   function prepareString($text)
   {
+    return $this->replaceAmp($text);
     //htmlspecialchars
-    return $this->replaceAmp($this->replaceBadCharacters($text));
+    //return $this->replaceAmp($this->replaceBadCharacters($text));
   }
 
   function writeAnItem($id, $title, $uri, $datetime, $content)
@@ -126,7 +120,7 @@ class AtomWriter
     <title>" . $this->prepareString($title) . "</title>
     <link href=\"" . $uri . "\"/>
     <id>http://yoursite/article/?i=" . $id . "</id>
-    <updated>" . $this->get_iso_8601_date(time() + $datetime) . "</updated>
+    <updated>" . $this->get_iso_8601_date(strtotime($datetime)) . "</updated>
     <summary type=\"xhtml\"><div xmlns=\"http://www.w3.org/1999/xhtml\">" . $this->prepareString($content) . "</div></summary>
   </entry>\n";
   }

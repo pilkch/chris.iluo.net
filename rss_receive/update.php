@@ -16,6 +16,14 @@
     return preg_replace("/&#?[a-z0-9]+;/i", "", $str);
   }
 
+  // http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters
+  function ConvertHTMLEntities($str)
+  {
+    $from = array("&plusmn;");
+    $to = array("&#177;");
+    return str_replace($from, $to, $str);
+  }
+
   function AddArticle($util, $feed_id, $rss_item)
   {
     //echo "AddArticle<br/>";
@@ -26,9 +34,9 @@
     $description = mysql_real_escape_string($rss_item->get_description());
     $author = mysql_real_escape_string($rss_item->get_author() . " " . $rss_item->get_contributor());
     $date = $rss_item->get_date("ymdHis");//'j F Y | g:i a');
-    $content = utf8_encode(utf8_decode(mysql_real_escape_string($rss_item->get_content())));
+    $content = utf8_encode(utf8_decode(mysql_real_escape_string(ConvertHTMLEntities($rss_item->get_content()))));
     $category = $rss_item->get_category();
-    if (isset($category)) $category = mysql_real_escape_string($category[0]);
+    //if (isset($category)) $category = mysql_real_escape_string($category[0]);
 
     /*echo "Adding Article now=" . date("ymdHis") . " date=" . $date . "<br/>" .
       "hash=$hash<br/>" .

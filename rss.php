@@ -361,7 +361,8 @@
         }
       } else {
         $bUserIsLoggedIn = $util->user->isLoggedIn();
-        $bUserIsOwner = ($util->user->user == $user_login);
+        $bUserIsOwner = ($bUserIsLoggedIn && $util->user->user && $user_login && ($util->user->user == $user_login));
+        //echo "user=" . $util->user->user . " login=" . $user_login . " loggedin=" . $bUserIsLoggedIn . " isowner=" . $bUserIsOwner . "<br />\n";
 
         $util->SetTheme();
 
@@ -377,44 +378,48 @@
 
             if ($bUserIsOwner && $isAddingChannel && $user_login) {
 
-                // Find our user id
-                $result = $util->db->Select("user", "", "`user_login`='$user_login'");
-                $num = $util->db->GetRows($result);
+              //echo "Adding channel<br />\n";
+              // Find our user id
+              $result = $util->db->Select("user", "", "`user_login`='$user_login'");
+              $num = $util->db->GetRows($result);
 
-                if ($num == 1) {
-                  $user_id = mysql_result($result, 0, "user_id");
-                  mysql_free_result($result);
+              if ($num == 1) {
+                $user_id = mysql_result($result, 0, "user_id");
+                mysql_free_result($result);
 
-                  $title = $_REQUEST['title'];
-                  $title_short = CreateLowerCaseSafeDirectory($_REQUEST['title_short']);
-                  $description = $_REQUEST['description'];
+                $title = $_REQUEST['title'];
+                $title_short = CreateLowerCaseSafeDirectory($_REQUEST['title_short']);
+                $description = $_REQUEST['description'];
 
-                  if (($title != "") && ($title_short != "") && ($description != "")) {
-                    $result = $util->db->query("INSERT INTO rss_channel (id, user_id, title, title_short, description) " .
-                        "VALUES ('', '$user_id', '$title', '$title_short', '$description');");
-                  }
+                if (($title != "") && ($title_short != "") && ($description != "")) {
+                  $result = $util->db->query("INSERT INTO rss_channel (id, user_id, title, title_short, description) " .
+                      "VALUES ('', '$user_id', '$title', '$title_short', '$description');");
                 }
+              }
 
             } else if ($bUserIsOwner && $isAddingFeed && $channel) {
 
-                // Find our user id
-                $result = $util->db->Select("rss_channel", "", "`title_short`='$channel'");
-                $num = $util->db->GetRows($result);
+              //echo "Adding feed<br />\n";
+              // Find our user id
+              $result = $util->db->Select("rss_channel", "", "`title_short`='$channel'");
+              $num = $util->db->GetRows($result);
 
-                if ($num == 1) {
-                  $feed_channel_id = mysql_result($result, 0, "id");
-                  mysql_free_result($result);
+              if ($num == 1) {
+                //echo "Found channel<br />\n";
+                $feed_channel_id = mysql_result($result, 0, "id");
+                mysql_free_result($result);
 
-                  $feed_title = $_REQUEST['title'];
-                  $feed_title_short = CreateLowerCaseSafeDirectory($_REQUEST['title_short']);
-                  $feed_url = $_REQUEST['url'];
+                $feed_title = $_REQUEST['title'];
+                $feed_title_short = CreateLowerCaseSafeDirectory($_REQUEST['title_short']);
+                $feed_url = $_REQUEST['url'];
 
-                  // Require title, titleshort, url and that url starts with "http://"
-                  if (($feed_title != "") && ($feed_title_short != "") && ($feed_url != "") && (substr_compare($feed_url, "http://", 0) == 0)) {
-                    $result = $util->db->query("INSERT INTO rss_feed (id, channel_id, title, title_short, url) " .
-                        "VALUES ('', '$feed_channel_id', '$feed_title', '$feed_title_short', '$feed_url');");
-                  }
+                // Require title, titleshort, url and that url starts with "http://"
+                if (($feed_title != "") && ($feed_title_short != "") && ($feed_url != "") && (substr($feed_url, 0, 7) == "http://")) {
+                  //echo "Inserting feed $feed_title, $feed_title_short, $feed_url<br />\n";
+                  $result = $util->db->query("INSERT INTO rss_feed (id, channel_id, title, title_short, url) " .
+                      "VALUES ('', '$feed_channel_id', '$feed_title', '$feed_title_short', '$feed_url');");
                 }
+              }
             } else if ($bUserIsOwner && $isRemovingFeed && $feed_id) DeleteFeed($util, $feed_id);
             else if ($bUserIsOwner && $isRemovingChannel && $channel_id) DeleteChannel($util, $channel_id);
 

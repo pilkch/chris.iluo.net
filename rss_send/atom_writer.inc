@@ -46,9 +46,9 @@ class AtomWriter
     return $in;
   }
 
-  function addItem($id, $title, $uri, $datetime, $content)
+  function addItem($id, $title, $uri, $author, $author_email, $datetime, $content)
   {
-    $item = array("id" => $id, "title" => $this->deTag($title), "uri" => $uri, "datetime" => $datetime, "content" => $this->deTag($content));
+    $item = array("id" => $id, "title" => $this->deTag($title), "uri" => $uri, "author" => $author, "author_email" => $author_email, "datetime" => $datetime, "content" => $this->deTag($content));
 
     $this->items[] = $item;
   }
@@ -113,7 +113,7 @@ class AtomWriter
     //return $this->replaceAmp($this->replaceBadCharacters($text));
   }
 
-  function writeAnItem($id, $title, $uri, $datetime, $content)
+  function writeAnItem($id, $title, $uri, $author, $author_email, $datetime, $content)
   {
     $this->return_value .= "
   <entry>
@@ -121,6 +121,10 @@ class AtomWriter
     <link href=\"" . $uri . "\"/>
     <id>http://yoursite/article/?i=" . $id . "</id>
     <updated>" . $this->get_iso_8601_date(strtotime($datetime)) . "</updated>
+    <author>
+      <name>" . $author . "</name>
+      <email>" . $author_email . "</email>
+    </author>
     <summary type=\"xhtml\"><div xmlns=\"http://www.w3.org/1999/xhtml\">" . $this->prepareString($content) . "</div></summary>
   </entry>\n";
   }
@@ -131,7 +135,7 @@ class AtomWriter
   function writeItems()
   {
     foreach ($this->items as $item) {
-      $this->writeAnItem($item["id"], $item["title"], $item["uri"], $item["datetime"], $item["content"]);
+      $this->writeAnItem($item["id"], $item["title"], $item["uri"], $item["author"], $item["author_email"], $item["datetime"], $item["content"]);
 
       /*$this->return_value.= "  <entry>\n";
       foreach ($item as $key => $value) {

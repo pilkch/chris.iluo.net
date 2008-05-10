@@ -11,6 +11,12 @@
   // Make sure SimplePie is included. You may need to change this to match the location of simplepie.inc.
   require_once($_SERVER['DOCUMENT_ROOT'] . '/rss_receive/simplepie/simplepie.inc');
 
+
+  // An arbitrary date in the past before feeds were invented/in common use,
+  // anything before this date we consider to be an incorrect date and we use the current date and time instead
+  define("min_date", 20020315205903);
+
+
   function StripHTMLEntities($str)
   {
     return preg_replace("/&#?[a-z0-9]+;/i", "", $str);
@@ -19,8 +25,8 @@
   // http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters
   function ConvertHTMLEntities($str)
   {
-    $from = array("&plusmn;");
-    $to = array("&#177;");
+    $from = array("\x85", "\x92", "&#151;", "&mdash;", "&plusmn;");
+    $to = array("...", "'", "-", "-", "&#177;");
     return str_replace($from, $to, $str);
   }
 
@@ -32,8 +38,11 @@
     $title = StripHTMLEntities(mysql_real_escape_string($rss_item->get_title()));
     $url = mysql_real_escape_string($rss_item->get_permalink());
     $description = mysql_real_escape_string($rss_item->get_description());
-    $author = mysql_real_escape_string($rss_item->get_author() . " " . $rss_item->get_contributor());
-    $date = $rss_item->get_date("ymdHis");//'j F Y | g:i a');
+    $author = mysql_real_escape_string($rss_item->get_author());
+    if ($author == "") $author = mysql_real_escape_string($rss_item->get_contributor());
+    if ($author == "") $author = $url;
+    $date = $rss_item->get_date("ymdHis");
+    if ($date < min_date) $date = date("ymdHis");
     $content = utf8_encode(utf8_decode(mysql_real_escape_string(ConvertHTMLEntities($rss_item->get_content()))));
     $category = $rss_item->get_category();
     //if (isset($category)) $category = mysql_real_escape_string($category[0]);

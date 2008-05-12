@@ -4,7 +4,7 @@
   //require_once($_SERVER['DOCUMENT_ROOT'] . '/rss_send/rss_writer.inc');
   require_once($_SERVER['DOCUMENT_ROOT'] . '/rss_send/atom_writer.inc');
 
-  define("LIMIT_PER_FEED", "30");
+  define("LIMIT_PER_FEED", "100");
 
   function CreateLowerCaseSafeDirectory($raw)
   {
@@ -88,6 +88,7 @@
 
     for ($i = 0; $i < $num; $i++) {
       $feed_id = mysql_result($result, $i, "id");
+
       ForEachFeed($util, $rss_out, $feed_id);
     }
 
@@ -160,7 +161,7 @@
     //echo "ForEachChannelWritingToConfigurationPage<br/>";
     if ($bUserIsOwner)
       $theme->article_addline("<table border=\"1\">" .
-        "<tr><td><strong>Priority</strong></td><td><strong>Content</strong></td><td><strong>Status</strong></td><td><strong>Action</strong></td></tr>");
+        "<tr><td><strong>Feed</strong></td><td><strong>Short Title</strong></td><td><strong>URL</strong></td><td><strong>Action</strong></td></tr>");
     else
       $theme->article_addline("<table border=\"1\">" .
         "<tr><td><strong>Feed</strong></td><td><strong>Short Title</strong></td><td><strong>URL</strong></td></tr>");
@@ -394,12 +395,32 @@
             $rss_out = new AtomWriter($url, $title, $description, CreateURNForIDFromDatabaseID($bIsChannel, $id),
               $channel_author, $channel_author_email, $channel_author_uri);
 
-            for ($i = 0; $i < $num; $i++) {
-              $channel_id = mysql_result($result, $i, "id");
-              ForEachChannel($util, $rss_out, $channel_id);
-            }
+            if ($bIsChannel) {
+              for ($i = 0; $i < $num; $i++) {
+                $channel_id = mysql_result($result, $i, "id");
+                ForEachChannel($util, $rss_out, $channel_id);
+              }
 
-            mysql_free_result($result);
+              mysql_free_result($result);
+            } else {
+              $result = $util->db->Select("rss_channel AS c, rss_feed AS f, rss_article AS a", "", "c.user_id='$user_id' AND f.channel_id=c.id AND a.feed_id=f.id", " ORDER BY a.id DESC LIMIT " . LIMIT_PER_FEED);
+              //$result = $util->db->Select("rss_channel AS c, rss_feed AS f, rss_article AS a", "", "`c.user_id`='$user_id' AND `f.channel_id`=`c.id`  AND `a.feed_id`=`f.id`", " ORDER BY `a.id` DESC LIMIT " . LIMIT_PER_FEED);
+              $num = $util->db->GetRows($result);
+
+              for ($i = 0; $i < $num; $i++) {
+                $hash = mysql_result($result, $i, "a.hash");
+                $title = mysql_result($result, $i, "a.title");
+                $uri = mysql_result($result, $i, "a.url");
+                $description = mysql_result($result, $i, "a.description");
+                $author = mysql_result($result, $i, "a.author");
+                $author_email = "AUTHOR_EMAIL@email.com";
+                $datetime = mysql_result($result, $i, "a.date");
+                $content = mysql_result($result, $i, "a.content");
+                $get_category = mysql_result($result, $i, "a.category");
+
+                $rss_out->addItem($hash, $title, $uri, $author, $author_email, $datetime, $content);
+              }
+            }
 
 
             // Output the feed

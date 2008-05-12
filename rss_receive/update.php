@@ -25,8 +25,8 @@
   // http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters
   function ConvertHTMLEntities($str)
   {
-    $from = array("\x85", "\x92", "&#151;", "&mdash;", "&plusmn;");
-    $to = array("...", "'", "-", "-", "&#177;");
+    $from = array("\x85", "\x92", "&#151;", "&mdash;", "&copy;", "&plusmn;");
+    $to = array("...", "'", "-", "-", "&#0169;", "&#177;", );
     return str_replace($from, $to, $str);
   }
 

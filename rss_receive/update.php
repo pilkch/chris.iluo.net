@@ -22,11 +22,13 @@
     return preg_replace("/&#?[a-z0-9]+;/i", "", $str);
   }
 
+  // http://klaus.e175.net/code/latin_utf8.phps
+  // http://www.wizcity.com/Computers/Characters/CommonUTF8.php
   // http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters
   function ConvertHTMLEntities($str)
   {
-    $from = array("\x85", "\x92", "&#151;", "&mdash;", "&copy;", "&plusmn;");
-    $to = array("...", "'", "-", "-", "&#0169;", "&#177;", );
+    $from = array("\x85", "\x92", "&rsquo;", "&#151;", "&mdash;", "&ndash;", "&ldquo;", "&rdquo;", "&copy;", "&plusmn;", "&trade;", "&iacute;");
+    $to = array("...", "'", "'", "-", "-", "-", "'", "'", "&#0169;", "&#177;", "", "");
     return str_replace($from, $to, $str);
   }
 

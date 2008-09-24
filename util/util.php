@@ -29,6 +29,7 @@
     var $user;
     var $query;
     var $full_query;
+    var $user_agent;
 
     function cUtil()
     {
@@ -164,37 +165,33 @@
       // Additional headers
       $headers .= 'From: ' . $this->email_from_name . ' <' . $this->email_from . '>' . "\r\n";
 
-      return (true==mail($this->email_to, "iluo.net " . $title, $message, $headers));
+      return (true == mail($this->email_to, "iluo.net " . $title, $message, $headers));
     }
 
     function random()
     {
-      return rand(0,100)*0.01;
+      return rand(0, 100) * 0.01;
     }
 
     function GetLocalHourf()
     {
-      $temphour=date("H");
-      $temphour=$temphour+$this->difference; //Time Difference between the server and administrator location
+      $temphour = date("H");
+      $temphour = $temphour + $this->difference; //Time Difference between the server and administrator location
 
-      if($temphour>24) //Wrap around to get times within 24 hour period, can be changed to 12 or 48 etc.
-        $temphour-=24;
-
-      if($temphour<10) //
-        $temphour="0" . $temphour;
+      //Wrap around to get times within 24 hour period, can be changed to 12 or 48 etc.
+      if ($temphour >= 24) $temphour -= 24;
+      if ($temphour < 10) $temphour = "0" . $temphour;
 
       return $temphour;
     }
 
     function GetServerHourf()
     {
-      $temphour=date("H");
+      $temphour = date("H");
 
-      if($temphour>24) //Wrap around to get times within 24 hour period, can be changed to 12 or 48 etc.
-        $temphour-=24;
-
-      if($temphour<10) //
-        $temphour="0" . $temphour;
+      //Wrap around to get times within 24 hour period, can be changed to 12 or 48 etc.
+      if ($temphour >= 24) $temphour -= 24;
+      if ($temphour < 10) $temphour="0" . $temphour;
 
       return $temphour;
     }
@@ -216,16 +213,14 @@
 
     function GetHost()
     {
-      $this->host=gethostbyaddr($this->ip);
+      $this->host = gethostbyaddr($this->ip);
       return $this->host;
     }
 
     function GetReferer()
     {
-      if(isset($_SERVER['HTTP_REFERER']))
-        $this->referer=$_SERVER['HTTP_REFERER'];
-      else
-        $this->referer=null;
+      if (isset($_SERVER['HTTP_REFERER'])) $this->referer = $_SERVER['HTTP_REFERER'];
+      else $this->referer = null;
 
       return $this->referer;
     }
@@ -234,19 +229,28 @@
     {
       global $REQUEST_URI;   // Define our global variables
 
-      if(empty($REQUEST_URI))
-        $this->request=$_SERVER['REQUEST_URI'];
-      else
-        $this->request=$REQUEST_URI;
+      if (empty($REQUEST_URI)) $this->request = $_SERVER['REQUEST_URI'];
+      else $this->request = $REQUEST_URI;
 
       return $this->request;
     }
 
-    function get_iso_8601_date($int_date) {
+    function GetUserAgent()
+    {
+      global $HTTP_USER_AGENT;   // Define our global variables
+
+      if (empty($HTTP_USER_AGENT)) $this->user_agent = $_SERVER['HTTP_USER_AGENT'];
+      else $this->user_agent = $HTTP_USER_AGENT;
+
+      return $this->user_agent;
+    }
+
+    function get_iso_8601_date($int_date)
+    {
       //$int_date: current date in UNIX timestamp
       $date_mod = date('Y-m-d\TH:i:s', $int_date);
       $pre_timezone = date('O', $int_date);
-      $time_zone = substr($pre_timezone, 0, 3).":".substr($pre_timezone, 3, 2);
+      $time_zone = substr($pre_timezone, 0, 3) . ":" . substr($pre_timezone, 3, 2);
       $date_mod .= $time_zone;
       return $date_mod;
     }
@@ -269,29 +273,93 @@
       return $date;
     }
 
+    function GetBrowserAttributes($browser_name, $browser_version, $os_name, $os_version)
+    {
+      // Browser Detection
+      OS    Version
+      MacOS 10.5
+      MacOS 10.4
+      Windows XP
+      Fedora 8.0
+
+      Browser Version
+      Firefox 3.0b5
+      Firefox 2.0
+      Opera 9.01a
+      Internet Explorer 7.0
+
+      Resolution
+      Width Height
+      1024 768
+      1280 1024
+
+      "Ubuntu" -> "Linux"
+      "Fedora" -> "Linux"
+      "Mac OS" -> "MacOS"
+      "MacIntel" -> "MacOS"
+
+      http://phpsniff.cvs.sourceforge.net/phpsniff/phpsniff/phpSniff.class.php?revision=1.22&view=markup
+
+      http://apptools.com/phptools/download.php?filename=browser.php
+
+      Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_2; en-us) AppleWebKit/525.13 (KHTML, like Gecko) Version/3.1 Safari/525.13
+      OS: MacOS 10.5
+      Browser: Safari
+      Version: 3.1
+
+      Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9b5) Gecko/2008032619 Firefox/3.0b5
+      OS: MacOS 10.5
+      Browser: Firefox
+      Version: 3.0b5
+
+
+      $browsers = array(
+        'Opera' => 'Opera',
+        'Mozilla Firefox'=> '(Firebird)|(Firefox)',
+        'Galeon' => 'Galeon',
+        'Safari' => '(3\.1 Safari)',
+        'Mozilla'=>'Gecko',
+        'MyIE'=>'MyIE',
+        'Lynx' => 'Lynx',
+        'Netscape' => '(Mozilla/4\.75)|(Netscape6)|(Mozilla/4\.08)|(Mozilla/4\.5)|(Mozilla/4\.6)|(Mozilla/4\.79)',
+        'Konqueror'=>'Konqueror',
+        'SearchBot' => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
+        'Internet Explorer 6' => '(MSIE 6\.[0-9]+)',
+        'Internet Explorer 5' => '(MSIE 5\.[0-9]+)',
+        'Internet Explorer 4' => '(MSIE 4\.[0-9]+)',
+      );
+
+      foreach($browsers as $browser=>$pattern)
+      {
+        if (eregi($pattern, $user_agent)) return $browser;
+      }
+
+      return 'Unknown';
+    }
+
     function GetUserOnline()
     {
       $this->GetIP();
       $this->GetHost();
       $this->GetReferer();
       $this->GetRequest();
+      $this->GetUserAgent();
       $timestamp = date("ymdHis");
       $past = $this->SubtractSecondsFromDate($timestamp, 200);
 
-      $result=$this->db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer, counter_request", "'$timestamp', '$this->ip', '$this->host', '$this->referer', '$this->request'");
+      $this->db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer, counter_request", "'$timestamp', '$this->ip', '$this->host', '$this->referer', '$this->request'");
 
-      $result=$this->db->Select("counter", "DISTINCT counter_ip", "counter_timestamp > '$past'");
-      $num=$this->db->GetRows($result);
+      $result = $this->db->Select("counter", "DISTINCT counter_ip", "counter_timestamp > '$past'");
+      $num = $this->db->GetRows($result);
 
       return $num;
     }
 
     function StringUsersOnline()
     {
-      $num=$this->GetUserOnline();
+      $num = $this->GetUserOnline();
 
-      if((int)$num==1)
-        return "1 user online";
+      if ((int)$num == 1) return "1 user online";
 
       return $num ." users online";
     }

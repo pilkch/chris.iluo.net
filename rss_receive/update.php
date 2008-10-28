@@ -27,8 +27,8 @@
   // http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters
   function ConvertHTMLEntities($str)
   {
-    $from = array("\x85", "\x92", "&rsquo;", "&#151;", "&mdash;", "&ndash;", "&ldquo;", "&rdquo;", "&copy;", "&plusmn;", "&euro;", "&trade;", "&iacute;", "&dagger;");
-    $to = array("...", "'", "'", "-", "-", "-", "'", "'", "&#0169;", "&#177;", "EU", "", "", "");
+    $from = array("\x85", "\x92", "&#151;", "&mdash;", "&ndash;", "&ldquo;", "&rdquo;", "&rsquo;", "&lsquo;", "&copy;", "&plusmn;", "&rarr;", "&euro;", "&trade;", "&iacute;", "&dagger;", "&b;");
+    $to = array("...", "'", "-", "-", "-", "'", "'", "'", "'", "&#0169;", "&#177;", "-", "EU", "", "", "", "");
     return str_replace($from, $to, $str);
   }
 
@@ -58,6 +58,9 @@
       "date=$date<br/>" .
       "content=$content<br/>" .
       "category=$category<br/><br/>";*/
+
+    // Blacklist of spam articles, just return if we match one, we don't want to add it to the database
+    if ($title == "Chronic File") return;
 
     // Just go ahead and insert, relying on the fact that hash is unique so we can't add doubles
     $util->db->Query("INSERT INTO rss_article (feed_id, hash, title, url, description, author, date, content, category) VALUES" .

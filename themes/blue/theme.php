@@ -17,26 +17,26 @@
 		var $home;
 		var $dir;
 		var $img;
-		
+
 		var $filename;
 		var $name;
 		var $description;
-		
+
 		var $author_firstname;
 		var $author_lastname;
 		var $author_email;
-		
+
 		var $loggedin;
-		
+
 		var $link;
 		var $foreground;
 		var $background;
-		
+
 		var $width; //this is the user's screen width (prefered at least)
 		var $height; //this is the user's screen height (prefered at least)
 
 		var $tabs_content; //how far in the main text should be tabbed
-		
+
 		var $menuwidth;
 		var $menuimageheight;
 
@@ -44,7 +44,7 @@
 		var $mainimageheight;
 
 		var $gap;
-		
+
 		var $db;
 		var $util;
 
@@ -55,17 +55,17 @@
 			$this->filename="blue";
 			$this->name="Blue";
 			$this->description = "Just your basic blue skin";
-			
+
 			$this->author_firstname = "Christopher";
 			$this->author_lastname = "Pilkington";
 			$this->author_email = "chris.pilkington@gmail.com";
-			
+
 			$this->loggedin="";
-		
+
 			$this->link="#666699";
 			$this->foreground = "#000000";
 			$this->background = "#eaeaea";
-			
+
 			$this->home="http://chris.iluo.net"; //$_SERVER['REDIRECT_SITE_HTMLROOT'];
 			$this->dir=$this->home . "/themes/" . $this->filename;
 			$this->img=$this->dir . "/images";
@@ -86,13 +86,13 @@
 			$this->mainimagewidth=820;
 			$this->mainimageheight=16;
 			$this->mainrightimagewidth=16;
-			
+
 			$this->gap=200;
-				
+
 			$this->tabs_content="\t\t\t\t\t\t";
 		}
 
-		function header($title = "dev.iluo.net") 
+		function header($title = "dev.iluo.net")
 		{
 			echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
@@ -106,8 +106,7 @@
 		<link rel="icon" type="image/ico" href="<?PHP echo $this->img; ?>/icon.ico" />
 		<link rel="shortcut icon" type="images/ico" href="<?PHP echo $this->img; ?>/icon.ico" />
 
-		<link rel="alternate" type="application/atom+xml" title="Atom" href="http://community.livejournal.com/chrisdev/data/atom" />
-		<link rel="service.feed" type="application/atom+xml" title="AtomAPI-enabled feed" href="http://www.livejournal.com/interface/atomapi/chrisdev/feed" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="http://chris.iluo.net/blog/feed/atom" />
 
 		<link rel="openid.server" href="http://www.livejournal.com/openid/server.bml" />
 		<link rel="openid.delegate" href="http://cgpilk.livejournal.com/" />
@@ -122,10 +121,10 @@
 		embedstyle($this->showlogin, $this->width, $this->height);
 ?>
 	</head>
-	<body>		
+	<body>
 
 			<div><img src="<?PHP echo $this->img; ?>/header.gif" alt="header" style="padding: 6px 6px 6px 6px; margin: 6px 6px 6px 6px; border: 6px 6px 6px 6px;" width="99%" height="75px" /></div>
-				
+
 
 		<!-- START EVERYTHING BELOW TITLE BANNER -->
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -147,20 +146,20 @@
 		function menu_write_section($title, $text)
 		{
 ?>
-					<div class="box">						
+					<div class="box">
 						<div class="menuimg" style="background-image: url('<?PHP echo $this->img; ?>/menu.gif')">
 							<h1><?PHP echo $title ?></h1>
 						</div>
-																		
+
 						<ul class="menu">
 							<li>
 								<?PHP echo $text . "\n"; ?>
 							</li>
 						</ul>
 					</div>
-<?PHP			
+<?PHP
 		}
-		
+
 		function menu_write_first($title, $text)
 		{
 ?>
@@ -169,7 +168,7 @@
 <?PHP
 					$this->menu_write_section($title, $text);
 		}
-		
+
 		function menu_write_last($title, $text)
 		{
 					$this->menu_write_section($title, $text);
@@ -177,14 +176,14 @@
 				</td>
 <?PHP
 		}
-		
+
 		function menu($login, $type = "")
 		{
-			$this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><a href=\"http://community.livejournal.com/chrisdev/data/rss\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"></a><br />
+    $this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"></a><br />
 					<!--<a href=\"" . $this->home . "/about.php\">About Me</a><br />
 					<a href=\"" . $this->home . "/contact.php\">Contact Me</a><br />
 					<a href=\"" . $this->home . "/links.php\">Links</a><br />-->");
-			
+
 			$this->menu_write_section("Projects", "<a href=\"" . $this->home . "/triki\">Triki</a><br />
 					<a href=\"" . $this->home . "/dropbox\">Dropbox</a><br />
 					<a href=\"" . $this->home . "/beautify\">Code Beautifier</a><br />
@@ -192,12 +191,12 @@
           <a href=\"" . $this->home . "/rss\">RSS2RSS</a><br />
 					<!--<a href=\"" . $this->home . "/misc.php\">Misc Projects</a><br />
 					<a href=\"" . $this->home . "/download.php\">Downloads</a><br />-->");
-			
-			/*$this->menu_write_section("Reference", "<a href=\"http://www.livejournal.com/users/chrisdev/\">Journal</a><br />
+
+			/*$this->menu_write_section("Reference", "<a href=\"http://chris.iluo.net/blog/\">Journal</a><br />
 				<a href=\"" . $this->home . "/reference/tutorials/tutorials.php\">Tutorials</a><br />
 				<a href=\"" . $this->home . "/reference/freecode/freecode.php\">Free Code</a><br />
 				<a href=\"" . $this->home . "/reference/forums/forums.php\">Forums</a><br />");*/
-			
+
 			$this->menu_write_section("Links", "<a href=\"http://www.iluo.net/\">
 					<img alt=\"Iluo\" src=\"" . $this->home . "/images/link/iluo.png\" />
 					</a><br />
@@ -207,7 +206,7 @@
 					<a href=\"http://www.simonstenhouse.net/\">
 					<img alt=\"Simon Stenhouse\" src=\"" . $this->home . "/images/link/sten.png\" />
 					</a><br />");
-			
+
 			/*<a href=\"http://www.sf.net/\">
 				<img alt=\"SourceForge\" src=\"" . $this->home . "/images/link/sf.png\" />
 			</a><br />
@@ -221,10 +220,10 @@
 				<img alt=\"DiGi\" src=\"" . $this->home . "/images/link/digi.png\" />
 			</a><br />");*/
 
-			$this->menu_write_section("Server", date("d/m/y") . 
+			$this->menu_write_section("Server", date("d/m/y") .
 				"<br />\n" . $this->util->GetTimef() .
 				"<br />\n<br />\n" . $this->util->StringUsersOnline());
-			
+
 
 			//we have a login and wish to display it
 			if($this->showlogin && $login)
@@ -233,14 +232,14 @@
 			}
 			else
 			{
-				$this->menu_write_section("User", $this->util->GetIP() . 
-					"<br />\n" . $this->util->GetHost() . 
+				$this->menu_write_section("User", $this->util->GetIP() .
+					"<br />\n" . $this->util->GetHost() .
 					"<br />\n" . $this->util->GetReferer());
 			}
-			
-			$this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" . 
-				"Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" . 
-				$this->author_email . "\">"  . $this->author_lastname . "</a><br />\n" . 
+
+			$this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" .
+				"Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" .
+				$this->author_email . "\">"  . $this->author_lastname . "</a><br />\n" .
 				"Description: " . $this->description . "<br />");
 		}
 
@@ -251,11 +250,11 @@
 					<B>Error</B>
 				</P>
 				<P class="errentry" align="left">
-					<?PHP echo $str; ?>		
+					<?PHP echo $str; ?>
 				</P>
 <?PHP
 		}
-		
+
 		function main_begin()
 		{
 ?>
@@ -281,7 +280,7 @@
 						<div class="main">
 <?PHP
 		}
-		
+
 		function entry_end()
 		{
 ?>
@@ -354,24 +353,24 @@
 <?PHP
 			$this->entry_end();
 		}
-		
+
 		function journal($journal_project)
 		{
     	$first=0;
     	$perpage=-1;
-  	
+
   		if($journal_project!="")
   			$where="journal_project=\"$journal_project\"";
-  			
+
   		if($first<=0)
   			$first=0;
-  		
+
   		if(!$perpage)
   			$perpage=-1;
-  		
+
   		$result=$this->db->Select("journal", "count(journal_id)", $where);
   		$entries=mysql_result($result,0);//$this->db->Query("select count(journal_id) from journal"),0);
-  			
+
   		if($perpage>0)
   		{
   			echo $first . "-" . $perpage;
@@ -379,18 +378,18 @@
   		}
   		else
   		{
-  			$result=$this->db->Select("journal", "", $where, " ORDER BY `journal_timestamp` DESC LIMIT $first, 1000");	
+  			$result=$this->db->Select("journal", "", $where, " ORDER BY `journal_timestamp` DESC LIMIT $first, 1000");
   		}
-  		
+
   		if($result)
   			$num=$this->db->GetRows($result);
   		else
-  			$this->error("Result returned \"$result\"");	
-  			
+  			$this->error("Result returned \"$result\"");
+
   		if($num)
   		{
   			$i=0;
-  			while ($i < $num) 
+  			while ($i < $num)
   			{
   				$id=mysql_result($result,$i,"journal_id");
   				$timestamp=mysql_result($result,$i,"journal_timestamp");
@@ -401,39 +400,39 @@
   				$content=mysql_result($result,$i,"journal_content");
 
 					if($title=="")
-					$title="&lt;NO TITLE&gt;";		
-						
+					$title="&lt;NO TITLE&gt;";
+
     			$this->journalentry($content, $id,$timestamp,$project,$version,$author,$title);
-    			
+
     			++$i;
     		}
-    			
+
   			if($perpage>0)
   			{
   				$perpage=2;
-  				$s=$perpage . ' entries per page<br />';				
-  
+  				$s=$perpage . ' entries per page<br />';
+
   				for($i=0;$i<$first;$i=$i+$perpage)
   					$s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&lt;</a> ';
-  
+
   				$s=$s . '<a href="' . $PHP_SELF . '?first=' . $first  . '&perpage=' . $perpage  . '">This</a> ';
-  
+
   				for($i=$first+$perpage;$i<$entries;$i=$i+$perpage)
   					$s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&gt;</a> ';
-  
+
   				$s=$s . '<br /><br />';
-  				
+
   				$perpage=5;
-  				$s=$s . $perpage . ' entries per page<br />';				
+  				$s=$s . $perpage . ' entries per page<br />';
   				for($i=0;$i<$first;$i=$i+$perpage)
   					$s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&lt;</a> ';
   				$s=$s . '<a href="' . $PHP_SELF . '?first=' . $first  . '&perpage=' . $perpage  . '">This</a> ';
   				for($i=$first+$perpage;$i<$entries;$i=$i+$perpage)
   					$s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&gt;</a> ';
   				$s=$s . '<br /><br />';
-  				
+
   				$perpage=10;
-  				$s=$s . $perpage . ' entries per page<br />';				
+  				$s=$s . $perpage . ' entries per page<br />';
   				for($i=0;$i<$first;$i=$i+$perpage)
   					$s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&lt;</a> ';
   				$s=$s . '<a href="' . $PHP_SELF . '?first=' . $first  . '&perpage=' . $perpage  . '">This</a> ';
@@ -444,7 +443,7 @@
   			}
     	}
 		}
-		
+
 		function main_end($t="")
 		{
 ?>
@@ -456,7 +455,7 @@
 		{
 ?>
     	</tr>
-    	
+
 			<!-- START FOOTER -->
     	<tr>
     		<td id="menu_footer" valign="bottom">

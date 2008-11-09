@@ -3,6 +3,24 @@
 
   $util = new cUtil();
 
+/*
+<info>
+  <latest>
+    <url value="http://chris.iluo.net/drive/files/drive081123.zip"/>
+    <version major="0" minor="1"/>
+    <released datetime="19980717T140855,324Z"/>
+    <description>Just a small update</description>
+    <features>
+      <feature>Added shadows</feature>
+      <feature>Added scenegraph</feature>
+    </features>
+    <fixes>
+      <fix>Fixed redrawing problem</fix>
+      <fix>Shooting now works properly</fix>
+    </fixes>
+  </latest>
+</info>
+*/
 
   function CreateAndAddAttributeToXMLElement($document, $node, $attribute, $value)
   {
@@ -50,6 +68,11 @@
 
   CreateAndAddAttributeToXMLElement($doc, $url_element, "date_time", "19980717T140855,324Z");
 
+  // Description
+  $description_element = $doc->createElement("description");
+  $latest->appendChild($description_element);
+
+  $description_element->appendChild($doc->createTextNode("Just a small update"));
 
   // Features node
   $features_element = $doc->createElement("features");
@@ -79,23 +102,4 @@
   // Now print out the document
   header('Content-type: text/xml; charset=utf-8');
   echo $doc->saveXML();
-
-/*
-<info>
-   <latest>
-      <url value="http://chris.iluo.net/drive/files/drive081123.zip"/>
-      <version major="0" minor="1"/>
-      <released datetime="19980717T140855,324Z"/>
-      <description>Just a small update</description>
-      <features>
-        <feature>Added shadows</feature>
-        <feature>Added scenegraph</feature>
-      </features>
-      <fixes>
-         <fix>Fixed redrawing problem</fix>
-         <fix>Shooting now works properly</fix>
-      </fixes>
-   </latest>
-</info>
-*/
 ?>

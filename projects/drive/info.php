@@ -22,14 +22,6 @@
 </info>
 */
 
-  function CreateAndAddAttributeToXMLElement($document, $node, $attribute, $value)
-  {
-    $attribute_node = $document->createAttribute($attribute);
-    $node->appendChild($attribute_node);
-
-    $attribute_node->appendChild($document->createTextNode($value));
-  }
-
   $features = array(
     "Added shadows",
     "Added scenegraph"
@@ -53,20 +45,20 @@
   $url_element = $doc->createElement("url");
   $latest->appendChild($url_element);
 
-  CreateAndAddAttributeToXMLElement($doc, $url_element, "value", "http://chris.iluo.net/drive/files/drive081123.zip");
+  $util->CreateAndAddAttributeToXMLElement($doc, $url_element, "value", "http://chris.iluo.net/drive/files/drive081123.zip");
 
   // Version
   $version_element = $doc->createElement("version");
   $latest->appendChild($version_element);
 
-  CreateAndAddAttributeToXMLElement($doc, $version_element, "major", "0");
-  CreateAndAddAttributeToXMLElement($doc, $version_element, "minor", "1");
+  $util->CreateAndAddAttributeToXMLElement($doc, $version_element, "major", "0");
+  $util->CreateAndAddAttributeToXMLElement($doc, $version_element, "minor", "1");
 
   // Release date
   $url_element = $doc->createElement("released");
   $latest->appendChild($url_element);
 
-  CreateAndAddAttributeToXMLElement($doc, $url_element, "date_time", "19980717T140855,324Z");
+  $util->CreateAndAddAttributeToXMLElement($doc, $url_element, "date_time", "19980717T140855,324Z");
 
   // Description
   $description_element = $doc->createElement("description");

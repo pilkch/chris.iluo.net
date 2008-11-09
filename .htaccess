@@ -76,6 +76,9 @@ ErrorDocument 503 /errors/error_503.php
 
   # Rewrite "dropbox/query" to "dropbox/index.php/query
   # RewriteRule ^dropbox(.+)$ dropbox/index.php/$1
+
+  # Rewrite "projects/*/*.xml"  to "projects/*/*.php"
+  RewriteRule ^projects/(.+)/(.+).xml$ projects/$1/$2.php
 </IfModule>
 
 <Files triki/>

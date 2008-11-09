@@ -201,6 +201,22 @@
       return $this->GetLocalHourf() . date(":i:s");
     }
 
+    // Returns  20081106T150942,013Z
+    // Refer to http://en.wikipedia.org/wiki/ISO_8601
+    // Refer to http://au2.php.net/date
+    function GetUTCTimeNowISO8601()
+    {
+      return gmdate("Ymd\THis,u\Z");
+    }
+
+    // Returns  2008-11-06T15:09:42,013Z
+    // Refer to http://en.wikipedia.org/wiki/ISO_8601
+    // Refer to http://au2.php.net/date
+    function GetUTCTimeNowISO8601f()
+    {
+      return gmdate("Y-m-d\TH:i:s,u\Z");
+    }
+
     function GetIP()
     {
       if(isset($_SERVER['X_FORWARDED_FOR']))
@@ -275,6 +291,7 @@
 
     function GetBrowserAttributes($browser_name, $browser_version, $os_name, $os_version)
     {
+      /*
       // Browser Detection
       OS    Version
       MacOS 10.5
@@ -311,6 +328,7 @@
       OS: MacOS 10.5
       Browser: Firefox
       Version: 3.0b5
+      */
 
 
       $browsers = array(
@@ -362,6 +380,15 @@
       if ((int)$num == 1) return "1 user online";
 
       return $num ." users online";
+    }
+
+
+    function CreateAndAddAttributeToXMLElement($document, $node, $attribute, $value)
+    {
+      $attribute_node = $document->createAttribute($attribute);
+      $node->appendChild($attribute_node);
+
+      $attribute_node->appendChild($document->createTextNode($value));
     }
   }
 ?>

@@ -3,6 +3,10 @@
 
   $util = new cUtil();
 
+
+  require ('common.php');
+
+  $common = new cCommon();
 /*
 request:
 login.php
@@ -18,6 +22,9 @@ result:
   <cars>
     ...
   </cars>
+  <parts>
+    ...
+  </parts>
   <achievements>
     <achievement id="beginner_cup"/>
     <achievement id="spring_cup"/>
@@ -25,16 +32,39 @@ result:
 </career>
 */
 
-  $achievements = array(
-    "Added shadows",
-    "Added scenegraph"
-  );
+  // Cars
+  $car_a = new cCar();
+  $car_a->id = 12345;
 
-  $achievements = array(
-    "beginner_cup",
-    "spring_cup"
-  );
+  $car_b = new cCar();
+  $car_b->id = "abcdefghi";
 
+  $cars = array();
+  $cars[] = $car_a;
+  $cars[] = $car_b;
+
+
+  // Parts (Both connected to cars and spare parts)
+  $part_a = new cPart();
+  $part_a->id = 12346;
+  $part_a->car_id = 12345;
+
+  $part_b = new cPart();
+  $part_b->id = "abcdefghj";
+  $part_b->car_id = "abcdefghi";
+
+  $parts = array();
+  $parts[] = $part_a;
+  $parts[] = $part_b;
+
+
+  // Achievements
+  $achievements = array();
+  $achievements[] = "beginner_cup";
+  $achievements[] = "spring_cup";
+
+
+  // Ok, let's roll
   $doc = new DOMDocument();
   $doc->formatOutput = true;
 
@@ -64,6 +94,25 @@ result:
   $career->appendChild($money_element);
 
   $util->CreateAndAddAttributeToXMLElement($doc, $money_element, "value", "10000");
+
+
+  // Cars node
+  $cars_element = $doc->createElement("cars");
+  $career->appendChild($cars_element);
+
+  // Cars children
+  foreach ($cars as $car) {
+    $common->CreateAndAddCarToXMLElement($util, $doc, $cars_element, $car);
+  }
+
+  // Parts node
+  $parts_element = $doc->createElement("parts");
+  $career->appendChild($parts_element);
+
+  // Parts children
+  foreach ($parts as $part) {
+    $common->CreateAndAddPartToXMLElement($util, $doc, $parts_element, $part);
+  }
 
 
   // Achievements node

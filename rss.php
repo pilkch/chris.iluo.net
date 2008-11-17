@@ -456,6 +456,8 @@
 
             $theme->article_begin("RSS2RSS");
 
+            $theme->article_addline("<a href=\"http://chrisiluonet.svn.sourceforge.net/viewvc/chrisiluonet/chris.iluo.net/rss.php?view=markup\">Source</a><br/>");
+
             if ($bUserIsOwner && $isAddingChannel && $user_login) {
 
               //echo "Adding channel<br />\n";
@@ -579,6 +581,18 @@
         $theme->main_begin();
 
           $theme->article_begin("RSS2RSS");
+
+            // Description
+            $bUserIsLoggedIn = $util->user->isLoggedIn();
+            if (!$bUserIsLoggedIn) {
+              $theme->article_addline("This project is an RSS aggregator and republisher.<br/>");
+              $theme->article_addline("I wasn't content with other solutions so I wrote my own.<br/>");
+              $theme->article_addline("If you create an account and login, you can create your own custom feed as well<br/>");
+            }
+
+            $theme->article_addline("<a href=\"http://chrisiluonet.svn.sourceforge.net/viewvc/chrisiluonet/chris.iluo.net/rss.php?view=markup\">Source</a><br/>");
+
+            $theme->article_addline("<h2>Users</h2>");
 
             // Now select all of the users
             $result = $util->db->Select("user", "", "", " ORDER BY `user_login` ASC");

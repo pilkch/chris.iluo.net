@@ -9,6 +9,7 @@
   $common = new cCommon();
 
 /*
+GET Request:
 buy.xml
 car list
 part list, indexes via id into the car list

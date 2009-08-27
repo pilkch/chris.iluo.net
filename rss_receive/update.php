@@ -25,11 +25,51 @@
   // http://klaus.e175.net/code/latin_utf8.phps
   // http://www.wizcity.com/Computers/Characters/CommonUTF8.php
   // http://www.w3.org/TR/xhtml1/dtds.html#a_dtd_Latin-1_characters
+
+  function ascii_to_entities($str)
+  {
+    $count = 1;
+    $out = '';
+    $temp = array();
+
+    for ($i = 0, $s = strlen($str); $i < $s; $i++) {
+      $ordinal = ord($str[$i]);
+
+      if ($ordinal < 128) $out .= $str[$i];
+      else {
+        if (count($temp) == 0) $count = ($ordinal < 224) ? 2 : 3;
+
+        $temp[] = $ordinal;
+
+        if (count($temp) == $count) {
+          $number = ($count == 3) ? (($temp['0'] % 16) * 4096) + (($temp['1'] % 64) * 64) + ($temp['2'] % 64) : (($temp['0'] % 32) * 64) + ($temp['1'] % 64);
+
+          $out .= '&#'.$number.';';
+          $count = 1;
+          $temp = array();
+        }
+      }
+    }
+
+    return $out;
+  }
+
   function ConvertHTMLEntities($str)
   {
-    $from = array("\x85", "\x92", "&#151;", "&mdash;", "&ndash;", "&ldquo;", "&rdquo;", "&rsquo;", "&lsquo;", "&copy;", "&plusmn;", "&rarr;", "&euro;", "&trade;", "&iacute;", "&dagger;", "&b;");
-    $to = array("...", "'", "-", "-", "-", "'", "'", "'", "'", "&#0169;", "&#177;", "-", "EU", "", "", "", "");
-    return str_replace($from, $to, $str);
+    $from = array(
+      "\x85", "\x92", "\x96", "\x97", "&#151;", "&mdash;", "&ndash;", "&ldquo;", "&rdquo;", "&rsquo;", "&lsquo;",
+      "&copy;", "&plusmn;", "&rarr;", "&auml;", "&pound;", "&euro;", "&trade;", "&iacute;", "&dagger;", "&b;"
+    );
+    $to = array(
+      "...", "'", "", " ", "-", "-", "-", "'", "'", "'", "'",
+      "&#0169;", "&#177;", "-", "au", "&#163;", "&#8364;", "", "", "", ""
+    );
+    return ascii_to_entities(str_replace($from, $to, $str));
+  }
+
+  function EscapeURI($uri)
+  {
+      return str_replace(" ", "%20", $uri);
   }
 
   function AddArticle($util, $feed_id, $rss_item)
@@ -38,7 +78,7 @@
     // Get id, we pass true to get a unique hash
     $hash = mysql_real_escape_string($rss_item->get_id(true));
     $title = StripHTMLEntities(mysql_real_escape_string($rss_item->get_title()));
-    $url = mysql_real_escape_string($rss_item->get_permalink());
+    $url = EscapeURI(mysql_real_escape_string($rss_item->get_permalink()));
     $description = mysql_real_escape_string($rss_item->get_description());
     $author = mysql_real_escape_string($rss_item->get_author());
     if ($author == "") $author = mysql_real_escape_string($rss_item->get_contributor());

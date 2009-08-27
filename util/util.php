@@ -5,20 +5,20 @@
 
   if (!function_exists("stripos"))
   {
-    function stripos($str,$needle)
+    function stripos($str, $needle)
     {
-      return strpos(strtolower($str),strtolower($needle));
+      return strpos(strtolower($str), strtolower($needle));
     }
   }
 
   class cUtil
   {
     //Constants
-    var $difference=17;
-    var $email_from="mailmonkey@iluo.net";
-    //var $email_from="pilch@dawber.dreamhost.com";
-    var $email_from_name="Iluo Mail Monkey";
-    var $email_to="chris.pilkington@gmail.com";
+    var $difference = 17;
+    var $email_from = "mailmonkey@iluo.net";
+    //var $email_from = "pilch@dawber.dreamhost.com";
+    var $email_from_name = "Iluo Mail Monkey";
+    var $email_to = "chris.pilkington@gmail.com";
 
     //Variables
     var $db;
@@ -39,7 +39,7 @@
 
       $this->ProcessURI();
 
-      $this->db=new cDB();
+      $this->db = new cDB();
       $this->db->OpenDB(false);
       $this->user = new cLogin($this);
     }
@@ -56,11 +56,10 @@
       $array = explode("/", $this->full_query); // Explode the URI using '/'.
       $num = count($array); // How many items in the array?
 
-      $this->query="";
+      $this->query = "";
 
-      for ($i = 2 ; $i < $num ; $i++)
-      {
-        $this->query.=$array[$i];
+      for ($i = 2; $i < $num; $i++) {
+        $this->query .= $array[$i];
       }
     }
 
@@ -69,12 +68,10 @@
       $paragraph = explode("\r\n\r\n", $input);
       $num = count($paragraph);
 
-      $output="";
+      $output = "";
 
-      if($num)
-      {
-        for($i=0;$i<$num;$i++)
-        {
+      if ($num) {
+        for ($i = 0; $i < $num; $i++) {
           $line_array = explode("\r\n", $paragraph[$i]);
           $line_count = count($line_array);
 
@@ -219,10 +216,11 @@
 
     function GetIP()
     {
-      if(isset($_SERVER['X_FORWARDED_FOR']))
-        $this->ip=$_SERVER['X_FORWARDED_FOR'];
-      else
-        $this->ip=$_SERVER['REMOTE_ADDR'];
+      if (isset($_SERVER['X_FORWARDED_FOR'])) {
+        $this->ip = $_SERVER['X_FORWARDED_FOR'];
+      } else {
+        $this->ip = $_SERVER['REMOTE_ADDR'];
+      }
 
       return $this->ip;
     }
@@ -289,7 +287,7 @@
       return $date;
     }
 
-    function GetBrowserAttributes($browser_name, $browser_version, $os_name, $os_version)
+    function ParseUserAgentString($user_agent, &$browser_name, &$browser_version, &$os_name, &$os_version)
     {
       /*
       // Browser Detection
@@ -330,29 +328,100 @@
       Version: 3.0b5
       */
 
+      $browser_name = 'Unknown';
+      $browser_version = '0';
+      $os_name = 'Unknown';
+      $os_version = '0';
 
+
+      // Browser
       $browsers = array(
-        'Opera' => 'Opera',
-        'Mozilla Firefox'=> '(Firebird)|(Firefox)',
-        'Galeon' => 'Galeon',
-        'Safari' => '(3\.1 Safari)',
-        'Mozilla'=>'Gecko',
-        'MyIE'=>'MyIE',
-        'Lynx' => 'Lynx',
-        'Netscape' => '(Mozilla/4\.75)|(Netscape6)|(Mozilla/4\.08)|(Mozilla/4\.5)|(Mozilla/4\.6)|(Mozilla/4\.79)',
-        'Konqueror'=>'Konqueror',
-        'SearchBot' => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
-        'Internet Explorer 6' => '(MSIE 6\.[0-9]+)',
-        'Internet Explorer 5' => '(MSIE 5\.[0-9]+)',
-        'Internet Explorer 4' => '(MSIE 4\.[0-9]+)',
+          'Opera/11' => '(Opera/11\.[0-9]+)',
+          'Opera/10' => '(Opera/10\.[0-9]+)',
+          'Opera/9' => '(Opera/9\.[0-9]+)',
+          'Opera/8' => '(Opera/8\.[0-9]+)',
+          'Opera/8' => 'Opera',
+          'Firefox/4' => '(Firefox/4\.[0-9]+)',
+          'Firefox/3' => '(Firefox/3\.[0-9]+)',
+          'Firefox/2' => '(Firefox/2\.[0-9]+)',
+          'Firefox/2' => '(Firebird)|(Firefox)',
+          'Galeon/0' => 'Galeon',
+          'Safari/0' => '(3\.1 Safari)',
+          'Safari/0' => 'Safari',
+          'Mozilla/0' => 'Gecko',
+          'MyIE/0' => 'MyIE',
+          'Lynx/0' => 'Lynx',
+          'Netscape/0' => '(Mozilla/4\.75)|(Netscape6)|(Mozilla/4\.08)|(Mozilla/4\.5)|(Mozilla/4\.6)|(Mozilla/4\.79)',
+          'Konqueror/0' => 'Konqueror',
+          'SearchBot/0' => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
+          'Internet Explorer/9' => '(MSIE 9\.[0-9]+)',
+          'Internet Explorer/8' => '(MSIE 8\.[0-9]+)',
+          'Internet Explorer/7' => '(MSIE 7\.[0-9]+)',
+          'Internet Explorer/6' => '(MSIE 6\.[0-9]+)',
+          'Internet Explorer/6' => 'MSIE',
       );
 
-      foreach($browsers as $browser=>$pattern)
-      {
-        if (eregi($pattern, $user_agent)) return $browser;
+      foreach($browsers as $browser=>$pattern) {
+          if (eregi($pattern, $user_agent)) {
+            list($browser_name, $browser_version) = split('/', $browser);
+            break;
+          }
       }
 
-      return 'Unknown';
+
+      // Operating System
+      $operatingsystems = array(
+          'Mac OS X/10.6' => 'Mac OS X 10.6',
+          'Mac OS X/10.5' => 'Mac OS X 10.5',
+          'Mac OS X/10.4' => 'Mac OS X 10.4',
+          'Mac OS X/10.4' => 'Mac OS X',
+          'Windows/7' => 'Windows NT 6.1',
+          'Windows/Vista' => 'Windows NT 6.0',
+          'Windows/XP' => 'Windows NT 5.2',
+          'Windows/XP' => 'Windows NT 5.1',
+          'Windows/2000' => 'Windows NT 5.0',
+          'Windows/2000' => 'Windows',
+          'Fedora/13' => 'fc13',
+          'Fedora/12' => 'fc12',
+          'Fedora/11' => 'fc11',
+          'Fedora/10' => 'fc10',
+          'Fedora/9' => 'fc9',
+          'Fedora/8' => 'fc8',
+          'Fedora/8' => 'Fedora',
+          'Ubuntu/10' => '(Ubuntu/10\.[0-9]+)',
+          'Ubuntu/9' => '(Ubuntu/9\.[0-9]+)',
+          'Ubuntu/8' => '(Ubuntu/8\.[0-9]+)',
+          'Ubuntu/7' => '(Ubuntu/7\.[0-9]+)',
+          'Ubuntu/7' => 'Ubuntu',
+          'Linux/0' => 'Linux',
+          'Unix/0' => 'Unix',
+
+          'Apple iPhone/0' => 'iPhone',
+          'BlackBerry Phone/0' => 'BlackBerry',
+          'HTC Phone/0' => 'HTC',
+          'LG Phone/0' => 'LG',
+          'Motorola Phone/0' => 'MOT',
+          'Nokia Phone/0' => 'Nokia',
+          'Samsung Phone/0' => 'SAMSUNG',
+          'Sony Phone/0' => 'SonyEricsson',
+          'Windows CE/0' => 'Windows CE',
+      );
+
+      foreach($operatingsystems as $operatingsystem=>$pattern) {
+          if (eregi($pattern, $user_agent)) {
+            list($os_name, $os_version) = split('/', $operatingsystem);
+            break;
+          }
+      }
+    }
+
+    function AddCounterEntry($ip, $host, $referer, $request, $user_agent)
+    {
+      $this->ParseUserAgentString($user_agent, $browser_name, $browser_version, $os_name, $os_version);
+
+      $timestamp = date("ymdHis");
+
+      $this->db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer, counter_request, counter_user_agent_string, counter_os, counter_os_version, counter_browser, counter_browser_version", "'$timestamp', '$ip', '$host', '$referer', '$request', '$user_agent', '$os_name', '$os_version', '$browser_name', '$browser_version'");
     }
 
     function GetUserOnline()
@@ -365,8 +434,10 @@
       $timestamp = date("ymdHis");
       $past = $this->SubtractSecondsFromDate($timestamp, 200);
 
-      $this->db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer, counter_request", "'$timestamp', '$this->ip', '$this->host', '$this->referer', '$this->request'");
+      // Add the entry
+      $this->AddCounterEntry($this->ip, $this->host, $this->referer, $this->request, $this->user_agent);
 
+      // Now count the total number of users
       $result = $this->db->Select("counter", "DISTINCT counter_ip", "counter_timestamp > '$past'");
       $num = $this->db->GetRows($result);
 

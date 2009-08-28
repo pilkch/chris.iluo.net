@@ -353,12 +353,12 @@
           'Lynx/0' => 'Lynx',
           'Netscape/0' => '(Mozilla/4\.75)|(Netscape6)|(Mozilla/4\.08)|(Mozilla/4\.5)|(Mozilla/4\.6)|(Mozilla/4\.79)',
           'Konqueror/0' => 'Konqueror',
-          'SearchBot/0' => '(nuhk)|(Googlebot)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)',
           'Internet Explorer/9' => '(MSIE 9\.[0-9]+)',
           'Internet Explorer/8' => '(MSIE 8\.[0-9]+)',
           'Internet Explorer/7' => '(MSIE 7\.[0-9]+)',
           'Internet Explorer/6' => '(MSIE 6\.[0-9]+)',
           'Internet Explorer/6' => 'MSIE',
+          'SearchBot/0' => '(nuhk)|(Googlebot)|(Baiduspider)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)|(Sphere Scout)(Spider)|(Bot)',
       );
 
       foreach($browsers as $browser=>$pattern) {

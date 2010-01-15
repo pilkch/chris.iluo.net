@@ -179,7 +179,7 @@
 
     function menu($login, $type = "")
     {
-      $this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"></a><br />
+      $this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"/></a><br />
           <a href=\"" . $this->home . "/blog/\">Blog</a><br />
           <a href=\"http://sourceforge.net/users/pilkch/\">sourceforge.net</a><br />
           <a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><br />

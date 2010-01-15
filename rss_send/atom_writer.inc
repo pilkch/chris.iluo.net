@@ -63,8 +63,14 @@ class AtomWriter
   <link rel=\"self\" href=\"" . $this->channel_info["link"] . "\"/>
   <updated>" . $this->get_iso_8601_date(time()) . "</updated>
   <author>
-    <name>" . $this->channel_info["author_name"] . "</name>
-    <email>" . $this->channel_info["author_email"] . "</email>
+    <name>" . $this->channel_info["author_name"] . "</name>";
+
+    if ($this->channel_info["author_email"] != "") {
+      $this->return_value .= "
+    <email>" . $this->channel_info["author_email"] . "</email>";
+    }
+
+   $this->return_value .= "
     <uri>" . $this->channel_info["author_uri"] . "</uri>
   </author>
   <id>urn:tag:" . $this->channel_info["id"] . "</id>\n";
@@ -122,8 +128,14 @@ class AtomWriter
     <id>http://yoursite/article/?i=" . $id . "</id>
     <updated>" . $this->get_iso_8601_date(strtotime($datetime)) . "</updated>
     <author>
-      <name>" . $author . "</name>
-      <email>" . $author_email . "</email>
+      <name>" . $author . "</name>";
+
+    if ($author_email != "") {
+      $this->return_value .= "
+      <email>" . $author_email . "</email>";
+    }
+
+    $this->return_value .= "
     </author>
     <summary type=\"xhtml\"><div xmlns=\"http://www.w3.org/1999/xhtml\">" . $this->prepareString($content) . "</div></summary>
   </entry>\n";

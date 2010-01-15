@@ -58,11 +58,11 @@
   {
     $from = array(
       "\x85", "\x92", "\x96", "\x97", "&#151;", "&mdash;", "&ndash;", "&ldquo;", "&rdquo;", "&rsquo;", "&lsquo;",
-      "&copy;", "&plusmn;", "&rarr;", "&auml;", "&pound;", "&euro;", "&trade;", "&iacute;", "&dagger;", "&b;"
+      "&copy;", "&plusmn;", "&rarr;", "&auml;", "&hellip;", "&pound;", "&euro;", "&trade;", "&iacute;", "&dagger;", "&b;"
     );
     $to = array(
       "...", "'", "", " ", "-", "-", "-", "'", "'", "'", "'",
-      "&#0169;", "&#177;", "-", "au", "&#163;", "&#8364;", "", "", "", ""
+      "&#0169;", "&#177;", "-", "au", ":", "&#163;", "&#8364;", "", "", "", ""
     );
     return ascii_to_entities(str_replace($from, $to, $str));
   }

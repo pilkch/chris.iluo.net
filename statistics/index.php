@@ -35,20 +35,22 @@
 
     $points_n = count($points_x[0]);
 
-    for ($i = 0; $i < $points_n; $i++) {
-      if ($points_x[0][$i] < $min_x)
-        $min_x = $points_x[0][$i];
+    for ($j = 0; $j < $graph_n; $j++) {
+      for ($i = 0; $i < $points_n; $i++) {
+        if ($points_x[$j][$i] < $min_x)
+          $min_x = $points_x[$j][$i];
 
-      if ($points_x[0][$i] > $max_x)
-        $max_x = $points_x[0][$i];
+        if ($points_x[$j][$i] > $max_x)
+          $max_x = $points_x[$j][$i];
 
-      if ($points_y[0][$i] < $min_y)
-        $min_y = $points_y[0][$i];
+        if ($points_y[$j][$i] < $min_y)
+          $min_y = $points_y[$j][$i];
 
-      if ($points_y[0][$i] > $max_y)
-        $max_y = $points_y[0][$i];
+        if ($points_y[$j][$i] > $max_y)
+          $max_y = $points_y[$j][$i];
 
-      $avg_y += $points_y[0][$i];
+        $avg_y += $points_y[$j][$i];
+      }
     }
 
     $avg_y = $avg_y / $points_n;
@@ -78,9 +80,15 @@
     for ($j = 0; $j < $graph_n; $j++) {
       for ($i = 0; $i < $points_n; $i++) {
         $pt_x = $x_start + ($x_end - $x_start) * ($points_x[$j][$i]-$min_x)/($max_x-$min_x);
-        $pt_y = $y_end - ($y_end - $y_start) * ($points_y[$j][$i]-$min_y)/($max_y-$min_y);
+        $pt_y = $y_end - ($y_end - $y_start) * ($points_y[$j][$i]-$min_y)/($max_y - $min_y);
 
-        imagechar($image, 2, $pt_x - 3, $pt_y - 10, '.', $colour[$j]);
+        $i2 = $i;
+        if (($i + 1) < $points_n) $i2++;
+
+        $pt_x2 = $x_start + ($x_end - $x_start) * ($points_x[$j][$i2] - $min_x) / ($max_x - $min_x);
+        $pt_y2 = $y_end - ($y_end - $y_start) * ($points_y[$j][$i2] - $min_y) / ($max_y - $min_y);
+
+        imageline($image, $pt_x, $pt_y, $pt_x2, $pt_y2, $colour[$j]);
       }
     }
 
@@ -124,29 +132,71 @@
       $theme->menu($util->user->loginForm());
 
       $theme->main_begin();
+
+        $seconds_in_a_day = 60 * 60 * 24;
+        $now = time();
+        $duration_n = 365;
+        $interval = 7; // 7 day interval between samples
+
         $theme->article_begin("Operating System");
-          $titles = array();
-          $points_x = array();
-          $points_y = array();
-          for ($line = 0; $line < 4; $line++) {
-            $titles[$line] = $title_line;
+          {
+            $titles = array("Fedora", "MacOS", "Ubuntu", "Windows");
+            $points_x = array();
+            $points_y = array();
+            $n = count($titles);
+            for ($line = 0; $line < $n; $line++) {
+              $title = $titles[$line];
 
-            $points_x_line = array();
-            $points_y_line = array();
-            for ($i = 0; $i < 100; $i++) {
-              $points_x_line[$i] = $i;
-              $points_y_line[$i] = ($line * 50.0) + (0.1 * $i * $i);
+              $points_x_line = array();
+              $points_y_line = array();
+              for ($i = 0; $i < $duration_n; $i++) {
+                $start = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i + 1)));
+                $end = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i)));
+
+                // Count the number on this day
+                $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_os = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
+                $num = $util->db->GetRows($result);
+
+                $points_x_line[$i] = $i;
+                $points_y_line[$i] = $num;
+              }
+
+              $points_x[$line] = $points_x_line;
+              $points_y[$line] = $points_y_line;
             }
-
-            $points_x[$line] = $points_x_line;
-            $points_y[$line] = $points_y_line;
+            CreateGraph("Count", "Date", $points_x, $points_y, $titles, $filename);
+            $theme->article_addline("<img src=\"$filename\" alt=\"Operating System Graph\" />");
           }
-          CreateGraph("Count", "Time", $points_x, $points_y, $titles, $filename);
-          $theme->article_addline("<img src=\"$filename\" alt=\"Operating System Graph\" />");
         $theme->article_end();
         $theme->article_begin("Browser");
-          CreateGraph("Count", "Time", $points_x, $points_y, $titles, $filename);
-          $theme->article_addline("<img src=\"$filename\" alt=\"Browser Graph\" />");
+          {
+            $titles = array("Chrome", "Firefox", "Internet Explorer", "Opera", "Safari");
+            $points_x = array();
+            $points_y = array();
+            $n = count($titles);
+            for ($line = 0; $line < $n; $line++) {
+              $title = $titles[$line];
+
+              $points_x_line = array();
+              $points_y_line = array();
+              for ($i = 0; $i < $duration_n; $i++) {
+                $start = date("ymdHis", $now - ($seconds_in_a_day * ($i + 1)));
+                $end = date("ymdHis", $now - ($seconds_in_a_day * $i));
+
+                // Count the number on this day
+                $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_browser = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
+                $num = $util->db->GetRows($result);
+
+                $points_x_line[$i] = $i;
+                $points_y_line[$i] = $num;
+              }
+
+              $points_x[$line] = $points_x_line;
+              $points_y[$line] = $points_y_line;
+            }
+            CreateGraph("Count", "Date", $points_x, $points_y, $titles, $filename);
+            $theme->article_addline("<img src=\"$filename\" alt=\"Browser Graph\" />");
+          }
         $theme->article_end();
       $theme->main_end();
 

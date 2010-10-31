@@ -1,5 +1,4 @@
 <?php
-
   // This php file is not meant for human consumption.
   // It is only meant for running from a cron job every 30 minutes or so.
 
@@ -10,7 +9,6 @@
 
   // Make sure SimplePie is included. You may need to change this to match the location of simplepie.inc.
   require_once($_SERVER['DOCUMENT_ROOT'] . '/rss_receive/simplepie/simplepie.inc');
-
 
   // An arbitrary date in the past before feeds were invented/in common use,
   // anything before this date we consider to be an incorrect date and we use the current date and time instead

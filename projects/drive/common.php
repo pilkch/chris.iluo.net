@@ -1,4 +1,39 @@
 <?PHP
+  class cPlayer
+  {
+    //Variables
+    var $id;
+
+    // Vector
+    var $position_x;
+    var $position_y;
+    var $position_z;
+
+    // Quaternion
+    var $rotation_x;
+    var $rotation_y;
+    var $rotation_z;
+    var $rotation_w;
+
+    function cPlayer()
+    {
+      $this->id = -1;
+
+      $this->position_x = 0;
+      $this->position_y = 0;
+      $this->position_z = 0;
+
+      $this->rotation_x = 0;
+      $this->rotation_y = 0;
+      $this->rotation_z = 0;
+      $this->rotation_w = 0;
+    }
+
+    function Delete()
+    {
+    }
+  }
+
   class cCar
   {
     //Variables

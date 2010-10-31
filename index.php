@@ -4,9 +4,7 @@
 // Download
 //Hustle
 //Burn Notice
-//Arrested Development
 //Reguritator
-//Opera for linux already!
 
 ////TODO: Create an "At the Moment" section on the website
 //Just Finished
@@ -15,13 +13,13 @@
 //Pushing Daisies
 //Sudoku
 //Pulp Fiction
-    //
+//
 //At the Moment
 //Sudoku
 //Burn Notice
 //rss2rss
-    //
-    //
+//
+//
 //For wii:
 //Zack and Wiki
 

@@ -59,7 +59,7 @@ ErrorDocument 503 /errors/error_503.php
   RewriteRule ^triki/$ triki.php
 
   # Rewrite "triki/query" to "triki.php/query"
-  RewriteRule ^triki/(.+)$ triki.php/$1
+  RewriteRule ^triki/(.+)$ triki.php?$1
 
 
   # Rewrite "rss" and "rss/" to "/rss.php"
@@ -67,7 +67,7 @@ ErrorDocument 503 /errors/error_503.php
   RewriteRule ^rss/$ /rss.php
 
   # Rewrite "rss/query" to "/rss.php/query"
-  RewriteRule ^rss/(.+)$ rss.php/$1
+  RewriteRule ^rss/(.+)$ rss.php?$1
 
 
   # Rewrite "dropbox" and "dropbox/" to "dropbox/index.php"
@@ -81,19 +81,19 @@ ErrorDocument 503 /errors/error_503.php
   RewriteRule ^projects/(.+)/(.+).xml$ projects/$1/$2.php
 </IfModule>
 
-<Files triki/>
-  ForceType application/x-httpd-php
-</Files>
-
 <Files triki>
   ForceType application/x-httpd-php
 </Files>
 
+<Files triki/>
+  ForceType application/x-httpd-php
+</Files>
 
-# <Files dropbox/>
+
+# <Files dropbox>
 #   ForceType application/x-httpd-php
 # </Files>
 
-# <Files dropbox>
+# <Files dropbox/>
 #   ForceType application/x-httpd-php
 # </Files>

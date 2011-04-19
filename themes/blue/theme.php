@@ -191,7 +191,6 @@
           <a href=\"" . $this->home . "/dropbox\">Dropbox</a><br />
           <a href=\"" . $this->home . "/beautify\">Code Beautifier</a><br />
           <a href=\"" . $this->home . "/todo\">TODO</a><br />
-          <a href=\"" . $this->home . "/rss\">RSS2RSS</a><br />
           <a href=\"" . $this->home . "/statistics\">Statistics</a><br />
           <!--<a href=\"" . $this->home . "/misc.php\">Misc Projects</a><br />
           <a href=\"" . $this->home . "/download.php\">Downloads</a><br />-->");

@@ -13,7 +13,7 @@
 Options +FollowSymLinks
 
 # Set the default handler to index.php:
-# DirectoryIndex index.php
+#DirectoryIndex index.php
 
 # By passing the charset you avoid the 500 error display
 AddDefaultCharset utf-8
@@ -29,6 +29,7 @@ ErrorDocument 403 /errors/error_403.php
 ErrorDocument 404 /errors/error_404.php
 ErrorDocument 500 /errors/error_500.php
 ErrorDocument 503 /errors/error_503.php
+
 
 # Overload PHP variables:
 <IfModule mod_php4.c>
@@ -55,19 +56,11 @@ ErrorDocument 503 /errors/error_503.php
   RewriteBase /
 
   # Rewrite "triki" and "triki/" to "triki.php"
-  RewriteRule ^triki$ triki.php
-  RewriteRule ^triki/$ triki.php
+  #RewriteRule ^triki$ triki.php
+  #RewriteRule ^triki/$ triki.php
 
   # Rewrite "triki/query" to "triki.php/query"
-  RewriteRule ^triki/(.+)$ triki.php?$1
-
-
-  # Rewrite "rss" and "rss/" to "/rss.php"
-  RewriteRule ^rss$ /rss.php
-  RewriteRule ^rss/$ /rss.php
-
-  # Rewrite "rss/query" to "/rss.php/query"
-  RewriteRule ^rss/(.+)$ rss.php?$1
+  #RewriteRule ^triki/(.+)$ triki.php?$1
 
 
   # Rewrite "dropbox" and "dropbox/" to "dropbox/index.php"
@@ -81,13 +74,13 @@ ErrorDocument 503 /errors/error_503.php
   RewriteRule ^projects/(.+)/(.+).xml$ projects/$1/$2.php
 </IfModule>
 
-<Files triki>
-  ForceType application/x-httpd-php
-</Files>
+#<Files triki>
+#  ForceType application/x-httpd-php
+#</Files>
 
-<Files triki/>
-  ForceType application/x-httpd-php
-</Files>
+#<Files triki/>
+#  ForceType application/x-httpd-php
+#</Files>
 
 
 # <Files dropbox>
@@ -97,3 +90,4 @@ ErrorDocument 503 /errors/error_503.php
 # <Files dropbox/>
 #   ForceType application/x-httpd-php
 # </Files>
+

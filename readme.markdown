@@ -1,5 +1,5 @@
 ### Chris Pilkington  
-Copyright Â©  
+Copyright ©  
 http://chris.iluo.net/ 
 
 ### License

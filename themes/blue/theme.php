@@ -179,15 +179,16 @@
 
     function menu($login, $type = "")
     {
-      $this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"/></a><br />
-          <a href=\"" . $this->home . "/blog/\">Blog</a><br />
-          <a href=\"http://www.github.com/pilkch/\">github.com</a><br />
-          <a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><br />
-          <a href=\"http://www.sourceforge.net/users/pilkch/\">sourceforge.net</a><br />
+      $this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><br />
+          <a href=\"" . $this->home . "/blog/\">Blog</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"/></a><br />
+          <a href=\"http://www.github.com/pilkch\">GitHub</a><a href=\"http://www.github.com/pilkch\"><img src=\"" . $this->home . "/images/github.png\" alt=\"GitHub\"/></a><br />
+          <a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><a href=\"http://www.last.fm/user/cgpilk\"><img src=\"" . $this->home . "/images/lastfm.png\" alt=\"last.fm\"/></a><br />
+          <a href=\"http://www.youtube.com/user/cgpilk\">YouTube</a><a href=\"http://www.youtube.com/user/cgpilk\"><img src=\"" . $this->home . "/images/youtube.png\" alt=\"YouTube\"/></a><br />
+          <a href=\"http://www.sourceforge.net/users/pilkch\">SourceForge</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"" . $this->home . "/images/sourceforge.png\" alt=\"SourceForge\"/></a><br />
           <!--<a href=\"" . $this->home . "/about.php\">About Me</a><br />
           <a href=\"" . $this->home . "/contact.php\">Contact Me</a><br />-->");
 
-      $this->menu_write_section("Projects", "<a href=\"http://chrisiluonet.svn.sourceforge.net/viewvc/chrisiluonet/chris.iluo.net/\">Website Source</a><br />
+      $this->menu_write_section("Projects", "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a><br />
           <a href=\"" . $this->home . "/dropbox\">Dropbox</a><br />
           <a href=\"" . $this->home . "/beautify\">Code Beautifier</a><br />
           <a href=\"" . $this->home . "/todo\">TODO</a><br />
@@ -206,7 +207,7 @@
           <a href=\"http://www.opera.com/\">
           <img alt=\"Opera\" src=\"" . $this->home . "/images/link/opera.png\" />
           </a><br />
-          <a href=\"http://www.simonstenhouse.net/\">
+          <a href=\"http://www.stensi.com/\">
           <img alt=\"Simon Stenhouse\" src=\"" . $this->home . "/images/link/sten.png\" />
           </a><br />");
 

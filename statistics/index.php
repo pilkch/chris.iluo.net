@@ -29,8 +29,6 @@
     $max_x = -9e99;
     $max_y = -9e99;
 
-    $avg_y = 0.0;
-
     $graph_n = count($titles);
 
     $points_n = count($points_x[0]);
@@ -48,12 +46,8 @@
 
         if ($points_y[$j][$i] > $max_y)
           $max_y = $points_y[$j][$i];
-
-        $avg_y += $points_y[$j][$i];
       }
     }
-
-    $avg_y = $avg_y / $points_n;
 
     $min_x = 0;
     $min_y = 0;

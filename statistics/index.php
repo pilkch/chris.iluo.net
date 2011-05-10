@@ -6,22 +6,11 @@
 
   function CreateGraph($title_y_axis, $title_x_axis, $points_x, $points_y, $titles, &$filename)
   {
-    $left = 0;
-    $top = 0;
-    $x_size = 400;
-    $y_size = 400;
+    // How many graphs
+    $graph_n = count($titles);
 
-    $char_width = 8;
-    $char_height = 11;
-
-    $x_start = $x_left + 100;
-    $y_start = $top + $char_height * 1.5;
-    $x_end = $x_start + $x_size;
-    $y_end = $y_start + $y_size;
-    $right = $x_start + $x_size + 40;
-    $bottom = $y_start + $y_size + $char_height * 1.5;
-
-
+    // How many points in each graph
+    $points_n = count($points_x[0]);
 
     // Find the minimum and maximum points on the graph
     $min_x = 9e99;
@@ -29,30 +18,40 @@
     $max_x = -9e99;
     $max_y = -9e99;
 
-    $graph_n = count($titles);
+    for ($i = 0; $i < $points_n; $i++) {
+      //$this_x = 0;
+      $this_y = 0;
 
-    $points_n = count($points_x[0]);
-
-    for ($j = 0; $j < $graph_n; $j++) {
-      for ($i = 0; $i < $points_n; $i++) {
-        if ($points_x[$j][$i] < $min_x)
-          $min_x = $points_x[$j][$i];
-
-        if ($points_x[$j][$i] > $max_x)
-          $max_x = $points_x[$j][$i];
-
-        if ($points_y[$j][$i] < $min_y)
-          $min_y = $points_y[$j][$i];
-
-        if ($points_y[$j][$i] > $max_y)
-          $max_y = $points_y[$j][$i];
+      for ($j = 0; $j < $graph_n; $j++) {
+        //$this_x += $points_x[$j][$i];
+        $this_y += $points_y[$j][$i];
       }
+
+      //if ($this_x < $min_x) $min_x = $this_x;
+      //if ($this_x > $max_x) $max_x = $this_x;
+
+      //if ($this_y < $min_y) $min_y = $this_y;
+      if ($this_y > $max_y) $max_y = $this_y;
     }
 
     $min_x = 0;
     $min_y = 0;
-    $max_x += $max_x * 0.05;
-    $max_y += $max_y * 0.05;
+    $max_x = $points_n;
+
+    $left = 0;
+    $top = 0;
+    $x_size = $max_x;
+    $y_size = 400;
+
+    $char_width = 8;
+    $char_height = 11;
+
+    $x_start = $left + 100;
+    $y_start = $top + $char_height * 1.5;
+    $x_end = $x_start + $x_size;
+    $y_end = $y_start + $y_size;
+    $right = $x_start + $x_size + 40;
+    $bottom = $y_start + $y_size + $char_height * 1.5;
 
 
     // Now we know what size to make the image, let's create it
@@ -71,18 +70,22 @@
     imagerectangle($image, $left, $top, $right - 1, $bottom - 1, $black);
     imagerectangle($image, $x_start, $y_start, $x_end, $y_end, $grey);
 
-    for ($j = 0; $j < $graph_n; $j++) {
-      for ($i = 0; $i < $points_n; $i++) {
-        $pt_x = $x_start + ($x_end - $x_start) * ($points_x[$j][$i]-$min_x)/($max_x-$min_x);
-        $pt_y = $y_end - ($y_end - $y_start) * ($points_y[$j][$i]-$min_y)/($max_y - $min_y);
+    for ($i = 0; $i < $points_n; $i++) {
+      $last_y = $y_end;
 
-        $i2 = $i;
-        if (($i + 1) < $points_n) $i2++;
+      for ($j = 0; $j < $graph_n; $j++) {
+        $pt_x = $x_start + $i;
+        $pt_y = $last_y - ($y_end - $y_start) * ($points_y[$j][$i] - $min_y) / ($max_y - $min_y);
 
-        $pt_x2 = $x_start + ($x_end - $x_start) * ($points_x[$j][$i2] - $min_x) / ($max_x - $min_x);
-        $pt_y2 = $y_end - ($y_end - $y_start) * ($points_y[$j][$i2] - $min_y) / ($max_y - $min_y);
+        //$i2 = $i;
+        //if (($i + 1) < $points_n) $i2++;
 
-        imageline($image, $pt_x, $pt_y, $pt_x2, $pt_y2, $colour[$j]);
+        //$pt_x2 = $x_start + ($x_end - $x_start) * (($i + 1) - $min_x) / ($max_x - $min_x);
+        //$pt_y2 = $y_end - ($y_end - $y_start) * ($points_y[$j][$i2] - $min_y) / ($max_y - $min_y);
+
+        imageline($image, $pt_x, $last_y, $pt_x, $pt_y, $colour[$j]);
+
+        $last_y = $pt_y;
       }
     }
 

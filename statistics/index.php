@@ -1,16 +1,15 @@
 <?php
   require ($_SERVER['DOCUMENT_ROOT'] . '/util/util.php');
 
-
   // http://php.net/manual/en/function.imagecreate.php
 
-  function CreateGraph($title_y_axis, $title_x_axis, $points_x, $points_y, $titles, &$filename)
+  function CreateGraph($title_y_axis, $title_x_axis, $points_y, $titles, &$filename)
   {
     // How many graphs
     $graph_n = count($titles);
 
     // How many points in each graph
-    $points_n = count($points_x[0]);
+    $points_n = count($points_y[0]);
 
     // Find the minimum and maximum points on the graph
     $min_x = 9e99;
@@ -19,18 +18,12 @@
     $max_y = -9e99;
 
     for ($i = 0; $i < $points_n; $i++) {
-      //$this_x = 0;
       $this_y = 0;
 
       for ($j = 0; $j < $graph_n; $j++) {
-        //$this_x += $points_x[$j][$i];
         $this_y += $points_y[$j][$i];
       }
 
-      //if ($this_x < $min_x) $min_x = $this_x;
-      //if ($this_x > $max_x) $max_x = $this_x;
-
-      //if ($this_y < $min_y) $min_y = $this_y;
       if ($this_y > $max_y) $max_y = $this_y;
     }
 
@@ -76,12 +69,6 @@
       for ($j = 0; $j < $graph_n; $j++) {
         $pt_x = $x_start + $i;
         $pt_y = $last_y - ($y_end - $y_start) * ($points_y[$j][$i] - $min_y) / ($max_y - $min_y);
-
-        //$i2 = $i;
-        //if (($i + 1) < $points_n) $i2++;
-
-        //$pt_x2 = $x_start + ($x_end - $x_start) * (($i + 1) - $min_x) / ($max_x - $min_x);
-        //$pt_y2 = $y_end - ($y_end - $y_start) * ($points_y[$j][$i2] - $min_y) / ($max_y - $min_y);
 
         imageline($image, $pt_x, $last_y, $pt_x, $pt_y, $colour[$j]);
 
@@ -138,13 +125,13 @@
         $theme->article_begin("Operating System");
           {
             $titles = array("Fedora", "MacOS", "Ubuntu", "Windows");
-            $points_x = array();
             $points_y = array();
+            $totals = array();
             $n = count($titles);
             for ($line = 0; $line < $n; $line++) {
               $title = $titles[$line];
+              $totals[$line] = 0;
 
-              $points_x_line = array();
               $points_y_line = array();
               for ($i = 0; $i < $duration_n; $i++) {
                 $start = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i + 1)));
@@ -154,27 +141,50 @@
                 $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_os = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
                 $num = $util->db->GetRows($result);
 
-                $points_x_line[$i] = $i;
                 $points_y_line[$i] = $num;
+                $totals[$line] += $num;
               }
 
-              $points_x[$line] = $points_x_line;
               $points_y[$line] = $points_y_line;
             }
-            CreateGraph("Count", "Date", $points_x, $points_y, $titles, $filename);
+
+            // Sort the arrays in descending order
+            for ($x = 0; $x < $n; $x++) {
+              for ($y = 0; $y < $n; $y++) {
+                if ($totals[$x] > $totals[$y]) {
+                  // Swap the titles
+                  $hold = $titles[$x];
+                  $titles[$x] = $titles[$y];
+                  $titles[$y] = $hold;
+
+                  // Swap the points y
+                  $hold = $points_y[$x];
+                  $points_y[$x] = $points_y[$y];
+                  $points_y[$y] = $hold;
+
+                  // Swap the totals
+                  $hold = $totals[$x];
+                  $totals[$x] = $totals[$y];
+                  $totals[$y] = $hold;
+                }
+              }
+            }
+
+            // Create the graph
+            CreateGraph("Count", "Date", $points_y, $titles, $filename);
             $theme->article_addline("<img src=\"$filename\" alt=\"Operating System Graph\" />");
           }
         $theme->article_end();
         $theme->article_begin("Browser");
           {
             $titles = array("Chrome", "Firefox", "Internet Explorer", "Opera", "Safari");
-            $points_x = array();
             $points_y = array();
+            $totals = array();
             $n = count($titles);
             for ($line = 0; $line < $n; $line++) {
               $title = $titles[$line];
+              $totals[$line] = 0;
 
-              $points_x_line = array();
               $points_y_line = array();
               for ($i = 0; $i < $duration_n; $i++) {
                 $start = date("ymdHis", $now - ($seconds_in_a_day * ($i + 1)));
@@ -184,14 +194,37 @@
                 $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_browser = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
                 $num = $util->db->GetRows($result);
 
-                $points_x_line[$i] = $i;
                 $points_y_line[$i] = $num;
+                $totals[$line] += $num;
               }
 
-              $points_x[$line] = $points_x_line;
               $points_y[$line] = $points_y_line;
             }
-            CreateGraph("Count", "Date", $points_x, $points_y, $titles, $filename);
+
+            // Sort the arrays in descending order
+            for ($x = 0; $x < $n; $x++) {
+              for ($y = 0; $y < $n; $y++) {
+                if ($totals[$x] > $totals[$y]) {
+                  // Swap the titles
+                  $hold = $titles[$x];
+                  $titles[$x] = $titles[$y];
+                  $titles[$y] = $hold;
+
+                  // Swap the points y
+                  $hold = $points_y[$x];
+                  $points_y[$x] = $points_y[$y];
+                  $points_y[$y] = $hold;
+
+                  // Swap the totals
+                  $hold = $totals[$x];
+                  $totals[$x] = $totals[$y];
+                  $totals[$y] = $hold;
+                }
+              }
+            }
+
+            // Create the graph
+            CreateGraph("Count", "Date", $points_y, $titles, $filename);
             $theme->article_addline("<img src=\"$filename\" alt=\"Browser Graph\" />");
           }
         $theme->article_end();

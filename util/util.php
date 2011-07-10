@@ -461,5 +461,13 @@
 
       $attribute_node->appendChild($document->createTextNode($value));
     }
+
+    function JSONDecode($json, $assoc = FALSE)
+    {
+      // http://au2.php.net/manual/en/function.json-decode.php#95782
+      $json = str_replace(array("\n","\r"), "", $json);
+      $json = preg_replace('/([{,])(\s*)([^"]+?)\s*:/','$1"$3":', $json);
+      return json_decode($json, $assoc);
+    }
   }
 ?>

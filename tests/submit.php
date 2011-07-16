@@ -12,21 +12,15 @@
         $theme->article_begin("Tests Submission");
 
           if ( $_SERVER['REQUEST_METHOD'] === 'POST' ){
-           if (
-              /*(($_FILES["file"]["type"] == "image/gif")
-              || ($_FILES["file"]["type"] == "image/jpeg")
-              || ($_FILES["file"]["type"] == "image/pjpeg"))
-              &&*/ ($_FILES["file"]["size"] < 20000)
-            ) {
+            if (($_FILES["file"]["type"] == "application/json") && ($_FILES["file"]["size"] < 20000)) {
               if ($_FILES["file"]["error"] > 0) {
                 echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
               } else {
-                echo "Name: " . $_FILES["file"]["name"] . "<br />";
-                echo "Type: " . $_FILES["file"]["type"] . "<br />";
-                echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-                echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+                echo "Name: " . $_FILES["file"]["name"] . "<br />\n";
+                echo "Type: " . $_FILES["file"]["type"] . "<br />\n";
+                echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />\n";
+                echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />\n";
                 $fileText = $_FILES["file"]["tmp_name"];
-
 
 
                 echo "File=" . $fileText . "\n";

@@ -64,7 +64,42 @@
               $theme->article_addline("Incorrect secret");
             }
           } else {
-            $theme->article_addline("Use <a href=\"https://github.com/pilkch/buildall\">buildall</a> to submit test results to this page");
+            $theme->article_addline("Results from <a href=\"https://github.com/pilkch/buildall\">buildall</a><br />");
+
+            $theme->article_addline("<table border=\"1\">");
+
+              $theme->article_addline("<tr><td>Project</td><td>Target</td><td>Test</td><td>Result</td></tr>");
+
+              $result_project = $util->db->Select("test_project");
+              $nProjects = $util->db->GetRows($result_project);
+
+              for ($iProject = 0; $iProject < $nProjects; $iProject++) {
+                $project_id = mysql_result($result_project, $iProject, "project_id");
+                $project_name = mysql_result($result_project, $iProject, "project_name");
+
+                $theme->article_addline("<tr><td>$project_name</td><td></td><td></td><td></td></tr>");
+                $result_target = $util->db->Select("test_target", "", "`target_projectid`='$project_id'");
+                $nTargets = $util->db->GetRows($result_target);
+
+                for ($iTarget = 0; $iTarget < $nTargets; $iTarget++) {
+                  $target_id = mysql_result($result_target, $iTarget, "target_id");
+                  $target_name = mysql_result($result_target, $iTarget, "target_name");
+
+                  $theme->article_addline("<tr><td></td><td>$target_name</td><td></td><td></td></tr>");
+                  $result_result = $util->db->Select("test_result", "", "`result_targetid`='$target_id'");
+                  $nResults = $util->db->GetRows($result_result);
+
+                  for ($iResult = 0; $iResult < $nResults; $iResult++) {
+                    $result_id = mysql_result($result_result, $iResult, "result_id");
+                    $result_name = mysql_result($result_result, $iResult, "result_name");
+                    $result_state = mysql_result($result_result, $iResult, "result_state");
+
+                    $theme->article_addline("<tr><td></td><td></td><td>$result_name</td><td>$result_state</td></tr>");
+                  }
+                }
+              }
+
+            $theme->article_addline("</table>");
           }
 
         $theme->article_end();

@@ -12,7 +12,7 @@
         $theme->article_begin("Tests Submission");
 
           if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_POST['password'] == "password") {
+            if ($_POST['secret'] == "secret") {
               if (($_FILES["file"]["type"] == "application/json") && ($_FILES["file"]["size"] < 20000)) {
                 if ($_FILES["file"]["error"] > 0) {
                   echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
@@ -61,14 +61,10 @@
                 $theme->article_addline("Invalid file");
               }
             } else {
-              $theme->article_addline("Incorrect password");
+              $theme->article_addline("Incorrect secret");
             }
           } else {
-            $theme->article_addline("<form enctype=\"multipart/form-data\" action=\"submit.php\" method=\"post\">");
-            $theme->article_addline("  <input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"30000\" />");
-            $theme->article_addline("  Upload this file: <input type=\"file\" name=\"file\" />");
-            $theme->article_addline("  <input type=\"submit\" value=\"Submit File\" />");
-            $theme->article_addline("</form>");
+            $theme->article_addline("Use <a href=\"https://github.com/pilkch/buildall\">buildall</a> to submit test results to this page");
           }
 
         $theme->article_end();

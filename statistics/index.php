@@ -102,7 +102,6 @@
 
 
     // Write image to a file and return the path to the file
-    $filename = sprintf("%d.png", time());
     ImagePNG($image, $filename);
     ImageDestroy($image);
   }
@@ -117,117 +116,130 @@
 
       $theme->main_begin();
 
-        $seconds_in_a_day = 60 * 60 * 24;
-        $now = time();
-        $duration_n = 365;
-        $interval = 7; // 7 day interval between samples
+        $sOperatingSystemFilePath = "operatingsystem.png";
+        $sBrowserFilePath = "browser.png";
 
-        $theme->article_begin("Operating System");
-          {
-            $titles = array("Fedora", "MacOS", "Ubuntu", "Windows");
-            $points_y = array();
-            $totals = array();
-            $n = count($titles);
-            for ($line = 0; $line < $n; $line++) {
-              $title = $titles[$line];
-              $totals[$line] = 0;
+        if (($_GET["q"] == "generate") && ($_GET["password"] == "password")) {
 
-              $points_y_line = array();
-              for ($i = 0; $i < $duration_n; $i++) {
-                $start = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i + 1)));
-                $end = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i)));
+          $seconds_in_a_day = 60 * 60 * 24;
+          $now = time();
+          $duration_n = 365;
+          $interval = 7; // 7 day interval between samples
 
-                // Count the number on this day
-                $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_os = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
-                $num = $util->db->GetRows($result);
+          $theme->article_begin("Generating Graph");
+            if ($_GET["type"] == "os") {
+              $theme->article_addline("Generating Operating System Graph<br/>");
+              $titles = array("Fedora", "MacOS", "Ubuntu", "Windows");
+              $points_y = array();
+              $totals = array();
+              $n = count($titles);
+              for ($line = 0; $line < $n; $line++) {
+                $title = $titles[$line];
+                $totals[$line] = 0;
 
-                $points_y_line[$i] = $num;
-                $totals[$line] += $num;
+                $points_y_line = array();
+                for ($i = 0; $i < $duration_n; $i++) {
+                  $start = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i + 1)));
+                  $end = date("ymdHis", $now - ($seconds_in_a_day * ($duration_n - $i)));
+
+                  // Count the number on this day
+                  $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_os = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
+                  $num = $util->db->GetRows($result);
+
+                  $points_y_line[$i] = $num;
+                  $totals[$line] += $num;
+                }
+
+                $points_y[$line] = $points_y_line;
               }
 
-              $points_y[$line] = $points_y_line;
-            }
+              // Sort the arrays in descending order
+              for ($x = 0; $x < $n; $x++) {
+                for ($y = 0; $y < $n; $y++) {
+                  if ($totals[$x] > $totals[$y]) {
+                    // Swap the titles
+                    $hold = $titles[$x];
+                    $titles[$x] = $titles[$y];
+                    $titles[$y] = $hold;
 
-            // Sort the arrays in descending order
-            for ($x = 0; $x < $n; $x++) {
-              for ($y = 0; $y < $n; $y++) {
-                if ($totals[$x] > $totals[$y]) {
-                  // Swap the titles
-                  $hold = $titles[$x];
-                  $titles[$x] = $titles[$y];
-                  $titles[$y] = $hold;
+                    // Swap the points y
+                    $hold = $points_y[$x];
+                    $points_y[$x] = $points_y[$y];
+                    $points_y[$y] = $hold;
 
-                  // Swap the points y
-                  $hold = $points_y[$x];
-                  $points_y[$x] = $points_y[$y];
-                  $points_y[$y] = $hold;
-
-                  // Swap the totals
-                  $hold = $totals[$x];
-                  $totals[$x] = $totals[$y];
-                  $totals[$y] = $hold;
+                    // Swap the totals
+                    $hold = $totals[$x];
+                    $totals[$x] = $totals[$y];
+                    $totals[$y] = $hold;
+                  }
                 }
               }
-            }
 
-            // Create the graph
-            CreateGraph("Count", "Date", $points_y, $titles, $filename);
-            $theme->article_addline("<img src=\"$filename\" alt=\"Operating System Graph\" />");
-          }
-        $theme->article_end();
-        $theme->article_begin("Browser");
-          {
-            $titles = array("Chrome", "Firefox", "Internet Explorer", "Opera", "Safari");
-            $points_y = array();
-            $totals = array();
-            $n = count($titles);
-            for ($line = 0; $line < $n; $line++) {
-              $title = $titles[$line];
-              $totals[$line] = 0;
+              // Create the graph
+              CreateGraph("Count", "Date", $points_y, $titles, $sOperatingSystemFilePath);
+              $theme->article_addline("Operating System Graph Generated");
+            } else {
+              $theme->article_addline("Generating Browser Graph<br/>");
+              $titles = array("Chrome", "Firefox", "Internet Explorer", "Opera", "Safari");
+              $points_y = array();
+              $totals = array();
+              $n = count($titles);
+              for ($line = 0; $line < $n; $line++) {
+                $title = $titles[$line];
+                $totals[$line] = 0;
 
-              $points_y_line = array();
-              for ($i = 0; $i < $duration_n; $i++) {
-                $start = date("ymdHis", $now - ($seconds_in_a_day * ($i + 1)));
-                $end = date("ymdHis", $now - ($seconds_in_a_day * $i));
+                $points_y_line = array();
+                for ($i = 0; $i < $duration_n; $i++) {
+                  $start = date("ymdHis", $now - ($seconds_in_a_day * ($i + 1)));
+                  $end = date("ymdHis", $now - ($seconds_in_a_day * $i));
 
-                // Count the number on this day
-                $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_browser = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
-                $num = $util->db->GetRows($result);
+                  // Count the number on this day
+                  $result = $util->db->Select("counter", "DISTINCT counter_ip", "counter_browser = '$title' AND counter_timestamp > '$start' AND counter_timestamp < '$end'");
+                  $num = $util->db->GetRows($result);
 
-                $points_y_line[$i] = $num;
-                $totals[$line] += $num;
+                  $points_y_line[$i] = $num;
+                  $totals[$line] += $num;
+                }
+
+                $points_y[$line] = $points_y_line;
               }
 
-              $points_y[$line] = $points_y_line;
-            }
+              // Sort the arrays in descending order
+              for ($x = 0; $x < $n; $x++) {
+                for ($y = 0; $y < $n; $y++) {
+                  if ($totals[$x] > $totals[$y]) {
+                    // Swap the titles
+                    $hold = $titles[$x];
+                    $titles[$x] = $titles[$y];
+                    $titles[$y] = $hold;
 
-            // Sort the arrays in descending order
-            for ($x = 0; $x < $n; $x++) {
-              for ($y = 0; $y < $n; $y++) {
-                if ($totals[$x] > $totals[$y]) {
-                  // Swap the titles
-                  $hold = $titles[$x];
-                  $titles[$x] = $titles[$y];
-                  $titles[$y] = $hold;
+                    // Swap the points y
+                    $hold = $points_y[$x];
+                    $points_y[$x] = $points_y[$y];
+                    $points_y[$y] = $hold;
 
-                  // Swap the points y
-                  $hold = $points_y[$x];
-                  $points_y[$x] = $points_y[$y];
-                  $points_y[$y] = $hold;
-
-                  // Swap the totals
-                  $hold = $totals[$x];
-                  $totals[$x] = $totals[$y];
-                  $totals[$y] = $hold;
+                    // Swap the totals
+                    $hold = $totals[$x];
+                    $totals[$x] = $totals[$y];
+                    $totals[$y] = $hold;
+                  }
                 }
               }
-            }
 
-            // Create the graph
-            CreateGraph("Count", "Date", $points_y, $titles, $filename);
-            $theme->article_addline("<img src=\"$filename\" alt=\"Browser Graph\" />");
-          }
-        $theme->article_end();
+              // Create the graph
+              CreateGraph("Count", "Date", $points_y, $titles, $sBrowserFilePath);
+              $theme->article_addline("Browser Graph Generated");
+            }
+          $theme->article_end();
+        } else {
+          // Display the generated images
+          $theme->article_begin("Operating System");
+            $theme->article_addline("<img src=\"$sOperatingSystemFilePath\" alt=\"Operating System Graph\" />");
+          $theme->article_end();
+          $theme->article_begin("Browser");
+            $theme->article_addline("<img src=\"$sBrowserFilePath\" alt=\"Browser Graph\" />");
+          $theme->article_end();
+        }
       $theme->main_end();
 
     $theme->footer();

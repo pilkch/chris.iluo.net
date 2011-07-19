@@ -189,17 +189,11 @@
           <a href=\"" . $this->home . "/contact.php\">Contact Me</a><br />-->");
 
       $this->menu_write_section("Projects", "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a><br />
-          <a href=\"" . $this->home . "/dropbox\">Dropbox</a><br />
+          <a href=\"" . $this->home . "/tests\">Unit Test Results</a><br />
           <a href=\"" . $this->home . "/beautify\">Code Beautifier</a><br />
+          <a href=\"" . $this->home . "/dropbox\">Dropbox</a><br />
           <a href=\"" . $this->home . "/todo\">TODO</a><br />
-          <a href=\"" . $this->home . "/statistics\">Statistics</a><br />
-          <!--<a href=\"" . $this->home . "/misc.php\">Misc Projects</a><br />
-          <a href=\"" . $this->home . "/download.php\">Downloads</a><br />-->");
-
-      /*$this->menu_write_section("Reference", "<a href=\"http://chris.iluo.net/blog/\">Journal</a><br />
-        <a href=\"" . $this->home . "/reference/tutorials/tutorials.php\">Tutorials</a><br />
-        <a href=\"" . $this->home . "/reference/freecode/freecode.php\">Free Code</a><br />
-        <a href=\"" . $this->home . "/reference/forums/forums.php\">Forums</a><br />");*/
+          <a href=\"" . $this->home . "/statistics\">Statistics</a><br />");
 
       $this->menu_write_section("Links", "<a href=\"http://www.iluo.net/\">
           <img alt=\"Iluo\" src=\"" . $this->home . "/images/link/iluo.png\" />
@@ -210,19 +204,6 @@
           <a href=\"http://www.stensi.com/\">
           <img alt=\"Simon Stenhouse\" src=\"" . $this->home . "/images/link/sten.png\" />
           </a><br />");
-
-      /*<a href=\"http://www.sf.net/\">
-        <img alt=\"SourceForge\" src=\"" . $this->home . "/images/link/sf.png\" />
-      </a><br />
-      <a href=\"http://www.php.org/\">
-        <img alt=\"PHP\" src=\"" . $this->home . "/images/link/php.png\" />
-      </a><br />
-      <a href=\"http://www.mysql.org/\">
-        <img alt=\"MYSQL\" src=\"" . $this->home . "/images/link/mysql.png\" />
-      </a><br />
-      <a href=\"http://digi.times.lv/\">
-        <img alt=\"DiGi\" src=\"" . $this->home . "/images/link/digi.png\" />
-      </a><br />");*/
 
       $this->menu_write_section("Server", date("d/m/y") .
         "<br />\n" . $this->util->GetTimef() .

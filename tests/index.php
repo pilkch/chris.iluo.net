@@ -66,7 +66,7 @@
 
             $theme->article_addline("<table border=\"1\">");
 
-              $theme->article_addline("<tr><td>Project</td><td>Target</td><td>Test</td><td>Result</td></tr>");
+              $theme->article_addline("<tr><td><strong>Project</strong></td><td><strong>Target</strong></td><td><strong>Test</strong></td><td><strong>Result</strong></td></tr>");
 
               $result_project = $util->db->Select("test_project");
               $nProjects = $util->db->GetRows($result_project);
@@ -92,7 +92,15 @@
                     $result_name = mysql_result($result_result, $iResult, "result_name");
                     $result_state = mysql_result($result_result, $iResult, "result_state");
 
-                    $theme->article_addline("<tr><td></td><td></td><td>$result_name</td><td>$result_state</td></tr>");
+                    $sResultContent = "-";
+                    if ($result_state != "notrun") {
+                      if ($result_state == "passed") $sText = "Passed";
+                      else $sText = "Failed";
+                      $sFile = $result_state;
+
+                      $sResultContent = "<img alt=\"$sText\" title=\"$sText\" src=\"http://chris.iluo.net/images/status/" . $sFile . ".png\" width=\"16\" height=\"16\"/>";
+                    }
+                    $theme->article_addline("<tr><td></td><td></td><td>$result_name</td><td>$sResultContent</td></tr>");
                   }
                 }
               }

@@ -27,8 +27,8 @@
                   echo "File=" . $fileText . "\n";
                   echo "Contents=" . file_get_contents($fileText) . "\n";
                   echo "Decoding JSON file" . "\n";
-                  var_dump($util->JSONDecode(file_get_contents($fileText)));
-
+                  var_dump($util->JSONDecode(file_get_contents($fileText), true));
+                  $json = $util->JSONDecode(file_get_contents($fileText), true);
 
 
                   // Clear our test tables
@@ -37,25 +37,23 @@
                   $result = $util->db->Remove("test_result");
 
                   // Add our new entries to the test tables
-                  $result = $util->db->Add("test_project", "project_name", "'project'");
-                  $project_id = $util->db->GetLastInsertID();
-
-                  $theme->article_addline("project_id=$project_id");
-
-
-                  $result = $util->db->Add("test_target", "target_name, target_projectid", "'target', '$project_id'");
-                  $target_id = $util->db->GetLastInsertID();
-
-                  $theme->article_addline("target_id=$target_id");
-
-
-                  $result = $util->db->Add("test_result", "result_name, result_state, result_targetid", "'result', 'passed', '$target_id'");
-                  $result_id = $util->db->GetLastInsertID();
-
-                  $theme->article_addline("result_id=$result_id");
-
-                  if ($result) $theme->article_addline("Succeeded");
-                  else $theme->article_addline("Failed");
+                  $projects = $json[projects];
+                  var_dump($projects);
+                  foreach ($projects as $project) {
+                    $project_name = $project["name"];
+                    $util->db->Add("test_project", "project_name", "'$project_name'");
+                    $project_id = $util->db->GetLastInsertID();
+                    foreach ($project["targets"] as $target) {
+                      $target_name = $target["name"];
+                      $util->db->Add("test_target", "target_name, target_projectid", "'$target_name', '$project_id'");
+                      $target_id = $util->db->GetLastInsertID();
+                      foreach ($target["results"] as $result) {
+                        $result_name = $result["name"];
+                        $result_state = $result["status"];
+                        $util->db->Add("test_result", "result_name, result_state, result_targetid", "'$result_name', '$result_state', '$target_id'");
+                      }
+                    }
+                  }
                 }
               } else {
                 $theme->article_addline("Invalid file");

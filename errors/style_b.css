@@ -1,0 +1,24 @@
+BODY,TR,TD
+	{
+	font-family : verdana, arial, helvetica, sans-serif;
+	font-size : 10px;
+	font-weight: regular;
+	color: #ffffff;
+
+
+scrollbar-face-color:#000000;
+scrollbar-track-color:#000000;
+scrollbar-arrow-color:#ffffff;
+
+scrollbar-3dlight-color:#000000;
+scrollbar-base-color:#ffffff;
+scrollbar-darkshadow-color: #000000;
+
+	}
+
+
+
+A:link {text-decoration: underline; color: #ffffff;}
+A:visited {text-decoration: underline; color: #ffffff;}
+A:active {text-decoration: none; color: #ffffff;}
+A:hover {text-decoration: none; color: #ffffff;}

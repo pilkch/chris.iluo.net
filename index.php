@@ -221,8 +221,8 @@ class browser{
     $util->SetTheme();
 
     $theme = new cTheme($util->db, $util, true, $util->user->loggedin, $util->user->login, $util->user->type);
-    $theme->header("chris.iluo.net");
-      $theme->menu($util->user->loginForm());
+    $theme->header("chris.iluo.net", true);
+      /*$theme->menu($util->user->loginForm());
 
       $theme->main_begin();
         $theme->article_begin("TODO");
@@ -247,9 +247,21 @@ class browser{
           $theme->article_addline("</ol>");
         $theme->article_end();
         $theme->journal("");
-      $theme->main_end();
-
-    $theme->footer();
+      $theme->main_end();*/
+?>
+    <div id="delicti">
+      <ul>
+        <li><a href="http://chris.iluo.net/">Chris</a></li>
+        <li><a href="http://melpix.iluo.net/">Mel</a></li>
+        <li><a href="http://rephrase.net/">Sam</a></li>
+      </ul>
+    </div>
+    <p id="conservatory">
+      Website and Content Copyright &copy;2006 <a href="mailto:chris.pilkington@gmail.com">Christopher</a> <a href="mailto:chris.pilkington@gmail.com">Pilkington</a><br /><br />
+      <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11-blue.png" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+    </p>
+<?PHP
+    $theme->footerEnd();
 
   $util->Delete();
 ?>

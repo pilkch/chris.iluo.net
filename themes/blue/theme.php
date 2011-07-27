@@ -92,7 +92,7 @@
       $this->tabs_content="\t\t\t\t\t\t";
     }
 
-    function header($title = "dev.iluo.net")
+    function header($title = "chris.iluo.net", $bIsMainPage = false)
     {
       echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
@@ -118,11 +118,20 @@
     <link href='/go.bml?journal=cpp&amp;itemid=130666&amp;dir=next' rel='Next' />-->
 
 <?PHP
-    embedstyle($this->showlogin, $this->width, $this->height);
+      if ($bIsMainPage) embedStyleMainPage($this->img);
+      else embedStyle($this->showlogin, $this->width, $this->height);
 ?>
   </head>
   <body>
-
+<?PHP
+      if ($bIsMainPage) {
+?>
+    <div id="peach">
+      <h1>chris</h1>
+    </div>
+<?PHP
+      } else {
+?>
       <div><img src="<?PHP echo $this->img; ?>/header.gif" alt="header" style="padding: 6px 6px 6px 6px; margin: 6px 6px 6px 6px; border: 6px 6px 6px 6px;" width="99%" height="75px" /></div>
 
 
@@ -130,6 +139,7 @@
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
 <?PHP
+      }
     }
 
     function form_submitButton($text, $action, $icon)
@@ -451,6 +461,13 @@
         </td>
       </tr>
     </table>
+<?PHP
+      $this->footerEnd();
+    }
+
+    function footerEnd()
+    {
+?>
   </body>
 </html>
 <?PHP

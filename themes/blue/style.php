@@ -1,5 +1,80 @@
 <?PHP
-	function embedstyle($menulogin=true, $width=40, $height=100)
+	function embedStyleMainPage($imagesDirectory)
+	{
+?>
+    <style type="text/css">
+      body {
+        margin:0px;
+        padding:0px;
+        font: 20px verdana, arial, helvetica, sans-serif;
+        margin:0px 0px 0px 0px;
+        color:#000000;
+        background-color:#FFFFFF;
+        text-align: left;
+      }
+
+      #peach {
+        text-align: left;
+        padding-left: 30px;
+        margin-top: 0px;
+        background-color: #f90;
+        padding-top: 0px;
+        height: 345px;
+        padding-bottom: 0px;
+        background: #0099ff url(<?PHP echo $imagesDirectory; ?>/main.png) no-repeat top left;
+      }
+      h1 {
+        display: none;
+      }
+
+      h2, #conservatory {
+        font: 10px Verdana, Arial, sans-serif;
+        color: #666;
+      }
+
+      #delicti {
+        margin: 20px;
+      }
+
+      #conservatory {
+        margin-left: 20px;
+        margin-top: 100px;
+        text-align: left;
+        padding-top: 5px;
+        border-top: 5px solid #eee;
+        padding-left: 20px;
+      }
+
+
+      ul {
+        list-style-type: none;
+        font-size: 18px;
+      }
+
+      li {
+        padding: 3px;
+      }
+
+      li a {
+        text-decoration: none;
+        color: #666;
+        border-bottom: 1px solid #eee;
+      }
+
+      li a:visited {
+        color: #333;
+        border-bottom: 1px solid #ddd;
+      }
+
+      li a:hover {
+        color: #000;
+        border-bottom: 1px solid #666;
+      }
+    </style>
+<?PHP
+  }
+
+	function embedStyle($menulogin=true, $width=40, $height=100)
 	{
 		if($menulogin==true)
 			$lf=0;

@@ -187,55 +187,109 @@
 <?PHP
     }
 
-    function menu($login, $type = "")
+    function WriteLine($line)
     {
-      $this->menu_write_first("Main Menu", "<a href=\"" . $this->home . "\">Home</a><br />
-          <a href=\"" . $this->home . "/blog/\">Blog</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"/></a><br />
-          <a href=\"http://www.github.com/pilkch\">GitHub</a><a href=\"http://www.github.com/pilkch\"><img src=\"" . $this->home . "/images/github.png\" alt=\"GitHub\"/></a><br />
-          <a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><a href=\"http://www.last.fm/user/cgpilk\"><img src=\"" . $this->home . "/images/lastfm.png\" alt=\"last.fm\"/></a><br />
-          <a href=\"http://www.youtube.com/user/cgpilk\">YouTube</a><a href=\"http://www.youtube.com/user/cgpilk\"><img src=\"" . $this->home . "/images/youtube.png\" alt=\"YouTube\"/></a><br />
-          <a href=\"http://www.sourceforge.net/users/pilkch\">SourceForge</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"" . $this->home . "/images/sourceforge.png\" alt=\"SourceForge\"/></a><br />
-          <!--<a href=\"" . $this->home . "/about.php\">About Me</a><br />
-          <a href=\"" . $this->home . "/contact.php\">Contact Me</a><br />-->");
+      echo $line . "\n";
+    }
 
-      $this->menu_write_section("Projects", "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a><br />
-          <a href=\"" . $this->home . "/tests\">Unit Test Results</a><br />
-          <a href=\"" . $this->home . "/beautify\">Code Beautifier</a><br />
-          <a href=\"" . $this->home . "/dropbox\">Dropbox</a><br />
-          <a href=\"" . $this->home . "/todo\">TODO</a><br />
-          <a href=\"" . $this->home . "/statistics\">Statistics</a><br />");
-
-      $this->menu_write_section("Links", "<a href=\"http://www.iluo.net/\">
-          <img alt=\"Iluo\" src=\"" . $this->home . "/images/link/iluo.png\" />
-          </a><br />
-          <a href=\"http://www.opera.com/\">
-          <img alt=\"Opera\" src=\"" . $this->home . "/images/link/opera.png\" />
-          </a><br />
-          <a href=\"http://www.stensi.com/\">
-          <img alt=\"Simon Stenhouse\" src=\"" . $this->home . "/images/link/sten.png\" />
-          </a><br />");
-
-      $this->menu_write_section("Server", date("d/m/y") .
-        "<br />\n" . $this->util->GetTimef() .
-        "<br />\n<br />\n" . $this->util->StringUsersOnline());
-
-
-      //we have a login and wish to display it
-      if($this->showlogin && $login)
-      {
-        $this->menu_write_section("User", $login);
+    function WriteMenuBegin($bIsMainPage)
+    {
+      if ($bIsMainPage == true) $this->WriteLine("    <div id=\"delicti\">");
+      else {
+        $this->WriteLine("<!-- START MENU -->");
+        $this->WriteLine("<td id=\"menu_header\">");
       }
-      else
-      {
-        $this->menu_write_section("User", $this->util->GetIP() .
-          "<br />\n" . $this->util->GetHost() .
-          "<br />\n" . $this->util->GetReferer());
-      }
+    }
 
-      $this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" .
-        "Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" .
-        $this->author_email . "\">"  . $this->author_lastname . "</a><br />\n" .
-        "Description: " . $this->description . "<br />");
+    function WriteMenuEnd($bIsMainPage)
+    {
+      if ($bIsMainPage == true) $this->WriteLine("    </div>");
+      else $this->WriteLine("</td>");
+    }
+
+    function WriteMenuSectionBegin($bIsMainPage, $title)
+    {
+      if ($bIsMainPage == true) {
+        $this->WriteLine("        " . $title . "<br />");
+        $this->WriteLine("        <ul>");
+      } else {
+        $this->WriteLine("  <div class=\"box\">");
+        $this->WriteLine("    <div class=\"menuimg\" style=\"background-image: url('" . $this->img . "/menu.gif')\">");
+        $this->WriteLine("      <h1>" . $title . "</h1>");
+        $this->WriteLine("    </div>");
+
+        $this->WriteLine("    <ul class=\"menu\">");
+        $this->WriteLine("      <li>");
+      }
+    }
+
+    function WriteMenuSectionEnd($bIsMainPage)
+    {
+      if ($bIsMainPage == true) $this->WriteLine("      </ul>");
+      else {
+        $this->WriteLine("      </li>");
+        $this->WriteLine("    </ul>");
+        $this->WriteLine("  </div>");
+      }
+    }
+
+    function WriteMenuItem($bIsMainPage, $line)
+    {
+      if ($bIsMainPage == true) $this->WriteLine("        <li>" . $line . "</li>");
+      else $this->WriteLine($line . "<br />");
+    }
+
+    function menu($login, $type = "", $bIsMainPage = false)
+    {
+      $this->WriteMenuBegin($bIsMainPage);
+        $this->WriteMenuSectionBegin($bIsMainPage, "Main Menu");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "\">Home</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/blog/\">Blog</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.github.com/pilkch\">GitHub</a><a href=\"http://www.github.com/pilkch\"><img src=\"" . $this->home . "/images/github.png\" alt=\"GitHub\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><a href=\"http://www.last.fm/user/cgpilk\"><img src=\"" . $this->home . "/images/lastfm.png\" alt=\"last.fm\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.youtube.com/user/cgpilk\">YouTube</a><a href=\"http://www.youtube.com/user/cgpilk\"><img src=\"" . $this->home . "/images/youtube.png\" alt=\"YouTube\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.sourceforge.net/users/pilkch\">SourceForge</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"" . $this->home . "/images/sourceforge.png\" alt=\"SourceForge\"/></a>");
+          //$this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/about.php\">About Me</a>");
+          //$this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/contact.php\">Contact Me</a>");
+        $this->WriteMenuSectionEnd($bIsMainPage);
+        $this->WriteMenuSectionBegin($bIsMainPage, "Projects");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/tests\">Unit Test Results</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/beautify\">Code Beautifier</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/dropbox\">Dropbox</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/todo\">TODO</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/statistics\">Statistics</a>");
+        $this->WriteMenuSectionEnd($bIsMainPage);
+        $this->WriteMenuSectionBegin($bIsMainPage, "Links");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.iluo.net/\"><img alt=\"Iluo\" src=\"" . $this->home . "/images/link/iluo.png\" /></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.opera.com/\"><img alt=\"Opera\" src=\"" . $this->home . "/images/link/opera.png\" /></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.stensi.com/\"><img alt=\"Simon Stenhouse\" src=\"" . $this->home . "/images/link/sten.png\" /></a>");
+        $this->WriteMenuSectionEnd($bIsMainPage);
+        $this->WriteMenuSectionBegin($bIsMainPage, "Server");
+          $this->WriteMenuItem($bIsMainPage, date("d/m/y"));
+          $this->WriteMenuItem($bIsMainPage, $this->util->GetTimef());
+          $this->WriteMenuItem($bIsMainPage, "");
+          $this->WriteMenuItem($bIsMainPage, $this->util->StringUsersOnline());
+        $this->WriteMenuSectionEnd($bIsMainPage);
+
+        if ($bIsMainPage == false) {
+          // We have a login and wish to display it
+          if ($this->showlogin && $login) {
+            $this->menu_write_section("User", $login);
+          } else {
+            $this->menu_write_section("User", $this->util->GetIP() .
+              "<br />\n" . $this->util->GetHost() .
+              "<br />\n" . $this->util->GetReferer());
+          }
+
+          $this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" .
+            "Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" .
+            $this->author_email . "\">"  . $this->author_lastname . "</a><br />\n" .
+            "Description: " . $this->description . "<br />"
+          );
+        }
+
+      $this->WriteMenuEnd($bIsMainPage);
     }
 
     function error($str="")

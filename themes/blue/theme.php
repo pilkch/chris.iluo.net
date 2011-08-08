@@ -254,11 +254,25 @@
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Projects");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/buildall\">BuildAll</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/tests\">Unit Test Results</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/postcodes\">PostCodes</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/userscripts\">UserScripts</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/tetris\">Tetris</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/beautify\">Code Beautifier</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/dropbox\">Dropbox</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/todo\">TODO</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/statistics\">Statistics</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/dropbox\">Dropbox</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libopenglmm\">libopenglmm</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/spitfire\">spitfire</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/breathe\">breathe</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libxdgmm\">libxdgmm</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libvoodoomm\">libvoodoomm</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://getfree.git.sourceforge.net/\">GetFree</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://drivecity.svn.sourceforge.net/viewvc/drivecity\">Drive</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://sudokubang.git.sourceforge.net/\">Sudoku</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/allocator\">Allocator</a>");
+
+          //$this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/todo\">TODO</a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Links");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.iluo.net/\"><img alt=\"Iluo\" src=\"" . $this->home . "/images/link/iluo.png\" /></a>");

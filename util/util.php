@@ -362,7 +362,7 @@
       );
 
       foreach($browsers as $browser=>$pattern) {
-          if (eregi($pattern, $user_agent)) {
+          if (preg_match("/$pattern/i", $user_agent)) {
             list($browser_name, $browser_version) = split('/', $browser);
             break;
           }
@@ -408,7 +408,7 @@
       );
 
       foreach($operatingsystems as $operatingsystem=>$pattern) {
-          if (eregi($pattern, $user_agent)) {
+          if (preg_match("/$pattern/i", $user_agent)) {
             list($os_name, $os_version) = split('/', $operatingsystem);
             break;
           }

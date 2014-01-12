@@ -40,8 +40,7 @@
 
         $this->form=$this->formNormal();
       }
-      else if(session_is_registered('user') && session_is_registered('pass'))
-      {
+      else if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
         //Already logged in and now just browsing
         $this->user=$_SESSION['user'];
         $this->pass=$_SESSION['pass'];

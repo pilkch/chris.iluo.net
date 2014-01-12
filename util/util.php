@@ -287,7 +287,7 @@
       return $date;
     }
 
-    function ParseUserAgentString($user_agent, &$browser_name, &$browser_version, &$os_name, &$os_version)
+    function ParseUserAgentString($user_agent, &$browser_name, &$os_name)
     {
       /*
       // Browser Detection
@@ -326,44 +326,39 @@
       OS: MacOS 10.5
       Browser: Firefox
       Version: 3.0b5
+
+      Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko
+      OS: Windows 7
+      Browser: Internet Explorer
+      Version: 10
+
+      Mozilla/5.0 (Linux; U; Android 2.3.2; en-sa; HTC_DesireHD_A9191 Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
+      OS: Android 2.3.2
+      Browser: Firefox
+      Version: 4.0
       */
 
       $browser_name = 'Unknown';
-      $browser_version = '0';
       $os_name = 'Unknown';
-      $os_version = '0';
-
 
       // Browser
       $browsers = array(
-          'Opera/11' => '(Opera/11\.[0-9]+)',
-          'Opera/10' => '(Opera/10\.[0-9]+)',
-          'Opera/9' => '(Opera/9\.[0-9]+)',
-          'Opera/8' => '(Opera/8\.[0-9]+)',
-          'Opera/8' => 'Opera',
-          'Firefox/4' => '(Firefox/4\.[0-9]+)',
-          'Firefox/3' => '(Firefox/3\.[0-9]+)',
-          'Firefox/2' => '(Firefox/2\.[0-9]+)',
-          'Firefox/2' => '(Firebird)|(Firefox)',
-          'Galeon/0' => 'Galeon',
-          'Safari/0' => '(3\.1 Safari)',
-          'Safari/0' => 'Safari',
-          'Mozilla/0' => 'Gecko',
-          'MyIE/0' => 'MyIE',
-          'Lynx/0' => 'Lynx',
-          'Netscape/0' => '(Mozilla/4\.75)|(Netscape6)|(Mozilla/4\.08)|(Mozilla/4\.5)|(Mozilla/4\.6)|(Mozilla/4\.79)',
-          'Konqueror/0' => 'Konqueror',
-          'Internet Explorer/9' => '(MSIE 9\.[0-9]+)',
-          'Internet Explorer/8' => '(MSIE 8\.[0-9]+)',
-          'Internet Explorer/7' => '(MSIE 7\.[0-9]+)',
-          'Internet Explorer/6' => '(MSIE 6\.[0-9]+)',
-          'Internet Explorer/6' => 'MSIE',
-          'SearchBot/0' => '(nuhk)|(Googlebot)|(Baiduspider)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)|(Sphere Scout)(Spider)|(Bot)',
+          'Internet Explorer' => '(MSIE)|(Trident)',
+          'Opera' => 'Opera',
+          'Firefox' => '(Firebird)|(Firefox)',
+          'Galeon' => 'Galeon',
+          'Mozilla' => 'Gecko',
+          'Safari' => 'Safari',
+          'MyIE' => 'MyIE',
+          'Lynx' => 'Lynx',
+          'Netscape' => '(Mozilla)|(Netscape)|(Netscape6)',
+          'Konqueror' => 'Konqueror',
+          'SearchBot' => '(nuhk)|(Googlebot)|(Baiduspider)|(Yammybot)|(Openbot)|(Slurp/cat)|(msnbot)|(ia_archiver)|(Sphere Scout)(Spider)|(Bot)',
       );
 
       foreach($browsers as $browser=>$pattern) {
           if (preg_match("/$pattern/i", $user_agent)) {
-            list($browser_name, $browser_version) = split('/', $browser);
+            $browser_name = $browser;
             break;
           }
       }
@@ -371,45 +366,19 @@
 
       // Operating System
       $operatingsystems = array(
-          'Mac OS X/10.6' => 'Mac OS X 10.6',
-          'Mac OS X/10.5' => 'Mac OS X 10.5',
-          'Mac OS X/10.4' => 'Mac OS X 10.4',
-          'Mac OS X/10.4' => 'Mac OS X',
-          'Windows/7' => 'Windows NT 6.1',
-          'Windows/Vista' => 'Windows NT 6.0',
-          'Windows/XP' => 'Windows NT 5.2',
-          'Windows/XP' => 'Windows NT 5.1',
-          'Windows/2000' => 'Windows NT 5.0',
-          'Windows/2000' => 'Windows',
-          'Fedora/13' => 'fc13',
-          'Fedora/12' => 'fc12',
-          'Fedora/11' => 'fc11',
-          'Fedora/10' => 'fc10',
-          'Fedora/9' => 'fc9',
-          'Fedora/8' => 'fc8',
-          'Fedora/8' => 'Fedora',
-          'Ubuntu/10' => '(Ubuntu/10\.[0-9]+)',
-          'Ubuntu/9' => '(Ubuntu/9\.[0-9]+)',
-          'Ubuntu/8' => '(Ubuntu/8\.[0-9]+)',
-          'Ubuntu/7' => '(Ubuntu/7\.[0-9]+)',
-          'Ubuntu/7' => 'Ubuntu',
-          'Linux/0' => 'Linux',
-          'Unix/0' => 'Unix',
+          'Android' => 'Android',
+          'iOS' => '(iPad)|(iPhone)',
+          'Windows Phone' => 'Windows Phone',
 
-          'Apple iPhone/0' => 'iPhone',
-          'BlackBerry Phone/0' => 'BlackBerry',
-          'HTC Phone/0' => 'HTC',
-          'LG Phone/0' => 'LG',
-          'Motorola Phone/0' => 'MOT',
-          'Nokia Phone/0' => 'Nokia',
-          'Samsung Phone/0' => 'SAMSUNG',
-          'Sony Phone/0' => 'SonyEricsson',
-          'Windows CE/0' => 'Windows CE',
+          'Mac OS X' => 'Mac OS X',
+          'Windows' => 'Windows',
+          'Linux' => '(Fedora)|(Linux)|(Ubuntu)',
+          'Unix' => 'Unix',
       );
 
       foreach($operatingsystems as $operatingsystem=>$pattern) {
           if (preg_match("/$pattern/i", $user_agent)) {
-            list($os_name, $os_version) = split('/', $operatingsystem);
+            $os_name = $operatingsystem;
             break;
           }
       }
@@ -417,11 +386,11 @@
 
     function AddCounterEntry($ip, $host, $referer, $request, $user_agent)
     {
-      $this->ParseUserAgentString($user_agent, $browser_name, $browser_version, $os_name, $os_version);
+      $this->ParseUserAgentString($user_agent, $browser_name, $os_name);
 
       $timestamp = date("ymdHis");
 
-      $this->db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer, counter_request, counter_user_agent_string, counter_os, counter_os_version, counter_browser, counter_browser_version", "'$timestamp', '$ip', '$host', '$referer', '$request', '$user_agent', '$os_name', '$os_version', '$browser_name', '$browser_version'");
+      $this->db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer, counter_request, counter_user_agent_string, counter_os, counter_os_version, counter_browser, counter_browser_version", "'$timestamp', '$ip', '$host', '$referer', '$request', '$user_agent', '$os_name', '0', '$browser_name', '0'");
     }
 
     function GetUserOnline()

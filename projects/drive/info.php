@@ -4,7 +4,6 @@
   $util = new cUtil();
 
 /*
-GET Request:
 <info>
   <latest>
     <url value="http://chris.iluo.net/drive/files/drive081123.zip"/>

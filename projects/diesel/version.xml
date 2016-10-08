@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<latest>
+  <linux>
+    <version>0.1</version>
+    <download>https://github.com/pilkch/diesel/releases/download/v0.1/diesel.tar.gz</download>
+    <page>https://github.com/pilkch/diesel/releases</page>
+  </linux>
+</latest>

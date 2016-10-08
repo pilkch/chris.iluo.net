@@ -55,14 +55,6 @@ ErrorDocument 503 /errors/error_503.php
   RewriteEngine on
   RewriteBase /
 
-  # Rewrite "triki" and "triki/" to "triki.php"
-  #RewriteRule ^triki$ triki.php
-  #RewriteRule ^triki/$ triki.php
-
-  # Rewrite "triki/query" to "triki.php/query"
-  #RewriteRule ^triki/(.+)$ triki.php?$1
-
-
   # Rewrite "dropbox" and "dropbox/" to "dropbox/index.php"
   # RewriteRule ^dropbox$ dropbox/index.php
   # RewriteRule ^dropbox/$ dropbox/index.php
@@ -73,14 +65,6 @@ ErrorDocument 503 /errors/error_503.php
   # Rewrite "projects/*/*.xml"  to "projects/*/*.php"
   RewriteRule ^projects/(.+)/(.+).xml$ projects/$1/$2.php
 </IfModule>
-
-#<Files triki>
-#  ForceType application/x-httpd-php
-#</Files>
-
-#<Files triki/>
-#  ForceType application/x-httpd-php
-#</Files>
 
 
 # <Files dropbox>

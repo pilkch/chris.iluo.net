@@ -120,16 +120,14 @@
     $result = $util->db->Select("todo", "", "todo_id = '$id'");
     $num = $util->db->GetRows($result);
 
-    if ($num > 0)
-    {
+    if ($num > 0) {
       $our_priority = mysql_result($result, 0, "todo_priority");
 
       // Get the next priority
       $result = $util->db->Select("todo", "", "todo_priority $compare '$our_priority'", " ORDER BY `todo_priority` $sort");
       $num = $util->db->GetRows($result);
 
-      if ($num > 0)
-      {
+      if ($num > 0) {
         $next_id = mysql_result($result, 0, "todo_id");
         Swap($util, $theme, $id, $next_id);
       }
@@ -156,8 +154,7 @@
             $theme->article_addline("<table border=\"1\">" .
               "<tr><td><strong>Priority</strong></td><td><strong>Content</strong></td><td><strong>Status</strong></td></tr>");
 
-          if($util->query)
-          {
+          if($util->query) {
             $util->query=rawurldecode($util->query);
             $util->query=ucwords(strtolower($util->query));
 
@@ -165,33 +162,27 @@
 
             $util->query=$array[0];
 
-            if (count($array) > 0)
-            {
+            if (count($array) > 0) {
               $array = explode("&", $array[1]);
               $action = $array[0];
 
-              if (count($array) > 0)
-              {
+              if (count($array) > 0) {
                 $array = explode("=", $array[1]);
                 $id = $array[1];
               }
             }
 
             $str = "";
-            for ($i = 0; $i < count($array); $i++)
-              $str .= " $i=\"$array[$i]\"";
+            for ($i = 0; $i < count($array); $i++) $str .= " $i=\"$array[$i]\"";
             $theme->article_addline("QUERY=$util->query, paramters=$str");
 
 
-            if ($util->user->isAdmin())
-            {
-              if ("add_top"==$action)
-              {
+            if ($util->user->isAdmin()) {
+              if ("add_top"==$action) {
                 $todo_content = $_REQUEST['content'];
                 $theme->article_addline("add_top " . $util->query . " content=" . $todo_content);
 
-                if($todo_content != "")
-                {
+                if($todo_content != "") {
                   // Find out if we have any other entries with priority 0, if we do, increment the whole table
                   $result = $util->db->Select("todo", "", "", " ORDER BY `todo_priority` ASC");
                   $num = $util->db->GetRows($result);
@@ -203,14 +194,11 @@
                   $result = $util->db->query("INSERT INTO todo (todo_id, todo_content, todo_priority) " .
                     "VALUES ('', '$todo_content', '0');");
                 } else $theme->article_addline("No Content Entered.  ");
-              }
-              else if("add_bottom" == $action)
-              {
+              } else if("add_bottom" == $action) {
                 $todo_content = $_REQUEST['content'];
                 $theme->article_addline("add_bottom " . $util->query . " content=" . $todo_content);
 
-                if($todo_content != "")
-                {
+                if($todo_content != "") {
                   // Now find our last priority and add one to it;
                   $result = $util->db->Select("todo", "", "", " ORDER BY `todo_priority` DESC");
                   $num = $util->db->GetRows($result);
@@ -222,9 +210,7 @@
                     "VALUES ('', '$todo_content', '$todo_priority');");
 
                 } else $theme->article_addline("No Content Entered.  ");
-              }
-              else if("remove"==$action)
-              {
+              } else if("remove"==$action) {
                 // Get our priority
                 $result = $util->db->Select("todo", "", "todo_id = '$id'");
                 $num = $util->db->GetRows($result);
@@ -237,13 +223,9 @@
 
                 // Shift all priorities after this one up one
                 $util->db->Query("UPDATE todo SET todo_priority=todo_priority - 1 WHERE todo_priority > '$todo_priority'");
-              }
-              else if("edit"==$action)
-              {
+              } else if("edit"==$action) {
                 $theme->article_addline("edit " . $util->query);
-              }
-              else if("edit_save"==$action)
-              {
+              } else if("edit_save"==$action) {
                 $todo_content = $_REQUEST['content'];
                 $todo_id = $_REQUEST['id'];
 
@@ -251,13 +233,9 @@
                   // Now just update our row
                   $result = $util->db->query("UPDATE `todo` SET `todo_content` = '" . $todo_content . "' WHERE `todo_id` = " . $todo_id . " LIMIT 1;");
                 } else $theme->article_addline("No Content Entered.  ");
-              }
-              else if("priority_raise"==$action)
-              {
+              } else if("priority_raise"==$action) {
                 FindAndSwap($util, $id, "<", "DESC");
-              }
-              else if("priority_lower"==$action)
-              {
+              } else if("priority_lower"==$action) {
                 FindAndSwap($util, $id, ">", "ASC");
               } else $theme->article_addline("no action " . $util->query);
             }

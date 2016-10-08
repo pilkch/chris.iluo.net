@@ -8,7 +8,7 @@
 <?php
   require_once("util.php");
 
-  $db=new cDB();
+  $db = new cDB();
   $db->OpenDB(false);
 
   function StringUsersOnline()
@@ -19,12 +19,12 @@
     $timestamp = date("ymdHis");
     $past = $timestamp - 300;
 
-    $result=$db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer", "'$timestamp', '$this->ip', '$this->host', '$this->referer'");
+    $result = $db->Add("counter", "counter_timestamp, counter_ip, counter_host, counter_referer", "'$timestamp', '$this->ip', '$this->host', '$this->referer'");
 
     $result = $db->Select("counter", "DISTINCT counter_ip", "counter_timestamp > '$past'");
     $num = $db->GetRows($result);
 
-    if($num == 1) return "1 user online";
+    if ($num == 1) return "1 user online";
     else return $num ." user online";
   }
 ?>
@@ -34,8 +34,7 @@
     </h3>
     <p>
 <?PHP
-      if($mode == "add")
-      {
+      if ($mode == "add") {
         $table = "journal";
 
         /*
@@ -48,8 +47,7 @@
         $journal_title
         */
       }
-      else if($mode == "query")
-      {
+      else if ($mode == "query") {
 ?>
       <table border="1">
 <?PHP
@@ -58,13 +56,12 @@
 ?>
         <tr>
 <?PHP
-        $i=0;
-        while ($line = mysql_fetch_array($fields, MYSQL_ASSOC))
-        {
-          $i=0;
-          foreach ($line as $col_value)
-          {
-            if($i == 0) echo "<td>" . $col_value . "</td>";
+        $i = 0;
+        while ($line = mysql_fetch_array($fields, MYSQL_ASSOC)) {
+          $i = 0;
+          foreach ($line as $col_value) {
+            if ($i == 0) echo "<td>" . $col_value . "</td>";
+
             $i++;
           }
         }
@@ -73,13 +70,11 @@
 <?PHP
 
         $result = $db->Query($q);
-        while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
-        {
+        while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 ?>
         <tr>
 <?PHP
-          foreach ($line as $col_value)
-          {
+          foreach ($line as $col_value) {
 ?>
           <td>
 <?PHP

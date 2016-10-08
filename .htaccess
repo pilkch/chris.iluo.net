@@ -55,6 +55,9 @@ ErrorDocument 503 /errors/error_503.php
   RewriteEngine on
   RewriteBase /
 
+  RewriteCond %{HTTPS} !on
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
   # Rewrite "dropbox" and "dropbox/" to "dropbox/index.php"
   # RewriteRule ^dropbox$ dropbox/index.php
   # RewriteRule ^dropbox/$ dropbox/index.php

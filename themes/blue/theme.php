@@ -66,8 +66,8 @@
       $this->foreground = "#000000";
       $this->background = "#eaeaea";
 
-      $this->home="http://chris.iluo.net"; //$_SERVER['REDIRECT_SITE_HTMLROOT'];
-      $this->dir=$this->home . "/themes/" . $this->filename;
+      $this->home="/";
+      $this->dir=$this->home . "themes/" . $this->filename;
       $this->img=$this->dir . "/images";
       $this->page=$PHP_SELF;
       $this->showlogin=$showlogin;
@@ -144,7 +144,7 @@
 
     function form_submitButton($text, $action, $icon)
     {
-      return "<input type=\"image\" name=\"$text\" alt=\"$text\" title=\"$text\" src=\"http://chris.iluo.net/images/action/" . $icon . "\" onclick=\"this.disabled=1; this.form.submit(); return false;\" width=\"16\" height=\"16\">";
+      return "<input type=\"image\" name=\"$text\" alt=\"$text\" title=\"$text\" src=\"/images/action/" . $icon . "\" onclick=\"this.disabled=1; this.form.submit(); return false;\" width=\"16\" height=\"16\">";
     }
 
     function form_action($form, $submit_text, $page, $action, $icon)
@@ -243,26 +243,26 @@
     {
       $this->WriteMenuBegin($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Main Menu");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "\">Home</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/blog/\">Blog</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"" . $this->home . "/images/rss.png\" alt=\"RSS Feed\"/></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.github.com/pilkch\">GitHub</a><a href=\"http://www.github.com/pilkch\"><img src=\"" . $this->home . "/images/github.png\" alt=\"GitHub\"/></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><a href=\"http://www.last.fm/user/cgpilk\"><img src=\"" . $this->home . "/images/lastfm.png\" alt=\"last.fm\"/></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.youtube.com/user/cgpilk\">YouTube</a><a href=\"http://www.youtube.com/user/cgpilk\"><img src=\"" . $this->home . "/images/youtube.png\" alt=\"YouTube\"/></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.sourceforge.net/users/pilkch\">SourceForge</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"" . $this->home . "/images/sourceforge.png\" alt=\"SourceForge\"/></a>");
-          //$this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/about.php\">About Me</a>");
-          //$this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/contact.php\">Contact Me</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/\">Home</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/blog/\">Blog</a><a href=\"http://chris.iluo.net/blog/feed/atom\"><img src=\"/images/rss.png\" alt=\"RSS Feed\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.github.com/pilkch\">GitHub</a><a href=\"http://www.github.com/pilkch\"><img src=\"/images/github.png\" alt=\"GitHub\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><a href=\"http://www.last.fm/user/cgpilk\"><img src=\"/images/lastfm.png\" alt=\"last.fm\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.youtube.com/user/cgpilk\">YouTube</a><a href=\"http://www.youtube.com/user/cgpilk\"><img src=\"/images/youtube.png\" alt=\"YouTube\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.sourceforge.net/users/pilkch\">SourceForge</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"/images/sourceforge.png\" alt=\"SourceForge\"/></a>");
+          //$this->WriteMenuItem($bIsMainPage, "<a href=\"/about.php\">About Me</a>");
+          //$this->WriteMenuItem($bIsMainPage, "<a href=\"/contact.php\">Contact Me</a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Projects");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/projects/colourpicker\">Colour Picker</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/projects/colourpicker\">Colour Picker</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/buildall\">BuildAll</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/tests\">Unit Test Results</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/tests\">Unit Test Results</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/postcodes\">PostCodes</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/userscripts\">UserScripts</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/tetris\">Tetris</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/beautify\">Code Beautifier</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/statistics\">Statistics</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/dropbox\">Dropbox</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/beautify\">Code Beautifier</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/statistics\">Statistics</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/dropbox\">Dropbox</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libopenglmm\">libopenglmm</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/spitfire\">spitfire</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/breathe\">breathe</a>");
@@ -273,12 +273,12 @@
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://sudokubang.git.sourceforge.net/\">Sudoku</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/allocator\">Allocator</a>");
 
-          //$this->WriteMenuItem($bIsMainPage, "<a href=\"" . $this->home . "/todo\">TODO</a>");
+          //$this->WriteMenuItem($bIsMainPage, "<a href=\"/todo\">TODO</a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Links");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.iluo.net/\"><img alt=\"Iluo\" src=\"" . $this->home . "/images/link/iluo.png\" /></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.opera.com/\"><img alt=\"Opera\" src=\"" . $this->home . "/images/link/opera.png\" /></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.stensi.com/\"><img alt=\"Simon Stenhouse\" src=\"" . $this->home . "/images/link/sten.png\" /></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.iluo.net/\"><img alt=\"Iluo\" src=\"/images/link/iluo.png\" /></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.opera.com/\"><img alt=\"Opera\" src=\"/images/link/opera.png\" /></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.stensi.com/\"><img alt=\"Simon Stenhouse\" src=\"/images/link/sten.png\" /></a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Server");
           $this->WriteMenuItem($bIsMainPage, date("d/m/y"));

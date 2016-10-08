@@ -1,28 +1,6 @@
 <?php
   require ($_SERVER['DOCUMENT_ROOT'] . '/util/util.php');
 
-// Download
-//Hustle
-//Burn Notice
-//Reguritator
-
-////TODO: Create an "At the Moment" section on the website
-//Just Finished
-//Dexter Season 2
-//Coupling
-//Pushing Daisies
-//Sudoku
-//Pulp Fiction
-//
-//At the Moment
-//Sudoku
-//Burn Notice
-//rss2rss
-//
-//
-//For wii:
-//Zack and Wiki
-
 class browser{
 
   var $Name = "Unknown";
@@ -252,7 +230,7 @@ class browser{
 ?>
     <p id="conservatory">
       Website and Content Copyright &copy;2006 <a href="mailto:chris.pilkington@gmail.com">Christopher</a> <a href="mailto:chris.pilkington@gmail.com">Pilkington</a><br /><br />
-      <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11-blue.png" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+      <a href="http://validator.w3.org/check?uri=referer"><img src="images/valid-xhtml11-blue.png" alt="Valid XHTML 1.1" height="31" width="88" /></a>
     </p>
 <?PHP
     $theme->footerEnd();

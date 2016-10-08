@@ -1,0 +1,8 @@
+# robots.txt file for http://chris.iluo.net
+#
+
+User-agent: *
+Disallow: /create_user.php
+Disallow: /blog/wp-login.php*
+
+Sitemap: http://chris.iluo.net/sitemap.xml

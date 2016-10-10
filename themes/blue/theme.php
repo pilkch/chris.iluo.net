@@ -260,7 +260,6 @@
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/postcodes\">PostCodes</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/userscripts\">UserScripts</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/tetris\">Tetris</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"/beautify\">Code Beautifier</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/statistics\">Statistics</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/dropbox\">Dropbox</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libopenglmm\">libopenglmm</a>");

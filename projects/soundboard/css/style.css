@@ -1,0 +1,85 @@
+body {
+  padding-top: 30px;
+  width: 95%;
+  margin: auto auto;
+  padding-bottom: 40px;
+  font-family: sans-serif;
+}
+
+#soundboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* or space-around */
+}
+
+a {
+  display: inline-block;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (min-width: 50em) {
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 40px;
+  }
+}
+
+figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+audio {
+	display:none
+}
+
+.soundboardimg {
+  max-width: 400px;
+  max-height: 270px;
+  width: auto;
+  height: auto;
+}
+
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 100px;
+  width: 80%;
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 30%;
+  color: #818181;
+}
+
+.overlay h3, h4, a {
+  color: #818181;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    font-size: 60px;
+}

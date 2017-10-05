@@ -255,6 +255,7 @@
         $this->WriteMenuSectionBegin($bIsMainPage, "Projects");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/chris.iluo.net/\">Website Source</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/projects/colourpicker\">Colour Picker</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"/projects/soundboard\">Soundboard</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/buildall\">BuildAll</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/tests\">Unit Test Results</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/postcodes\">PostCodes</a>");

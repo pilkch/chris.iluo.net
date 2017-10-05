@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta name="description" content="HTML5 Soundboard">
+    <meta name="author" content="Chris Pilkington">
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Soundboard</title>
+  </head>
+
+  <body>
+    <section id="soundboard">
+      <figure>
+        <img class="soundboardimg" src="images/correct.png" alt="" onclick="document.getElementById('correct').play();">
+        <audio id="correct" title="Correct!">
+          <source src="audio/131660__bertrof__game-sound-correct.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/pipe.png" alt="" onclick="document.getElementById('pipe').play();">
+        <audio id="pipe" title="Pipe">
+          <source src="audio/13290__schademans__pipe9.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/synth.png" alt="" onclick="document.getElementById('synth').play();">
+        <audio id="synth" title="Synth">
+          <source src="audio/169108__rsanchez44__synthpad-2.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/boomkick.png" alt="" onclick="document.getElementById('boomkick').play();">
+        <audio id="boomkick" title="Boom Kick">
+          <source src="audio/195396__goup-1__boom-kick.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/alien.png" alt="" onclick="document.getElementById('alien').play();">
+        <audio id="alien" title="Alien">
+          <source src="audio/208532__18hiltc__alien-bomb-timer.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/acmesiren.png" alt="" onclick="document.getElementById('acmesiren').play();">
+        <audio id="acmesiren" title="Acme Siren">
+          <source src="audio/331610__applauseav__acme-siren.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/thunder.png" alt="" onclick="document.getElementById('thunder').play();">
+        <audio id="thunder" title="Thunder">
+          <source src="audio/33246__ljudman__oska.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/gong.png" alt="" onclick="document.getElementById('gong').play();">
+        <audio id="gong" title="Gong">
+          <source src="audio/chinese-gong-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/churchbells.png" alt="" onclick="document.getElementById('churchbells').play();">
+        <audio id="churchbells" title="Church Bells">
+          <source src="audio/church-chime-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/horn.png" alt="" onclick="document.getElementById('horn').play();">
+        <audio id="horn" title="Horn">
+          <source src="audio/dixie-horn_daniel-simion.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/airhorn.png" alt="" onclick="document.getElementById('airhorn').play();">
+        <audio id="airhorn" title="Air Horn">
+          <source src="audio/fire-truck-air-horn_daniel-simion.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/seagulls.png" alt="" onclick="document.getElementById('seagulls').play();">
+        <audio id="seagulls" title="Seagulls">
+          <source src="audio/flock-of-seagulls_daniel-simion.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/bell.png" alt="" onclick="document.getElementById('bell').play();">
+        <audio id="bell" title="Bell">
+          <source src="audio/front-desk-bells-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/heartbeat.png" alt="" onclick="document.getElementById('heartbeat').play();">
+        <audio id="heartbeat" title="Heart Beat">
+          <source src="audio/human-heartbeat-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/bird.png" alt="" onclick="document.getElementById('bird').play();">
+        <audio id="bird" title="Bird">
+          <source src="audio/meadowlark_daniel-simion.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/schoolbell.png" alt="" onclick="document.getElementById('schoolbell').play();">
+        <audio id="schoolbell" title="School Bell">
+          <source src="audio/old-fashioned-school-bell-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/whistle.png" alt="" onclick="document.getElementById('whistle').play();">
+        <audio id="whistle" title="Whistle">
+          <source src="audio/police-whistle-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/trainwhistle.png" alt="" onclick="document.getElementById('trainwhistle').play();">
+        <audio id="trainwhistle" title="Train Whistle">
+          <source src="audio/steam-train-whistle-daniel_simon.wav" />
+        </audio>
+      </figure>
+      <figure>
+        <img class="soundboardimg" src="images/splash.png" alt="" onclick="document.getElementById('splash').play();">
+        <audio id="splash" title="Splash">
+          <source src="audio/Video_Game_Splash-Ploor-699235037.wav" />
+        </audio>
+      </figure>
+
+      <ul id="doc" class="list floated soundboard clearfix">
+      </ul>
+    </section>
+
+
+    <div id="credits" class="overlay" onclick="closeOverlay()">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeOverlay()">&times;</a>
+      <div class="overlay-content">
+        <h3>Credits</h3>
+        <p>
+          <h4>Code</h4>
+          <p>
+            This is a mash up of these two projects:
+            <ul>
+              <li><a href="https://github.com/sk33lz/bootstrap-html5-soundboard">Bootstrap HTML5 Soundboard</a></li>
+              <li><a href="https://www.sitepoint.com/using-modern-css-to-build-a-responsive-image-grid/">Using Modern CSS to Build a Responsive Image Grid</a></li>
+            </ul>
+          </p>
+
+          <h4>Sounds</h4>
+          <p>
+            These free sounds are used:
+            <ul>
+              <li><a href="https://freesound.org/people/schademans/sounds/13290/">https://freesound.org/people/schademans/sounds/13290/</a></li>
+              <li><a href="https://freesound.org/people/ljudman/sounds/33246/">https://freesound.org/people/ljudman/sounds/33246/</a></li>
+              <li><a href="https://freesound.org/people/18hiltc/sounds/208532/">https://freesound.org/people/18hiltc/sounds/208532/</a></li>
+              <li><a href="https://freesound.org/people/iskweldog/sounds/200971/">https://freesound.org/people/iskweldog/sounds/200971/</a></li>
+              <li><a href="https://freesound.org/people/rsanchez44/sounds/169108/">https://freesound.org/people/rsanchez44/sounds/169108/</a></li>
+              <li><a href="https://freesound.org/people/Bertrof/sounds/131660/">https://freesound.org/people/Bertrof/sounds/131660/</a></li>
+              <li><a href="https://freesound.org/people/Goup_1/sounds/195396/">https://freesound.org/people/Goup_1/sounds/195396/</a></li>
+              <li><a href="http://soundbible.com/2100-Splash-Rock-In-Lake.html">http://soundbible.com/2100-Splash-Rock-In-Lake.html</a></li>
+              <li><a href="http://soundbible.com/2148-Chinese-Gong.html">http://soundbible.com/2148-Chinese-Gong.html</a></li>
+              <li><a href="http://soundbible.com/2162-Human-Heartbeat.html">http://soundbible.com/2162-Human-Heartbeat.html</a></li>
+              <li><a href="http://soundbible.com/2171-Church-Bell-Chime.html">http://soundbible.com/2171-Church-Bell-Chime.html</a></li>
+              <li><a href="http://soundbible.com/2180-Meadowlark.html">http://soundbible.com/2180-Meadowlark.html</a></li>
+              <li><a href="http://soundbible.com/2179-Dixie-Horn.html">http://soundbible.com/2179-Dixie-Horn.html</a></li>
+              <li><a href="http://soundbible.com/2177-Steam-Train-Whistle.html">http://soundbible.com/2177-Steam-Train-Whistle.html</a></li>
+              <li><a href="http://soundbible.com/2184-Police-Whistle.html">http://soundbible.com/2184-Police-Whistle.html</a></li>
+              <li><a href="http://soundbible.com/2185-Old-School-Bell.html">http://soundbible.com/2185-Old-School-Bell.html</a></li>
+              <li><a href="http://soundbible.com/2190-Front-Desk-Bell.html">http://soundbible.com/2190-Front-Desk-Bell.html</a></li>
+              <li><a href="http://soundbible.com/2192-Fire-Truck-Horn.html">http://soundbible.com/2192-Fire-Truck-Horn.html</a></li>
+              <li><a href="http://soundbible.com/2193-Flock-Seagulls.html">http://soundbible.com/2193-Flock-Seagulls.html</a></li>
+            </ul>
+          </p>
+        </p>
+      </div>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openOverlay()">Credits</span>
+
+<script>
+function openOverlay() {
+    document.getElementById("credits").style.width = "100%";
+}
+
+function closeOverlay() {
+    document.getElementById("credits").style.width = "0%";
+}
+</script>
+
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/bootstrap/bootstrap-transition.js"></script>
+<script src="js/bootstrap/bootstrap-collapse.js"></script>
+
+  </body>
+</html>

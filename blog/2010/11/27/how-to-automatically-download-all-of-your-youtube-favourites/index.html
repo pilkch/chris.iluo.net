@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>How To Automatically Download All of Your YouTube Favourites // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How To Automatically Download All of Your YouTube Favourites"/>
+<meta name="twitter:description" content="FireFox add-ons such as 1-Click YouTube Video Download are good but one must visit every video and manually save it. I have a lot of favourites and I wanted to back them up with as little effort as possible. Here is how.
+You will need youtube-dl. It is available via yum/apt-get however the version provided may be quite old (In Fedora 14 it did not support -playlist-start and -playlist-end).
+Create a new playlist and add all the videos from your favourites (Note: A playlist can only contain 200 videos if you have more than than this you will have to make multiple playlists and repeat this process for each one)."/>
+
+    <meta property="og:title" content="How To Automatically Download All of Your YouTube Favourites" />
+<meta property="og:description" content="FireFox add-ons such as 1-Click YouTube Video Download are good but one must visit every video and manually save it. I have a lot of favourites and I wanted to back them up with as little effort as possible. Here is how.
+You will need youtube-dl. It is available via yum/apt-get however the version provided may be quite old (In Fedora 14 it did not support -playlist-start and -playlist-end).
+Create a new playlist and add all the videos from your favourites (Note: A playlist can only contain 200 videos if you have more than than this you will have to make multiple playlists and repeat this process for each one)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2010/11/27/how-to-automatically-download-all-of-your-youtube-favourites/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2010-11-27T18:04:17+00:00" />
+<meta property="article:modified_time" content="2010-11-27T18:04:17+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">How To Automatically Download All of Your YouTube Favourites</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Nov 27, 2010
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="../../../../tags/tutorial/">tutorial</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>FireFox add-ons such as <a href="http://www.clickyoutubedownload.com/">1-Click YouTube Video Download</a> are good but one must visit every video and manually save it. I have a lot of favourites and I wanted to back them up with as little effort as possible. Here is how.</p>
+<p>You will need <a href="http://rg3.github.com/youtube-dl/download.html">youtube-dl</a>. It is available via yum/apt-get however the version provided may be quite old (In Fedora 14 it did not support -playlist-start and -playlist-end).</p>
+<p>Create a new playlist and add all the videos from your favourites (Note: A playlist can only contain 200 videos if you have more than than this you will have to make multiple playlists and repeat this process for each one).</p>
+<p>Click on &ldquo;Play All&rdquo;. Copy the URL from the address bar for the first video when it tries to play (You only need this bit: &ldquo;http://www.youtube.com/view_play_list?p=AE198A14013A3005&rdquo;).</p>
+<p>Now tell youtube-dl to download the videos in the playlist:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python ./youtube-dl.py --title --ignore-errors --playlist-start<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> --playlist-end<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span> http://www.youtube.com/view_play_list?p<span style="color:#f92672">=</span>AE198A14013A3005
+</span></span></code></pre></div><p>If you had more than 200 videos repeat this process for the ones that didn’t fit in the playlist.<br>
+This should work for other people’s playlists too.<br>
+You might want to make a note of the latest video in your favourites so that the next time you can backup only the new videos.<br>
+This process still requires some user interaction, if you find an even easier way where I can just say, “This is my user name, make it happen”, I’d love to know about it.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

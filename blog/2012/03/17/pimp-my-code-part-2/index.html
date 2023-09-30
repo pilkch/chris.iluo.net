@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Pimp My Code Part 2 // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pimp My Code Part 2"/>
+<meta name="twitter:description" content="char szPassword[255]; GenerateRandomPassword(szPassword, 16); char szText[255]; sprintf(szText, &#34;User: %s, ID: %d, Password: %s&#34;, szUser, int(userid&#43;&#43;), szPassword); Don&rsquo;t increment and use a variable on the same line. We know, you’re very tricky, you saved a line. You also made sure that beginners to C&#43;&#43; don’t know what the result will be. Keep it simple stupid. Create the simplest most readable code possible, it makes skimming over code and debugging code much easier."/>
+
+    <meta property="og:title" content="Pimp My Code Part 2" />
+<meta property="og:description" content="char szPassword[255]; GenerateRandomPassword(szPassword, 16); char szText[255]; sprintf(szText, &#34;User: %s, ID: %d, Password: %s&#34;, szUser, int(userid&#43;&#43;), szPassword); Don&rsquo;t increment and use a variable on the same line. We know, you’re very tricky, you saved a line. You also made sure that beginners to C&#43;&#43; don’t know what the result will be. Keep it simple stupid. Create the simplest most readable code possible, it makes skimming over code and debugging code much easier." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2012/03/17/pimp-my-code-part-2/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2012-03-17T17:59:12+00:00" />
+<meta property="article:modified_time" content="2012-03-17T17:59:12+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Pimp My Code Part 2</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Mar 17, 2012
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><a href="http://en.wikipedia.org/wiki/Pimp_My_Ride"><img src="../../../../blog/wp-content/uploads/2012/03/20498288.jpg" alt="Xhibit" title="Xhibit"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">char</span> szPassword[<span style="color:#ae81ff">255</span>];
+</span></span><span style="display:flex;"><span>GenerateRandomPassword(szPassword, <span style="color:#ae81ff">16</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">char</span> szText[<span style="color:#ae81ff">255</span>];
+</span></span><span style="display:flex;"><span>sprintf(szText, <span style="color:#e6db74">&#34;User: %s, ID: %d, Password: %s&#34;</span>, szUser, <span style="color:#66d9ef">int</span>(userid<span style="color:#f92672">++</span>), szPassword);
+</span></span></code></pre></div><p>Don&rsquo;t increment and use a variable on the same line. We know, you’re very tricky, you saved a line. You also made sure that beginners to C++ don’t know what the result will be. <a href="https://en.wikipedia.org/wiki/KISS_principle">Keep it simple stupid</a>. Create the simplest most readable code possible, it makes skimming over code and debugging code much easier. Fixed length arrays are very prone to buffer overruns, in this example szPassword is probably only 8 characters long after calling GenerateRandomPassword, but szUser could be any length and could definitely overrun 255 characters. The best way to mitigate this problem is to use a real string class such as <code>std::string</code>. We can also avoid using <code>sprintf</code> by using a type safe string writing class, <code>std::ostringstream</code>. Code using <code>std::ostringstream</code> is also slightly more human readable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>userid<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string sPassword <span style="color:#f92672">=</span> GenerateRandomPassword(<span style="color:#ae81ff">16</span>);
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>ostringstream oText;
+</span></span><span style="display:flex;"><span>oText<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;User: &#34;</span><span style="color:#f92672">&lt;&lt;</span>sUser<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;, ID: &#34;</span><span style="color:#f92672">&lt;&lt;</span>userid<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;, Password: &#34;</span><span style="color:#f92672">&lt;&lt;</span>sPassword;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string sText <span style="color:#f92672">=</span> oText.str();
+</span></span></code></pre></div><p>There, type safe, buffer overflow safe, future proof and slightly more readable, what&rsquo;s not to like?</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

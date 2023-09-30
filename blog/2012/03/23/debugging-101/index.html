@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Debugging 101 // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Debugging 101"/>
+<meta name="twitter:description" content="Tips to help you find bugs.
+Turn the warning level up and turn on warnings as errors I know, it can be a pain, but it works. It helps you produce more rhobust, forward compatible, portable code that is syntactically correct on more compilers.
+Use assert&hellip; Assert will help you find errors before you even knew there was a problem. It is 100x better if your application tells you exactly where problems are and breaks into the debugger than for your application to crash for the customer."/>
+
+    <meta property="og:title" content="Debugging 101" />
+<meta property="og:description" content="Tips to help you find bugs.
+Turn the warning level up and turn on warnings as errors I know, it can be a pain, but it works. It helps you produce more rhobust, forward compatible, portable code that is syntactically correct on more compilers.
+Use assert&hellip; Assert will help you find errors before you even knew there was a problem. It is 100x better if your application tells you exactly where problems are and breaks into the debugger than for your application to crash for the customer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2012/03/23/debugging-101/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2012-03-23T20:34:08+00:00" />
+<meta property="article:modified_time" content="2012-03-23T20:34:08+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Debugging 101</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Mar 23, 2012
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>Tips to help you find bugs.</p>
+<h2 id="turn-the-warning-level-up-and-turn-on-warnings-as-errors">Turn the warning level up and turn on warnings as errors</h2>
+<p>I know, it can be a pain, but it works. It helps you produce more rhobust, forward compatible, portable code that is syntactically correct on more compilers.</p>
+<h2 id="use-assert">Use assert&hellip;</h2>
+<p>Assert will help you find errors before you even knew there was a problem. It is 100x better if your application tells you exactly where problems are and breaks into the debugger than for your application to crash for the customer. It goes hand in hand with compile time type safety, compiler warnings and static_assert.</p>
+<h2 id="and-use-if--return">&hellip;and use if () return</h2>
+<p>Think of assert as flagging the problem for you to fix and if () return as guarding the application from crashing for the customer.</p>
+<h2 id="print-to-your-errorstrace-file">Print to your errors/trace file</h2>
+<p>It can be easier to read what the application did rather than stepping through it, in some cases it is not possible to step through the code at all; full screen games, embedded devices and drivers for example. Print out variables, function entrance/exit and &ldquo;I am here&rdquo; lines.</p>
+<h2 id="simplify">Simplify</h2>
+<p>Comment out or remove as much code as possible. Slowly remove lines until you find the offending line. Try different ways of doing the same thing. Read your errors/trace file. If I had a dollar for every time a coworker tells me there is a bug in the library/standard library/compiler/Operating System and it is actually an error in their code and they have ignored a printed error, I would buy a Ferrari, and then I would buy them a pair of spectacles and I would say, “Use these to read these”, and point at the error message.</p>
+<h2 id="write-data-to-files-and-validate-your-files">Write data to files and validate your files</h2>
+<p>For example XML, HTML, JSON, RSS, KML, PNG, WAV and MP3, can all be written to files and run through third party validation software. You can even setup a unit test to write these to a file and run the validator for you.</p>
+<h2 id="test-test-test">Test. Test. Test.</h2>
+<p>Unit test all new code, try to gradually add unit tests for old code. You can&rsquo;t reason about a refactoring if you can&rsquo;t verify that it still works in a range of conditions.</p>
+<h2 id="use-stl">Use STL</h2>
+<p>It is there for a reason. Millions of developers have used it for almost two decades, hundreds of thousands of eyes have pored over the source code to it. Chances are that it is more capable, less bug ridden and more portable than your hodge podge collection of classes. A large percentage of bugs I have seen are in classes that could be replaced by the STL. Plus developers will “just know” what your code does because they already have experience with STL. Just use it.</p>
+<h2 id="try-to-avoid-boost">Try to avoid Boost</h2>
+<p>Most of the good stuff from 10 years ago has become standard.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

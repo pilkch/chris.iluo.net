@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Moving from SVN to GIT // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Moving from SVN to GIT"/>
+<meta name="twitter:description" content="So I have a few projects on SourceForge, but they’re all hosted via SVN. With all this distributed version control going on I thought I would like to get in on the action. I thought about moving to github, but what happens in 5 or 10 years when I want to move on to another revision control software? The name has a limited life expectancy. Anyway so I wanted to switch so I researched alot, this is the best information I found and this blog entry is basically a rehash specific to SourceForge (Because I didn’t find any good SourceForge specific information)."/>
+
+    <meta property="og:title" content="Moving from SVN to GIT" />
+<meta property="og:description" content="So I have a few projects on SourceForge, but they’re all hosted via SVN. With all this distributed version control going on I thought I would like to get in on the action. I thought about moving to github, but what happens in 5 or 10 years when I want to move on to another revision control software? The name has a limited life expectancy. Anyway so I wanted to switch so I researched alot, this is the best information I found and this blog entry is basically a rehash specific to SourceForge (Because I didn’t find any good SourceForge specific information)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2009/08/28/moving-from-svn-to-git/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2009-08-28T09:00:21+00:00" />
+<meta property="article:modified_time" content="2009-08-28T09:00:21+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Moving from SVN to GIT</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Aug 28, 2009
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="../../../../tags/tutorial/">tutorial</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>So I have a <a href="http://sourceforge.net/users/pilkch">few projects</a> on <a href="http://www.sourceforge.net/">SourceForge</a>, but they’re all hosted via <a href="http://en.wikipedia.org/wiki/Subversion_%28software%29">SVN</a>. With <a href="http://en.wikipedia.org/wiki/Mercurial_%28software%29">all</a> <a href="http://en.wikipedia.org/wiki/Bazaar_%28software%29">this</a> <a href="http://en.wikipedia.org/wiki/Git_%28software%29">distributed</a> version control going on I thought I would like to get in on the action. I thought about moving to github, but what happens in 5 or 10 years when I want to move on to another <a href="http://en.wikipedia.org/wiki/Comparison_of_revision_control_software">revision control software</a>? The name has a limited life expectancy. Anyway so I wanted to switch so I researched alot, <a href="http://www.simplisticcomplexity.com/2008/03/05/cleanly-migrate-your-subversion-repository-to-a-git-repository/">this</a> is the best information I found and this blog entry is basically a rehash specific to SourceForge (Because I didn’t find any good SourceForge specific information).</p>
+<p><strong>Note: For this tutorial you will want to change all occurrences of USERNAME to your user name for example “pilkch”, PROJECTNAME to your project name for example “breathe” and YOURFULLNAME to your full name for example “Chris Pilkington”.</strong></p>
+<p>First of all we need to download git and git-svn:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install git git-svn
+</span></span></code></pre></div><p>Now we are going to create our repo directory for holding our repositories:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~
+</span></span><span style="display:flex;"><span>mkdir repo
+</span></span></code></pre></div><p>Create a users.txt file to map our subversion users to git users:</p>
+<p>users.txt</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>USERNAME <span style="color:#f92672">=</span> YOURFULLNAME &lt;USERNAME@PROJECTNAME.git.sourceforge.net&gt;
+</span></span></code></pre></div><p>As the other article says, we basically check out a svn directory as a git repository:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd repo
+</span></span><span style="display:flex;"><span>mkdir PROJECTNAME_from_svn
+</span></span><span style="display:flex;"><span>cd PROJECTNAME_from_svn
+</span></span><span style="display:flex;"><span>git svn init http://PROJECTNAME.svn.sourceforge.net/svnroot/PROJECTNAME/PROJECTNAME --no-metadata
+</span></span><span style="display:flex;"><span>git config svn.authorsfile ../users.txt
+</span></span><span style="display:flex;"><span>git svn fetch
+</span></span></code></pre></div><p>Check that worked (Just read the last few changes to make sure svn history is present, you can hit spacebar to scroll back a page of history or two just to make sure):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log
+</span></span></code></pre></div><p>From now on we can use git commands, first of all want to create a copy of the git-svn repository:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ..
+</span></span><span style="display:flex;"><span>git clone PROJECTNAME_from_svn PROJECTNAME
+</span></span></code></pre></div><p>PROJECTNAME/ now contains our “clean” repository and PROJECTNAME_from_svn can be deleted if you like. We now just need to add and push our local repository to the remote location:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd PROJECTNAME
+</span></span><span style="display:flex;"><span>git config user.name <span style="color:#e6db74">&#34;YOURFULLNAME&#34;</span>
+</span></span><span style="display:flex;"><span>git config user.email <span style="color:#e6db74">&#34;USERNAME@users.sourceforge.net&#34;</span>
+</span></span><span style="display:flex;"><span>git remote rm origin <span style="color:#75715e"># This may not be necessary for you</span>
+</span></span><span style="display:flex;"><span>git remote add origin ssh://USERNAME@PROJECTNAME.git.sourceforge.net/gitroot/PROJECTNAME/PROJECTNAME
+</span></span><span style="display:flex;"><span>git config branch.master.remote origin
+</span></span><span style="display:flex;"><span>git config branch.master.merge refs/heads/master
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>Now to check that this is working you can browse to the git page of your SourceForge project and there should be data in your repository. And we can clone our repository back again to check that everything is working.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone ssh://USERNAME@PROJECTNAME.git.sourceforge.net/gitroot/PROJECTNAME/PROJECTNAME
+</span></span></code></pre></div><p>You may also want to ignore certain types of files, place a file called .gitignore in the root directory of your project and fill it with the patterns you want ignored:</p>
+<p>.gitignore</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.DS_Store
+</span></span><span style="display:flex;"><span>.svn
+</span></span><span style="display:flex;"><span>._*
+</span></span><span style="display:flex;"><span>~$*
+</span></span><span style="display:flex;"><span>.*.swp
+</span></span><span style="display:flex;"><span>Thumbs.db
+</span></span></code></pre></div><p>Now when we want to update we can do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -a -m <span style="color:#e6db74">&#34;This is my commit message.&#34;</span> <span style="color:#75715e"># All changes to the local repository need to be committed before we try merging new changes</span>
+</span></span><span style="display:flex;"><span>git pull <span style="color:#75715e"># Grab any changes from the main repository</span>
+</span></span></code></pre></div><p>Committing is slightly different:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .gitignore <span style="color:#75715e"># For example we might want to add our new .gitignore file</span>
+</span></span><span style="display:flex;"><span>git commit -a -m <span style="color:#e6db74">&#34;This is my commit message.&#34;</span> <span style="color:#75715e"># Note: Your commit has now only been staged, it is not in the main repository yet</span>
+</span></span><span style="display:flex;"><span>git push <span style="color:#75715e"># Now it is pushed into the main repository</span>
+</span></span></code></pre></div><p>The last step is to remove your svn repository which for SourceForge is as simple as unchecking a checkbox on the Admin-&gt;Features page.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

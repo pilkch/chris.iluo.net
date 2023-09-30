@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Java // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java"/>
+<meta name="twitter:description" content="I&rsquo;ve been getting back into Java in my spare time recently, as I think about possibly making a few Android games. These are some notes about the differences between Java and C&#43;&#43;.
+ In Java (almost) everything is an object. Strings, Floats and Ints are first class types. In C&#43;&#43; we usually don’t have to stress too much about performance. We can usually afford to do extra processing, create and pass around as many temporaries as we like, use extra ram and hold onto large amounts of ram."/>
+
+    <meta property="og:title" content="Java" />
+<meta property="og:description" content="I&rsquo;ve been getting back into Java in my spare time recently, as I think about possibly making a few Android games. These are some notes about the differences between Java and C&#43;&#43;.
+ In Java (almost) everything is an object. Strings, Floats and Ints are first class types. In C&#43;&#43; we usually don’t have to stress too much about performance. We can usually afford to do extra processing, create and pass around as many temporaries as we like, use extra ram and hold onto large amounts of ram." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2011/06/22/java/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2011-06-22T09:41:24+00:00" />
+<meta property="article:modified_time" content="2011-06-22T09:41:24+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Java</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 22, 2011
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>I&rsquo;ve been <a href="https://github.com/pilkch/postcodes">getting back into Java</a> in my spare time recently, as I think about possibly making a few Android games. These are some notes about the differences between Java and C++.</p>
+<ul>
+<li>In Java (almost) everything is an object. Strings, Floats and Ints are first class types.</li>
+<li>In C++ we usually don’t have to stress too much about performance. We can usually afford to do extra processing, create and pass around as many temporaries as we like, use extra ram and hold onto large amounts of ram. Java dies if you use too many temporaries. Performance in Java is highly reliant on the algorithms used.</li>
+<li>Java benefits from lazy initialisation, not doing anything you don’t need to until you need to.</li>
+<li>Caching previous results (But not holding onto excessive amounts of ram).</li>
+<li>Reducing number of temporaries by using classes such as StringBuilder.</li>
+<li>Java is fun to use. Like a strict C++. Strict in a good way. It is how C++ should have been created. Unfortunately the C++ standards committee decided that backwards compatability was a higher priority than creating awesomeness.</li>
+<li>The built in libraries are pretty good. I can still write algorithms quicker in C++ but there is a lot more extra functionality in the standard Java libraries such as regular expressions, file system, networking, threads, gui and sql. This is changing slightly with C++0x, but it still lacks basic things such as XML parsing, sql and anything related to gui.</li>
+<li>Each file can only contain 1 public class. This enforces good structure on your API, &ldquo;what is the public interface going to be?&rdquo;, where in C++ a lot of APIs just throw all classes in the header and allow the user to do whatever they want.</li>
+<li>Using classes from other files is less broken. The lack of including is a good thing although packages and import are basically the same as namespaces and include/using.</li>
+<li>Being forced to catch exceptions is great, the compiler makes sure that you are doing something with the exceptions later. If you throw or rethrow an exception you then have to mark your function as <code>throws</code> so that the exception and catching the exception propogates up the call stack. The best part about this is that the compiler then knows exactly where an exception should be handled and produces an error if you haven’t handled it or rethrown it.</li>
+<li>I miss const. There is final but it isn’t quite the same.</li>
+<li>I miss for example operator overriding. Some built in classes such as String, Array, Vector, etc. could definitely benefit from it. buffer[0] is easier for me to write and understand at first glance than buffer.get(0). Geometric vector and matrix classes could definitely benefit from operator overloading too for example <code>a = b + c</code> can be understood instantly, <code>a.Add(b, c)</code> is a bit awkward and I have to think about it, &ldquo;a is being modified, right, b and c are left unmodified, right?&rdquo;.</li>
+<li>I miss complex macros and ifdef/ifndef. These can be very helpful, for example using one class on one platform and another class on the other or sharing all the code in a class except for a few lines that are different. Apparently the JVM should be good enough that you can branch on the platform and use oop to change functionality and not lose too much performance. I’m not sure what the replacement is though for a part of your application that just doesn’t compile on other platforms because it uses a platform specific API.</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

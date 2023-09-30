@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>x86_64 Linux C/C&#43;&#43; Test // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="x86_64 Linux C/C&#43;&#43; Test"/>
+<meta name="twitter:description" content="I use:
+ gcc cmake KDevelop RapidSVN Meld  However, don’t go the websites, all of these are available in the (Default?) repositories, so you can either install them via yum, PackageKit or apt-get. Also note: RapidSVN and Meld are only needed if you want to use SVN. Even KDevelop is not required if you have another text editor that you prefer such as gedit/vi/emacs. If you want to create your provide your own make file then you don’t need cmake either."/>
+
+    <meta property="og:title" content="x86_64 Linux C/C&#43;&#43; Test" />
+<meta property="og:description" content="I use:
+ gcc cmake KDevelop RapidSVN Meld  However, don’t go the websites, all of these are available in the (Default?) repositories, so you can either install them via yum, PackageKit or apt-get. Also note: RapidSVN and Meld are only needed if you want to use SVN. Even KDevelop is not required if you have another text editor that you prefer such as gedit/vi/emacs. If you want to create your provide your own make file then you don’t need cmake either." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2008/12/15/x86_64-linux-c/c-test/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2008-12-15T16:10:02+00:00" />
+<meta property="article:modified_time" content="2008-12-15T16:10:02+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">x86_64 Linux C/C&#43;&#43; Test</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Dec 15, 2008
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="../../../../../tags/tutorial/">tutorial</a>
+              <a class="tag" href="../../../../../tags/x86_64/">x86_64</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>I use:</p>
+<ul>
+<li><a href="http://gcc.gnu.org/">gcc</a></li>
+<li><a href="http://www.cmake.org/">cmake</a></li>
+<li><a href="http://www.kdevelop.org/">KDevelop</a></li>
+<li><a href="http://rapidsvn.tigris.org/">RapidSVN</a></li>
+<li><a href="http://meld.sourceforge.net/">Meld</a></li>
+</ul>
+<p>However, don’t go the websites, all of these are available in the (Default?) repositories, so you can either install them via <a href="http://en.wikipedia.org/wiki/Yellow_dog_Updater,_Modified">yum</a>, <a href="http://en.wikipedia.org/wiki/PackageKit">PackageKit</a> or apt-get. Also note: RapidSVN and Meld are only needed if you want to use SVN. Even KDevelop is not required if you have another text editor that you prefer such as gedit/vi/emacs. If you want to create your provide your own make file then you don’t need cmake either.</p>
+<p>Anyway, so a simple application that just tests that you can do a 64 bit compile is pretty straight forward.</p>
+<ol>
+<li>Create a main.cpp file with a <code>int main(int argc, char* argv[]);</code> in it:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>int_ptr;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>void_ptr;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>funct_ptr)(<span style="color:#66d9ef">void</span>);
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(char):        &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">char</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(short):       &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">short</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(int):         &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(long):        &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">long</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(long long):   &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;------------------------------&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(float):       &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">float</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(double):      &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">double</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(long double): &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">long</span> <span style="color:#66d9ef">double</span>)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;------------------------------&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(*int):        &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(int_ptr)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(*void):       &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(void_ptr)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;sizeof(*function):   &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(funct_ptr)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bytes&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;------------------------------&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Architecture:        &#34;</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#66d9ef">sizeof</span>(void_ptr)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; bit&#34;</span><span style="color:#f92672">&lt;&lt;</span>std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li>Create a CMakeLists.txt that includes your main.cpp:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span><span style="color:#75715e"># Set the minimum cmake version
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>cmake_minimum_required (<span style="color:#e6db74">VERSION</span> <span style="color:#e6db74">2.6</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Set the project name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>project (<span style="color:#e6db74">size_test</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Add executable called &#34;size_test&#34; that is built from the source file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;main.cpp&#34;. The extensions are automatically found.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>add_executable (<span style="color:#e6db74">size_test</span> <span style="color:#e6db74">main.cpp</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><ol start="3">
+<li>cd to the directory of your CMakeLists.txt and run <code>cmake .</code> and then <code>make</code></li>
+<li><code>./size_test</code> output:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>char<span style="color:#f92672">)</span>:        <span style="color:#ae81ff">1</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>short<span style="color:#f92672">)</span>:       <span style="color:#ae81ff">2</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>int<span style="color:#f92672">)</span>:         <span style="color:#ae81ff">4</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>long<span style="color:#f92672">)</span>:        <span style="color:#ae81ff">8</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>long long<span style="color:#f92672">)</span>:   <span style="color:#ae81ff">8</span> bytes
+</span></span><span style="display:flex;"><span>------------------------------
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>float<span style="color:#f92672">)</span>:       <span style="color:#ae81ff">4</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>double<span style="color:#f92672">)</span>:      <span style="color:#ae81ff">8</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>long double<span style="color:#f92672">)</span>: <span style="color:#ae81ff">16</span> bytes
+</span></span><span style="display:flex;"><span>------------------------------
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>*int<span style="color:#f92672">)</span>:        <span style="color:#ae81ff">8</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>*void<span style="color:#f92672">)</span>:       <span style="color:#ae81ff">8</span> bytes
+</span></span><span style="display:flex;"><span>sizeof<span style="color:#f92672">(</span>*function<span style="color:#f92672">)</span>:   <span style="color:#ae81ff">8</span> bytes
+</span></span><span style="display:flex;"><span>------------------------------
+</span></span><span style="display:flex;"><span>Architecture:        <span style="color:#ae81ff">64</span> bit
+</span></span></code></pre></div><p>As you can see this is specific to x86_64.  The beauty of gcc is that by default it compiles to the architecture it is being run on.  I had previously thought that it would be a world of pain, making sure that my compiler built the right executable code and linked in the correct libaries.  I know this project doesn&rsquo;t use any special libraries, but (because of cmake?) the process is exactly the same as using cmake under 32 bit to make 32 bit executables.  You just make sure that they are there using Find*.cmake and then add them to the link step:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span>SET(<span style="color:#e6db74">LIBRARIES</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">ALUT</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">OpenAL</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">GLU</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL_image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL_net</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL_ttf</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Some of the libraries have different names than their Find*.cmake name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>SET(<span style="color:#e6db74">LIBRARIES_LINKED</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">alut</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">openal</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">GLU</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL_image</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL_net</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">SDL_ttf</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>FOREACH(<span style="color:#e6db74">LIBRARY_FILE</span> <span style="color:#f92672">${</span>LIBRARIES<span style="color:#f92672">}</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  Find_Package(<span style="color:#f92672">${</span>LIBRARY_FILE<span style="color:#f92672">}</span> <span style="color:#e6db74">REQUIRED</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>ENDFOREACH(<span style="color:#e6db74">LIBRARY_FILE</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Link our libraries into our executable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>TARGET_LINK_LIBRARIES(<span style="color:#f92672">${</span>PROJECT_NAME<span style="color:#f92672">}</span> <span style="color:#f92672">${</span>LIBRARIES_LINKED<span style="color:#f92672">}</span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Note that we don&rsquo;t actually have to specify the architecture for each package or even the whole executable.  This is taken care of by cmake.  Anyway, it is not some mysterious black magic, it is exactly the same as you&rsquo;ve always been doing.  Cross compiling is slightly different, but basically you would just specify -m32 and make sure that you link against the 32 bit libraries instead.  If I actually bother creating another 32 bit executable in my life I&rsquo;ll make sure that I document right here exactly how to do a cross compile from 64 bit.</p>
+<p>The advantages of <a href="http://en.wikipedia.org/wiki/X86-64">64 bit</a> are mmm, not so great unless you deal with really big files/memory ie. more than 4 GB.  Perhaps more practical are the extra and upgraded to 64 bit registers so you may see an increase in speed or <a href="http://en.wikipedia.org/wiki/Automatic_parallelization">parallelisation</a> of 64 bit operations, for example a game may want to use 64 bit colours (ie. 4x 16 bit floats instead of 4x 8 bit ints to represent an <a href="http://en.wikipedia.org/wiki/RGBA_color_space">rgba pixel</a>.</p>
+<h3 id="things-to-watch-out-for">Things to watch out for:</h3>
+<ul>
+<li>int is still 32 bit!  If I were implementing the x86_64 version of C++ standard/gcc/in a perfect world this would have been changed to 64 bit, ie. &ldquo;int&rdquo; would be your native int size, it&rsquo;s logical, it makes sense.  However, I do understand that this would have broken a lot of code.  The problem is, if int != architecture bits, then why have it at all, why not drop it from the standard and just have int32_t and int64_t and be done with it.  Then if a program chooses it can have:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int32_t</span> <span style="color:#66d9ef">int</span>;
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int64_t</span> <span style="color:#66d9ef">int</span>;
+</span></span></code></pre></div><p>as it sees fit.  Anyway.</p>
+<ul>
+<li>Pointers are now 64 bit!  So you can use them with size_t but cannot use them with int</li>
+<li>Under linux x86_64 gcc <code>sizeof(int*) == sizeof(function*)</code>, however, this is not guaranteed anywhere.  It may change on a certain platform/compiler.  Don&rsquo;t do stuff like this:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> address <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>originalvariable;
+</span></span></code></pre></div><ul>
+<li>gcc should warn you (you may need to <a href="http://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html">turn on these warnings</a> <code>-Wformat -Wconversion</code>).</li>
+<li>All in all, if you have been writing standard code and using make/cmake it should be relatively pain free to upgrade to 64 bit.</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

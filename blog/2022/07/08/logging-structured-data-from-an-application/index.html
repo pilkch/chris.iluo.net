@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Logging Structured Data From an Application // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Logging Structured Data From an Application"/>
+<meta name="twitter:description" content="What is structured data? Structured data is data formatted in a structured manner so that the sender can clearly communicate to the receiver each field/property/part of each message without confusion or ambiguity about where the message starts/stops, and what each field represents and it’s value.
+We usually represent structured data with fields or key value pairs. The data can even be represented in a tree such as in JSON or XML."/>
+
+    <meta property="og:title" content="Logging Structured Data From an Application" />
+<meta property="og:description" content="What is structured data? Structured data is data formatted in a structured manner so that the sender can clearly communicate to the receiver each field/property/part of each message without confusion or ambiguity about where the message starts/stops, and what each field represents and it’s value.
+We usually represent structured data with fields or key value pairs. The data can even be represented in a tree such as in JSON or XML." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2022/07/08/logging-structured-data-from-an-application/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-07-08T23:52:11+00:00" />
+<meta property="article:modified_time" content="2022-07-08T23:52:11+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Logging Structured Data From an Application</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 8, 2022
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h3 id="what-is-structured-data">What is structured data?</h3>
+<p>Structured data is data formatted in a structured manner so that the sender can clearly communicate to the receiver each field/property/part of each message without confusion or ambiguity about where the message starts/stops, and what each field represents and it’s value.</p>
+<p>We usually represent structured data with fields or key value pairs. The data can even be represented in a tree such as in JSON or XML.</p>
+<h3 id="logging-flavours">Logging Flavours</h3>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc3164">RFC 3164</a> doesn’t know about structured data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;34&gt;Oct <span style="color:#ae81ff">11</span> 22:14:15 mymachine MyApplication: This is the message part
+</span></span></code></pre></div><p><a href="https://datatracker.ietf.org/doc/html/rfc5424">RFC 5424</a> supports structured data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;74&gt;1 2017-07-11T22:14:15.003Z myhostname evntslog - ID47 <span style="color:#f92672">[</span>exampleSDID@12345 x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;y&#34;</span> eventSource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MyApplication&#34;</span> eventID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;6789&#34;</span><span style="color:#f92672">]</span> This is the message part
+</span></span></code></pre></div><p><a href="https://wiki.archlinux.org/title/Systemd/Journal">systemd journal</a> supports structured data</p>
+<h3 id="logging-methods">Logging Methods</h3>
+<p><a href="https://man7.org/linux/man-pages/man3/syslog.3.html">syslog(3)</a> designed for RFC 3164, doesn’t know about structured data.<br>
+<a href="https://man7.org/linux/man-pages/man1/logger.1.html">logger(1)</a> can log with RFC 3164 or RFC 5242, and supports structured data, but just adds it as part of the message field unless you send it to a socket<br>
+<a href="https://github.com/rsyslog/liblogging">liblogging</a> mentions structured data in the readme, but it hasn’t been implemented<br>
+<a href="https://www.freedesktop.org/software/systemd/man/sd_journal_print.html">sd_journal_send/sd_journal_sendv</a> logs to the systemd journal, supports structured data</p>
+<h3 id="and-the-most-common-method-of-getting-structured-data-into-logs">&hellip;And the most common method of getting structured data into logs</h3>
+<p>Adding key/value pairs or JSON to the message part of any logging system. This works in any logging protocol, here is an example of RFC 3164 with JSON in the message part:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;34&gt;Oct <span style="color:#ae81ff">11</span> 22:14:15 mymachine MyApplication: This message has JSON in it <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;x&#34;</span>: <span style="color:#e6db74">&#34;y&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>: 123, <span style="color:#e6db74">&#34;flag&#34;</span>: true <span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This works universally for RFC 3164, RFC 5242 and the systemd journal.</p>
+<p>With <a href="https://www.rsyslog.com/json-elasticsearch/">CEE</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;34&gt;Oct <span style="color:#ae81ff">11</span> 22:14:15 mymachine MyApplication: @cee: <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;x&#34;</span>: <span style="color:#e6db74">&#34;y&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>: 123, <span style="color:#e6db74">&#34;flag&#34;</span>: true <span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Adding JSON to the message part is the lingua franca of logs, it works everywhere, even with old APIs, adding the CEE signature makes the JSON payload easy to identify.</p>
+<h3 id="see-also">See Also</h3>
+<p><a href="https://rsyslog.adiscon.narkive.com/rrLJiWRs/best-practice-for-an-application-to-get-structured-data-to">https://rsyslog.adiscon.narkive.com/rrLJiWRs/best-practice-for-an-application-to-get-structured-data-to</a><br>
+<a href="https://techblog.bozho.net/the-syslog-hell/">https://techblog.bozho.net/the-syslog-hell/</a><br>
+<a href="https://sematext.com/blog/what-is-syslog-daemons-message-formats-and-protocols/">https://sematext.com/blog/what-is-syslog-daemons-message-formats-and-protocols/</a><br>
+<a href="https://github.com/systemd/systemd/issues/19251">https://github.com/systemd/systemd/issues/19251</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Linux x86_64 // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux x86_64"/>
+<meta name="twitter:description" content="I have been dipping my toe into x86_64 waters sporadically over the last couple of years. On each of the previous occasions it always seemed too immature, packages were way to hard to come by (I prefer precompiled binaries), half my hardware didn’t work, strange crashes etc. Seeing as this episode has been 100% successful, I thought this time I would document it.
+Fedora
+My favourite distribution is Fedora due to it’s rapid development and ease of use."/>
+
+    <meta property="og:title" content="Linux x86_64" />
+<meta property="og:description" content="I have been dipping my toe into x86_64 waters sporadically over the last couple of years. On each of the previous occasions it always seemed too immature, packages were way to hard to come by (I prefer precompiled binaries), half my hardware didn’t work, strange crashes etc. Seeing as this episode has been 100% successful, I thought this time I would document it.
+Fedora
+My favourite distribution is Fedora due to it’s rapid development and ease of use." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2008/12/13/linux-x86_64/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2008-12-13T15:23:12+00:00" />
+<meta property="article:modified_time" content="2008-12-13T15:23:12+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Linux x86_64</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Dec 13, 2008
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="../../../../tags/fedora/">fedora</a>
+              <a class="tag" href="../../../../tags/install/">install</a>
+              <a class="tag" href="../../../../tags/tutorial/">tutorial</a>
+              <a class="tag" href="../../../../tags/x86_64/">x86_64</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>I have been dipping my toe into x86_64 waters sporadically over the last couple of years. On each of the previous occasions it always seemed too immature, packages were way to hard to come by (I prefer precompiled binaries), half my hardware didn’t work, strange crashes etc. Seeing as this episode has been 100% successful, I thought this time I would document it.</p>
+<p><img src="../../../../blog/wp-content/uploads/2008/12/screen_prompt_320x240_color_test.png" alt="/blog/wp-content/uploads/2008/12/screen_prompt_320x240_color_test-300x225.png"><br>
+Fedora</p>
+<p>My favourite distribution is <a href="http://fedoraproject.org">Fedora</a> due to it’s rapid development and ease of use. I <a href="http://fedoraproject.org/en/get-fedora">downloaded</a> via <a href="http://en.wikipedia.org/wiki/BitTorrent">BitTorrent</a>. (Obviously) make sure you get the x86_64 version. I always like to run the sha checksum to rule out that as the problem if something does arise later. I also make sure that my DVD verifies in my burning program after it has been burnt.</p>
+<p>Now we are ready to install. Unless you have something really exotic you should not need any special drivers or anything (At least not until after the install), it should just work. The important parts of my hardware are:</p>
+<ul>
+<li>Asus A8V-E SE (Not awesome, my awesome motherboard blew up causing me to downgrade to this one I had lying around) AMD Socket 939</li>
+<li>AMD Athlon 64 X2 4800+ CPU</li>
+<li>nVidia GeForce 8600 GT 256MB PCIe</li>
+</ul>
+<p>I use the onboard LAN and sound card, as well as 2 SATA drives, an IDE drive and an IDE CDROM.</p>
+<p>So I installed Fedora from the DVD. You can again choose to verify the media, weirdly (And in previous versions as well) this check always seems to fail even though the sha check and burning software verification succeed, so either the check is broken or the motherboard/drive is broken. I have never seen this verification succeed in my life. Anyway, I skip it now and the options I select (At appropriate times) are fresh install onto a blank drive, “Software Development” profile/packages (You can probably turn off the other profiles, you can install any required packages individually later on when you are in the OS anyway). Next time I do an install I would love to try an <a href="http://docs.fedoraproject.org/install-guide/f10/en_US/ch-upgrading-system.html">upgrade install</a>.</p>
+<p>That should all install (You don’t have to get too serious about selecting the right packages right now, I find it easier to install “generally” what I need (“Software Development”) and then customise later) and you should now be logging into a fresh install of Fedora 10.</p>
+<p>Initially I had some problems with an additional PCI sound card I had present due out of habit because I had never gotten my on board sound to work for any motherboard under Linux. Some programs were using the onboard and some where then using the PCI one, so I rebooted and went into the bios to disable the onboard one. Both still get detected. Apparently this is a common problem with this motherboard. I went to update the bios and wouldn’t you believe it, the bios updater is Windows only. Anyway, because the onboard sound card was being detected I just removed the PCI one and enabled the onboard one again. That fixed it up awesomely and I had audio, yay. Also removing PulseAudio can “unconfuse” applications and force them to use ALSA,<br>
+<code>yum remove alsa-plugins-pulseaudio</code></p>
+<p>I then noticed that I had some issues with audio playback stuttering, cycling through normal speed and then fast for a second and then normal again. I fixed it by following <a href="http://forums.fedoraforum.org/showthread.php?t=206868">this tutorial</a>.</p>
+<p>Add the <a href="http://rpm.livna.org/">Livna</a> repo by downloading and running <a href="http://rpm.livna.org/livna-release-10.rpm">the add repo rpm</a>, it is not linked to on the main page, but the url can be built from the other releases. Add the <a href="http://www.rpmfusion.org/">RPMFusion</a> repo by downloading and running both the free and non-free <a href="http://rpmfusion.org/Configuration">add repo rpm</a>.<br>
+For my information:<br>
+<a href="http://www.rpmfusion.org/">RPMFusion</a> provides additional packages that are not in the base Fedora repos.<br>
+<a href="http://rpm.livna.org/rlowiki/">Livna</a> provides the same packages as RPMFusion, but also provides the libdvdcss package for watching DVDs.</p>
+<p><a href="../../../../blog/wp-content/uploads/2008/12/glxgears.png"><img src="../../../../blog/wp-content/uploads/2008/12/glxgears.png" alt="" title="glxgears"></a><br>
+glxgears</p>
+<p>I have never had much luck with ATI drivers for Linux. I had heard the nVidia ones were easier to install and configure and apparently faster to boot. Before you install drivers, you might want to get a benchmark of your FPS in <a href="http://en.wikipedia.org/wiki/GLX">glxgears</a> before installation:<br>
+<code>glxgears</code></p>
+<p>I downloaded and installed the nVidia (Binary, proprietary) driver:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install kmod-nvidia
+</span></span></code></pre></div><p>Now reboot (It’s the easiest way to restart X). Test that hardware accelerate rendering is happening by looking for in the output of this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>glxinfo | grep direct
+</span></span></code></pre></div><p>And your glxgears FPS should be above 2000:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>glxgears
+</span></span></code></pre></div><p>Adobe recently released an x86_64 Linux version of Flash so we don’t have to mess around with nswrapper etc. any more. I downloaded it from <a href="http://labs.adobe.com/downloads/flashplayer10.html">here</a>, extracted, <code>sudo cp ./libflashplayer.so /usr/lib64/mozilla/plugins</code>, restarted Firefox. You may want to <a href="http://weebls-stuff.com/toons/badgers/">test it</a> also.</p>
+<p><img src="../../../../blog/wp-content/uploads/2008/12/nexuiz_screenshot_10_thumb.jpg" alt="/blog/wp-content/uploads/2008/12/nexuiz_screenshot_10_thumb.jpg"><br>
+Nexuiz</p>
+<p>For my benefit for next time, I also like:</p>
+<ul>
+<li>
+<p>Neverball and Neverputt</p>
+</li>
+<li>
+<p>VDrift</p>
+</li>
+<li>
+<p>Torcs</p>
+</li>
+<li>
+<p>Nexuiz</p>
+</li>
+<li>
+<p>Open Arena</p>
+</li>
+<li>
+<p>Urban Terror</p>
+</li>
+<li>
+<p>XMoto</p>
+</li>
+<li>
+<p>Transmission</p>
+</li>
+<li>
+<p>Thunderbird</p>
+</li>
+<li>
+<p>Rhythmbox</p>
+</li>
+<li>
+<p>VLC</p>
+</li>
+<li>
+<p>K3B</p>
+</li>
+<li>
+<p>Wine</p>
+</li>
+<li>
+<p>CMake</p>
+</li>
+<li>
+<p>KDevelop</p>
+</li>
+</ul>
+<p>I have not provided any links to these as they are all present in <a href="http://en.wikipedia.org/wiki/PackageKit">PackageKit</a> which comes with Fedora 10.</p>
+<p><strong>Open links in Firefox in the background</strong><br>
+Type <code>about:config</code> into the address bar in Firefox, then look for the line <code>browser.tabs.loadDivertedInBackground</code> and set it to true.</p>
+<p><strong>Automatic Login</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo gedit /etc/gdm/custom.conf
+</span></span></code></pre></div><p>And adding this text:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>daemon<span style="color:#f92672">]</span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># http://live.gnome.org/GDM/2.22/Configuration  </span>
+</span></span><span style="display:flex;"><span>TimedLoginEnable<span style="color:#f92672">=</span>true  
+</span></span><span style="display:flex;"><span>TimedLogin<span style="color:#f92672">=</span>yourusername  
+</span></span><span style="display:flex;"><span>TimedLoginDelay<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>
+</span></span></code></pre></div><p><strong>NTFS Drives</strong><br>
+Gnome automatically finds and mounts NTFS drives/partitions, however <a href="http://forums.fedoraforum.org/showthread.php?t=206692">in Fedora 9 and later, ownership is now broken</a>. Each partition (And every sub folder and file) seems to default to ownership so even though some operations work such as moving files around, even adding and deleting, some programs will complain (I found this problem through RapidSVN not working). Nautilus reports that you are not the owner and even if you run Nautilus as root you cannot change to owner to anything other than root. The way I solved this was to install ntfs-config and run with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ntfs-config
+</span></span></code></pre></div><p>You should now have valid entries in /etc/fstab:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /etc/fstab /etc/fstab.bak  
+</span></span><span style="display:flex;"><span>gksudo gedit /etc/fstab
+</span></span></code></pre></div><p>Something like this (One for each partition, the ones you are interested in are any with ntfs-3g):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>UUID<span style="color:#f92672">=</span>A2D4DF1DD4DEF291 /media/DUMP ntfs-3g defaults,nosuid,nodev,locale<span style="color:#f92672">=</span>en_AU.UTF-8 <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>I then edited each ntfs-3g line like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>UUID<span style="color:#f92672">=</span>A2D4DF1DD4DEF291 /media/DUMP ntfs-3g defaults,**rw,user,uid<span style="color:#f92672">=</span>500,gid<span style="color:#f92672">=</span>500,umask<span style="color:#f92672">=</span>0022,**nosuid,nodev,locale<span style="color:#f92672">=</span>en_AU.UTF-8 <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Where uid=youruserid and gid=yourgroupid. You can find these out via System-&gt;Administration-&gt;Users and Groups (There is probably a command to find this out, actually I would say there is definitely a command for finding this out, but I’m pretty lazy). If you log in with different users perhaps changing to a common group would be better? Reboot to let these settings take effect. If you now to view your partition in Nautilus, File-&gt;Properties-&gt;Permissions should now list you as the owner with your group.</p>
+<p>You now have a pretty well set up Fedora 10 installation. These steps should be pretty similar for future versions. I will probably refer back these when I install Fedora 11 or 12 in a year or two. I love Fedora because it is the total opposite of Windows. With Vista, Microsoft stagnated, waiting a year or two longer than they should have to release a product that by that time was out of touch with the target audience. In contrast, I had been planning to install Fedora 9 this time around after installing 8 only 6-12 months ago, but I was pleasantly surprised to find that 10 had been released. I would also like to try Ubuntu as I haven’t really used it much apart from at work, so I might give that a shot next time. x86_64 has certainly matured over the last 2 or 3 years, I would say it is definitely production server ready and probably has been for at least a year. The quality and variety of packages available for Linux is amazing, the community just keeps on giving. Fedora just keeps on amazing me. The future is bright, I can&rsquo;t wait.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

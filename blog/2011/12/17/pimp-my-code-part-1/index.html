@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Pimp My Code Part 1 // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pimp My Code Part 1"/>
+<meta name="twitter:description" content="inline bool IsSpecial(const char* szValue) {  // Returns true if this is a special value  if (stricmp(szValue, &#34;MySpecialValue&#34;) == 0) {  return true;  }   return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:"/>
+
+    <meta property="og:title" content="Pimp My Code Part 1" />
+<meta property="og:description" content="inline bool IsSpecial(const char* szValue) {  // Returns true if this is a special value  if (stricmp(szValue, &#34;MySpecialValue&#34;) == 0) {  return true;  }   return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2011/12/17/pimp-my-code-part-1/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2011-12-17T09:41:26+00:00" />
+<meta property="article:modified_time" content="2011-12-17T09:41:26+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../categories/">Categories</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Pimp My Code Part 1</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Dec 17, 2011
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><a href="http://en.wikipedia.org/wiki/Pimp_My_Ride"><img src="../../../../blog/wp-content/uploads/2011/12/20590346.jpg" alt="Xhibit" title="Xhibit"></a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">IsSpecial</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> szValue)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// Returns true if this is a special value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#66d9ef">if</span> (stricmp(szValue, <span style="color:#e6db74">&#34;MySpecialValue&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of <code>(stricmp(szValue, “MySpecialValue”) == 0)</code> itself:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Returns true if this is a special value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">IsSpecial</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> szValue)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> (stricmp(szValue, <span style="color:#e6db74">&#34;MySpecialValue&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If it were up to me I would also use a string class and keep as much of the code as possible in the string “realm” (This makes the code a lot simpler and easier to read):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Returns true if this is a special value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">IsSpecial</span>(<span style="color:#66d9ef">const</span> string<span style="color:#f92672">&amp;</span> sValue)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> (sValue <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;MySpecialValue&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,6 +1,5 @@
 <?PHP
   include_once "style.php";
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/util/login.php";
   require_once $_SERVER['DOCUMENT_ROOT'] . "/util/translate.php";
 
 
@@ -26,8 +25,6 @@
     var $author_lastname;
     var $author_email;
 
-    var $loggedin;
-
     var $link;
     var $foreground;
     var $background;
@@ -48,7 +45,7 @@
     var $db;
     var $util;
 
-    function cTheme($db, $util, $showlogin=true,$loggedin="",$name="",$type="")
+    function cTheme($db, $util)
     {
       $this->db=$db;
       $this->util=$util;
@@ -60,8 +57,6 @@
       $this->author_lastname = "Pilkington";
       $this->author_email = "chris.pilkington@gmail.com";
 
-      $this->loggedin="";
-
       $this->link="#666699";
       $this->foreground = "#000000";
       $this->background = "#eaeaea";
@@ -70,7 +65,6 @@
       $this->dir=$this->home . "themes/" . $this->filename;
       $this->img=$this->dir . "/images";
       $this->page=$PHP_SELF;
-      $this->showlogin=$showlogin;
 
       $this->width=990;
       $this->height=768;
@@ -119,7 +113,7 @@
 
 <?PHP
       if ($bIsMainPage) embedStyleMainPage($this->img);
-      else embedStyle($this->showlogin, $this->width, $this->height);
+      else embedStyle($this->width, $this->height);
 ?>
   </head>
   <body>
@@ -239,7 +233,7 @@
       else $this->WriteLine($line . "<br />");
     }
 
-    function menu($login, $type = "", $bIsMainPage = false)
+    function menu($bIsMainPage = false)
     {
       $this->WriteMenuBegin($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Main Menu");
@@ -248,7 +242,7 @@
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.github.com/pilkch\">GitHub</a><a href=\"http://www.github.com/pilkch\"><img src=\"/images/github.png\" alt=\"GitHub\"/></a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.last.fm/user/cgpilk\">last.fm</a><a href=\"http://www.last.fm/user/cgpilk\"><img src=\"/images/lastfm.png\" alt=\"last.fm\"/></a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.youtube.com/user/cgpilk\">YouTube</a><a href=\"http://www.youtube.com/user/cgpilk\"><img src=\"/images/youtube.png\" alt=\"YouTube\"/></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.sourceforge.net/users/pilkch\">SourceForge</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"/images/sourceforge.png\" alt=\"SourceForge\"/></a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.sourceforge.net/users/pilkch\">Super Old SourceForge Projects</a><a href=\"http://www.sourceforge.net/users/pilkch\"><img src=\"/images/sourceforge.png\" alt=\"SourceForge\"/></a>");
           //$this->WriteMenuItem($bIsMainPage, "<a href=\"/about.php\">About Me</a>");
           //$this->WriteMenuItem($bIsMainPage, "<a href=\"/contact.php\">Contact Me</a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
@@ -257,28 +251,15 @@
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/projects/colourpicker\">Colour Picker</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/projects/soundboard\">Soundboard</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/buildall\">BuildAll</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"/tests\">Unit Test Results</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/postcodes\">PostCodes</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/userscripts\">UserScripts</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/tetris\">Tetris</a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"/statistics\">Statistics</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"/dropbox\">Dropbox</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libopenglmm\">libopenglmm</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/spitfire\">spitfire</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/breathe\">breathe</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libxdgmm\">libxdgmm</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/tree/master/include/libvoodoomm\">libvoodoomm</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://getfree.git.sourceforge.net/\">GetFree</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://drivecity.svn.sourceforge.net/viewvc/drivecity\">Drive</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://sudokubang.git.sourceforge.net/\">Sudoku</a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/allocator\">Allocator</a>");
-
-          //$this->WriteMenuItem($bIsMainPage, "<a href=\"/todo\">TODO</a>");
+          $this->WriteMenuItem($bIsMainPage, "<a href=\"https://github.com/pilkch/library/\">library</a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Links");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.iluo.net/\"><img alt=\"Iluo\" src=\"/images/link/iluo.png\" /></a>");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.opera.com/\"><img alt=\"Opera\" src=\"/images/link/opera.png\" /></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.stensi.com/\"><img alt=\"Simon Stenhouse\" src=\"/images/link/sten.png\" /></a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Server");
           $this->WriteMenuItem($bIsMainPage, date("d/m/y"));
@@ -286,16 +267,6 @@
           $this->WriteMenuItem($bIsMainPage, "");
           $this->WriteMenuItem($bIsMainPage, $this->util->StringUsersOnline());
         $this->WriteMenuSectionEnd($bIsMainPage);
-
-        if ($bIsMainPage == false) {
-          // We have a login and wish to display it
-          if ($this->showlogin && $login) {
-            $this->menu_write_section("User", $login);
-          } else {
-            $this->menu_write_section("User", $this->util->GetIP() .
-              "<br />\n" . $this->util->GetHost() .
-              "<br />\n" . $this->util->GetReferer());
-          }
 
           $this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" .
             "Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" .

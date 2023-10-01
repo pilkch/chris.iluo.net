@@ -110,9 +110,9 @@
   $util = new cUtil();
     $util->SetTheme();
 
-    $theme = new cTheme($util->db, $util, true, $util->user->loggedin, $util->user->login, $util->user->type);
+    $theme = new cTheme($util->db, $util);
     $theme->header("chris.iluo.net");
-      $theme->menu($util->user->loginForm());
+      $theme->menu();
 
       $theme->main_begin();
 

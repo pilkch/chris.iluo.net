@@ -1,5 +1,4 @@
 <?PHP
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/util/login.php";
   require_once $_SERVER['DOCUMENT_ROOT'] . "/util/translate.php";
   include $_SERVER['DOCUMENT_ROOT'] . "/util/captcha.php";
 
@@ -26,7 +25,6 @@
     var $host;
     var $referer;
     var $request;
-    var $user;
     var $query;
     var $full_query;
     var $user_agent;
@@ -41,7 +39,6 @@
 
       $this->db = new cDB();
       $this->db->OpenDB(false);
-      $this->user = new cLogin($this);
     }
 
     function Delete()
@@ -129,23 +126,6 @@
 
       echo "(passed through " . $input . ")";
       return $input;
-    }
-
-    function CreateUser($user, $password)
-    {
-      $result=$this->db->Select("user", "", "`user_login`='$user'");
-      $num=$this->db->GetRows($result);
-      if($num>0)
-        return 1;
-
-      $result=$this->db->query("INSERT INTO user (user_id, user_login, user_pass, user_type) " .
-        "VALUES ('', '$user', '$password', 'USER');");
-
-      if($result)
-        return 0;
-
-      //Error, no result returned, did not insert
-      return 2;
     }
 
     function SetTheme($t="blue")

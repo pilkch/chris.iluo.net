@@ -74,12 +74,9 @@
 <?PHP
   }
 
-	function embedStyle($menulogin=true, $width=40, $height=100)
+	function embedStyle($width=40, $height=100)
 	{
-		if($menulogin==true)
-			$lf=0;
-		else
-			$lf=1;
+  	$lf=1;
 
 		$lh=154;
 

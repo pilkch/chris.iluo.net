@@ -198,9 +198,9 @@ class browser{
   $util=new cUtil();
     $util->SetTheme();
 
-    $theme = new cTheme($util->db, $util, true, $util->user->loggedin, $util->user->login, $util->user->type);
+    $theme = new cTheme($util->db, $util);
     $theme->header("chris.iluo.net", true);
-      $theme->menu($util->user->loginForm(), "", true);
+      $theme->menu(true);
 
       /*
       $theme->main_begin();

@@ -2,7 +2,6 @@
 #
 
 User-agent: *
-Disallow: /create_user.php
-Disallow: /blog/wp-login.php*
+Disallow: /util/*
 
-Sitemap: http://chris.iluo.net/sitemap.xml
+Sitemap: http://chris.iluo.net/sitemap_index.xml

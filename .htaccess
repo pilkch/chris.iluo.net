@@ -3,7 +3,7 @@
 #
 
 # Protect files and directories from prying eyes:
-<Files ~ "(\.(conf|inc|module|pl|sh|sql|theme)|Entries|Repositories|Root|scripts|updates)$">
+<Files ~ "(\.(conf|git|gitignore|inc|module|pl|sh|sql|theme)|Entries|Repositories|Root|scripts|updates|util)$">
   order deny,allow
   deny from all
 </Files>
@@ -58,26 +58,6 @@ ErrorDocument 503 /errors/error_503.php
   RewriteCond %{HTTPS} !on
   RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
-  # Rewrite "dropbox" and "dropbox/" to "dropbox/index.php"
-  # RewriteRule ^dropbox$ dropbox/index.php
-  # RewriteRule ^dropbox/$ dropbox/index.php
-
-  # Rewrite "dropbox/query" to "dropbox/index.php/query
-  # RewriteRule ^dropbox(.+)$ dropbox/index.php/$1
-
-  # Rewrite "projects/*/*.xml"  to "projects/*/*.php"
-  RewriteRule ^projects/(.+)/(.+).xml$ projects/$1/$2.php
-
   # Rewrite atom feed from directory to the index.xml file
   RewriteRule ^blog/feed/atom/$ blog/feed/atom/index.xml
 </IfModule>
-
-
-# <Files dropbox>
-#   ForceType application/x-httpd-php
-# </Files>
-
-# <Files dropbox/>
-#   ForceType application/x-httpd-php
-# </Files>
-

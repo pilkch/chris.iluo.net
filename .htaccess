@@ -67,6 +67,9 @@ ErrorDocument 503 /errors/error_503.php
 
   # Rewrite "projects/*/*.xml"  to "projects/*/*.php"
   RewriteRule ^projects/(.+)/(.+).xml$ projects/$1/$2.php
+
+  # Rewrite atom feed from directory to the index.xml file
+  RewriteRule ^blog/feed/atom/$ blog/feed/atom/index.xml
 </IfModule>
 
 

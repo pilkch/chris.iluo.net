@@ -6,7 +6,17 @@
 		<priority>1.0</priority>
 	</url>
 	<url>
+		<loc>http://chris.iluo.net/projects/beatpad</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.1</priority>
+	</url>
+	<url>
 		<loc>http://chris.iluo.net/projects/colourpicker</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.1</priority>
+	</url>
+	<url>
+		<loc>http://chris.iluo.net/projects/radar</loc>
 		<changefreq>weekly</changefreq>
 		<priority>0.1</priority>
 	</url>

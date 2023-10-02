@@ -334,23 +334,6 @@
 <?PHP
     }
 
-    //batched article with heading
-    function article_heading($title, $content)
-    {
-      $this->entry_begin($title);
-        print translate($content, $this->tabs_content);
-      $this->entry_end();
-    }
-
-    //batched article without heading
-    function article($content)
-    {
-      $this->begin_entry();
-        print translate($content, $this->tabs_content);
-      $this->end_entry();
-    }
-
-
     //unbatched article functions
     function article_begin($title="")
     {
@@ -360,125 +343,9 @@
     {
       print translate($content, $this->tabs_content) . "\n";
     }
-    function article_addline_raw($content)
-    {
-      print $content . "\n";
-    }
     function article_end()
     {
       $this->entry_end();
-    }
-
-
-    function journalentry($content, $id,$timestamp,$project,$version,$author,$title)
-    {
-      $content=translate($content, $this->tabs_content);
-
-      //$this->entry_begin($id . " " . $title);
-      $this->entry_begin($title);
-
-      $out_timestamp="";
-      $out_timestamp.=$timestamp[2] . $timestamp[3];
-      $out_timestamp.="/" . $timestamp[5] . $timestamp[6];
-      $out_timestamp.="/" . $timestamp[8] . $timestamp[9];
-      $out_timestamp.=" " . $timestamp[11] . $timestamp[12];
-      $out_timestamp.=":" . $timestamp[14] . $timestamp[15];
-      $out_timestamp.=":" . $timestamp[17] . $timestamp[18];
-?>
-                    Submitted: <?PHP echo $out_timestamp; ?> Project: <?PHP echo $project; ?> Version: <?PHP echo $version; ?> Author: <?PHP echo $author; ?><br /><br />
-                    <?PHP echo $content; ?>
-<?PHP
-      $this->entry_end();
-    }
-
-    function journal($journal_project)
-    {
-      $first=0;
-      $perpage=-1;
-
-      if($journal_project!="")
-        $where="journal_project=\"$journal_project\"";
-
-      if($first<=0)
-        $first=0;
-
-      if(!$perpage)
-        $perpage=-1;
-
-      $result=$this->db->Select("journal", "count(journal_id)", $where);
-      $entries=mysql_result($result,0);//$this->db->Query("select count(journal_id) from journal"),0);
-
-      if($perpage>0)
-      {
-        echo $first . "-" . $perpage;
-        $result=$this->db->Select("journal", "", $where, " ORDER BY `journal_timestamp` DESC LIMIT $first, $perpage");
-      }
-      else
-      {
-        $result=$this->db->Select("journal", "", $where, " ORDER BY `journal_timestamp` DESC LIMIT $first, 1000");
-      }
-
-      if($result)
-        $num=$this->db->GetRows($result);
-      else
-        $this->error("Result returned \"$result\"");
-
-      if($num)
-      {
-        $i=0;
-        while ($i < $num)
-        {
-          $id=mysql_result($result,$i,"journal_id");
-          $timestamp=mysql_result($result,$i,"journal_timestamp");
-          $project=mysql_result($result,$i,"journal_project");
-          $version=mysql_result($result,$i,"journal_version");
-          $author=mysql_result($result,$i,"journal_author");
-          $title=mysql_result($result,$i,"journal_title");
-          $content=mysql_result($result,$i,"journal_content");
-
-          if($title=="")
-          $title="&lt;NO TITLE&gt;";
-
-          $this->journalentry($content, $id,$timestamp,$project,$version,$author,$title);
-
-          ++$i;
-        }
-
-        if($perpage>0)
-        {
-          $perpage=2;
-          $s=$perpage . ' entries per page<br />';
-
-          for($i=0;$i<$first;$i=$i+$perpage)
-            $s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&lt;</a> ';
-
-          $s=$s . '<a href="' . $PHP_SELF . '?first=' . $first  . '&perpage=' . $perpage  . '">This</a> ';
-
-          for($i=$first+$perpage;$i<$entries;$i=$i+$perpage)
-            $s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&gt;</a> ';
-
-          $s=$s . '<br /><br />';
-
-          $perpage=5;
-          $s=$s . $perpage . ' entries per page<br />';
-          for($i=0;$i<$first;$i=$i+$perpage)
-            $s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&lt;</a> ';
-          $s=$s . '<a href="' . $PHP_SELF . '?first=' . $first  . '&perpage=' . $perpage  . '">This</a> ';
-          for($i=$first+$perpage;$i<$entries;$i=$i+$perpage)
-            $s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&gt;</a> ';
-          $s=$s . '<br /><br />';
-
-          $perpage=10;
-          $s=$s . $perpage . ' entries per page<br />';
-          for($i=0;$i<$first;$i=$i+$perpage)
-            $s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&lt;</a> ';
-          $s=$s . '<a href="' . $PHP_SELF . '?first=' . $first  . '&perpage=' . $perpage  . '">This</a> ';
-          for($i=$first+$perpage;$i<$entries;$i=$i+$perpage)
-            $s=$s . '<a href="' . $PHP_SELF . '?first=' . $i  . '&perpage=' . $perpage  . '">&gt;</a> ';
-          $s=$s . '<br /><br />';
-          $this->article($s);
-        }
-      }
     }
 
     function main_end($t="")

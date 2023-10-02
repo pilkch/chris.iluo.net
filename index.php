@@ -225,7 +225,6 @@ class browser{
 
           $theme->article_addline("</ol>");
         $theme->article_end();
-        $theme->journal("");
       $theme->main_end();*/
 ?>
     <p id="conservatory">

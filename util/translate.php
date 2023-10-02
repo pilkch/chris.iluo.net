@@ -52,6 +52,7 @@
         if($row[$b]!='\r' && $row[$b]!='\n') {
           $line .= $row[$b] . "<br />\n";
         }
+      }
 
       //check for 0D
 

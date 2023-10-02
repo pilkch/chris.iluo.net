@@ -1,6 +1,5 @@
 <?PHP
   require_once $_SERVER['DOCUMENT_ROOT'] . "/util/translate.php";
-  include $_SERVER['DOCUMENT_ROOT'] . "/util/captcha.php";
 
   if (!function_exists("stripos"))
   {

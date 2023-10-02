@@ -270,12 +270,11 @@
           $this->WriteMenuItem($bIsMainPage, $this->util->StringUsersOnline());
         $this->WriteMenuSectionEnd($bIsMainPage);
 
-          $this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" .
-            "Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" .
-            $this->author_email . "\">"  . $this->author_lastname . "</a><br />\n" .
-            "Description: " . $this->description . "<br />"
-          );
-        }
+        $this->menu_write_last("Theme", "Skin: " . $this->name . "<br />\n" .
+          "Author: <a href=\"mailto:" . $this->author_email . "\">" . $this->author_firstname . "</a> <a href=\"mailto:" .
+          $this->author_email . "\">"  . $this->author_lastname . "</a><br />\n" .
+          "Description: " . $this->description . "<br />"
+        );
 
       $this->WriteMenuEnd($bIsMainPage);
     }

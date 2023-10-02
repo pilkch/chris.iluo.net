@@ -1,543 +1,643 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://chris.iluo.net/blog/</loc>
     <lastmod>2022-11-21T23:40:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/dev/</loc>
     <lastmod>2022-11-21T23:40:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/dev/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2022/11/21/replacing-vscode-and-vscode-remote-with-vscodium-and-open-remote-ssh/</loc>
     <lastmod>2022-11-21T23:40:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2022/11/21/replacing-vscode-and-vscode-remote-with-vscodium-and-open-remote-ssh/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/</loc>
     <lastmod>2022-11-21T23:40:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/</loc>
-    <lastmod>2022-11-21T23:40:56+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/linux/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/linux/</loc>
     <lastmod>2022-07-08T23:52:11+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2022/07/08/logging-structured-data-from-an-application/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2022/07/08/logging-structured-data-from-an-application/</loc>
     <lastmod>2022-07-08T23:52:11+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/c&#43;&#43;/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/c++/</loc>
     <lastmod>2021-01-13T00:34:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/containers/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/containers/</loc>
     <lastmod>2021-01-13T00:34:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2021/01/13/creating-a-linux-container-in-c-/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2021/01/13/creating-a-linux-container-in-c-/</loc>
     <lastmod>2021-01-13T00:34:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/docker/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/docker/</loc>
     <lastmod>2021-01-13T00:34:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/kernel/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/kernel/</loc>
     <lastmod>2021-01-13T00:34:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/lxc/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/lxc/</loc>
     <lastmod>2021-01-13T00:34:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/android/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/android/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/bedrock/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/bedrock/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/games/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/games/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/geysermc/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/geysermc/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/ios/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/ios/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/java/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/java/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/minecraft/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/minecraft/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2021/01/11/minecraft-server-cross-platform-compatibility/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2021/01/11/minecraft-server-cross-platform-compatibility/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/xbox-360/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/xbox-360/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/xbox-one/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/xbox-one/</loc>
     <lastmod>2021-01-11T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2017/10/05/basic-html5-soundboard/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2017/10/05/basic-html5-soundboard/</loc>
     <lastmod>2017-10-05T22:56:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/release/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/release/</loc>
     <lastmod>2017-10-05T22:56:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/soundboard/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/soundboard/</loc>
     <lastmod>2017-10-05T22:56:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2017/02/26/stop-watch-and-time-out-classes/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2017/02/26/stop-watch-and-time-out-classes/</loc>
     <lastmod>2017-02-26T23:16:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/colour-picker/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/colour-picker/</loc>
     <lastmod>2016-09-13T00:22:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2016/09/13/colour-picker-added-hex-and-float-conversions/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2016/09/13/colour-picker-added-hex-and-float-conversions/</loc>
     <lastmod>2016-09-13T00:22:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/bash/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/bash/</loc>
     <lastmod>2016-04-19T22:37:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2016/04/19/some-simple-regexes-for-finding-if-statements/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2016/04/19/some-simple-regexes-for-finding-if-statements/</loc>
     <lastmod>2016-04-19T22:37:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/gamedev/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/gamedev/</loc>
     <lastmod>2015-08-18T00:54:48+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/opengl/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/opengl/</loc>
     <lastmod>2015-08-18T00:54:48+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/openglmm/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/openglmm/</loc>
     <lastmod>2015-08-18T00:54:48+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/openglmm_shaders/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/openglmm_shaders/</loc>
     <lastmod>2015-08-18T00:54:48+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2015/08/18/openglmm_shaders-test-20150817/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2015/08/18/openglmm_shaders-test-20150817/</loc>
     <lastmod>2015-08-18T00:54:48+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2015/05/30/colour-picker-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2015/05/30/colour-picker-released/</loc>
     <lastmod>2015-05-30T00:50:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/diesel/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/diesel/</loc>
     <lastmod>2013-09-21T15:09:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2013/09/21/diesel-photo-manager-0.1-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2013/09/21/diesel-photo-manager-0.1-released/</loc>
     <lastmod>2013-09-21T15:09:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/medusa/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/medusa/</loc>
     <lastmod>2013-09-21T12:12:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2013/09/21/medusa-music-player-0.9-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2013/09/21/medusa-music-player-0.9-released/</loc>
     <lastmod>2013-09-21T12:12:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2013/06/13/medusa-music-player-0.8-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2013/06/13/medusa-music-player-0.8-released/</loc>
     <lastmod>2013-06-13T00:58:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2012/08/12/medusa-music-player-0.7-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2012/08/12/medusa-music-player-0.7-released/</loc>
     <lastmod>2012-08-12T01:44:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2012/06/05/medusa-music-player-0.6-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2012/06/05/medusa-music-player-0.6-released/</loc>
     <lastmod>2012-06-05T00:36:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2012/05/18/java-gotchas/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2012/05/18/java-gotchas/</loc>
     <lastmod>2012-05-18T23:38:03+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2012/03/24/medusa-music-player-0.5-released/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2012/03/24/medusa-music-player-0.5-released/</loc>
     <lastmod>2012-03-24T16:54:03+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2012/03/23/debugging-101/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2012/03/23/debugging-101/</loc>
     <lastmod>2012-03-23T20:34:08+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/pimp-my-code/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/pimp-my-code/</loc>
     <lastmod>2012-03-17T17:59:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2012/03/17/pimp-my-code-part-2/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2012/03/17/pimp-my-code-part-2/</loc>
     <lastmod>2012-03-17T17:59:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2011/12/22/pimp-my-code-part-1-redux/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2011/12/22/pimp-my-code-part-1-redux/</loc>
     <lastmod>2011-12-22T22:06:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2011/12/17/pimp-my-code-part-1/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2011/12/17/pimp-my-code-part-1/</loc>
     <lastmod>2011-12-17T09:41:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2011/12/15/converting-pentax-pef-files-to-png/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2011/12/15/converting-pentax-pef-files-to-png/</loc>
     <lastmod>2011-12-15T07:46:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/fedora/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/fedora/</loc>
     <lastmod>2011-12-15T07:46:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/pef/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/pef/</loc>
     <lastmod>2011-12-15T07:46:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/photography/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/photography/</loc>
     <lastmod>2011-12-15T07:46:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/png/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/png/</loc>
     <lastmod>2011-12-15T07:46:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/tutorial/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/tutorial/</loc>
     <lastmod>2011-12-15T07:46:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2011/07/02/eclipse/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2011/07/02/eclipse/</loc>
     <lastmod>2011-07-02T00:49:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2011/06/22/java/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2011/06/22/java/</loc>
     <lastmod>2011-06-22T09:41:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/git/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/git/</loc>
     <lastmod>2011-04-21T00:26:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2011/04/21/version-control-2.0/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2011/04/21/version-control-2.0/</loc>
     <lastmod>2011-04-21T00:26:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/dmraid/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/dmraid/</loc>
     <lastmod>2010-11-29T09:55:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/mythbuntu/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/mythbuntu/</loc>
     <lastmod>2010-11-29T09:55:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2010/11/29/no-root-file-system-is-defined/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2010/11/29/no-root-file-system-is-defined/</loc>
     <lastmod>2010-11-29T09:55:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/ubuntu/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/ubuntu/</loc>
     <lastmod>2010-11-29T09:55:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2010/11/27/how-to-automatically-download-all-of-your-youtube-favourites/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2010/11/27/how-to-automatically-download-all-of-your-youtube-favourites/</loc>
     <lastmod>2010-11-27T18:04:17+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2010/01/10/malloc-double-free/non-aligned-pointer-being-freed-set-a-breakpoint-in-malloc_error_break-to-debug/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2010/01/10/malloc-double-free/non-aligned-pointer-being-freed-set-a-breakpoint-in-malloc_error_break-to-debug/</loc>
     <lastmod>2010-01-10T10:00:22+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/11/16/cannot-open-/dev/sda1-device-or-resource-busy/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/11/16/cannot-open-/dev/sda1-device-or-resource-busy/</loc>
     <lastmod>2009-11-16T22:23:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/grub/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/grub/</loc>
     <lastmod>2009-11-16T22:23:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/oh-noes/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/oh-noes/</loc>
     <lastmod>2009-09-26T09:36:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/09/26/when-good-customers-go-bad/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/09/26/when-good-customers-go-bad/</loc>
     <lastmod>2009-09-26T09:36:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/09/26/how-to-find-and-remove-folders-recursively-in-linux/unix-because-i-always-forget-this/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/09/26/how-to-find-and-remove-folders-recursively-in-linux/unix-because-i-always-forget-this/</loc>
     <lastmod>2009-09-26T09:33:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/blender/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/blender/</loc>
     <lastmod>2009-09-12T15:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/09/12/blender-export-obj-python-script/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/09/12/blender-export-obj-python-script/</loc>
     <lastmod>2009-09-12T15:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/obj/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/obj/</loc>
     <lastmod>2009-09-12T15:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/python/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/python/</loc>
     <lastmod>2009-09-12T15:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/08/30/i-love-the-idea-of-a-new-smart-phone/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/08/30/i-love-the-idea-of-a-new-smart-phone/</loc>
     <lastmod>2009-08-30T21:04:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/nokia-n900/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/nokia-n900/</loc>
     <lastmod>2009-08-30T21:04:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/smartphone/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/smartphone/</loc>
     <lastmod>2009-08-30T21:04:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/08/28/moving-from-svn-to-git/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/08/28/moving-from-svn-to-git/</loc>
     <lastmod>2009-08-28T09:00:21+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/08/27/symbols/characters-returned-by-ls-l/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/08/27/symbols/characters-returned-by-ls-l/</loc>
     <lastmod>2009-08-27T10:45:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/libxdgmm/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/libxdgmm/</loc>
     <lastmod>2009-07-22T09:46:05+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/07/22/libxdgmm/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/07/22/libxdgmm/</loc>
     <lastmod>2009-07-22T09:46:05+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/xdg/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/xdg/</loc>
     <lastmod>2009-07-22T09:46:05+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/06/04/ahgotopage-doesnt-work-argh/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/06/04/ahgotopage-doesnt-work-argh/</loc>
     <lastmod>2009-06-04T00:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/carbon/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/carbon/</loc>
     <lastmod>2009-06-04T00:14:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/06/03/upgraded-linux-kernel-not-recognising-ext3-partitions-and-the-solution/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/06/03/upgraded-linux-kernel-not-recognising-ext3-partitions-and-the-solution/</loc>
     <lastmod>2009-06-03T00:31:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/04/09/error-glxcreatecontext-failed-after-updating-video-drivers/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/04/09/error-glxcreatecontext-failed-after-updating-video-drivers/</loc>
     <lastmod>2009-04-09T21:18:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2009/02/25/yearly-update/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2009/02/25/yearly-update/</loc>
     <lastmod>2009-02-25T09:17:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/x86_64/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/x86_64/</loc>
     <lastmod>2008-12-15T16:10:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2008/12/15/x86_64-linux-c/c-test/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2008/12/15/x86_64-linux-c/c-test/</loc>
     <lastmod>2008-12-15T16:10:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/install/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/install/</loc>
     <lastmod>2008-12-13T15:23:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2008/12/13/linux-x86_64/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2008/12/13/linux-x86_64/</loc>
     <lastmod>2008-12-13T15:23:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/covers/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/covers/</loc>
     <lastmod>2008-11-23T14:09:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2008/11/23/covers/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2008/11/23/covers/</loc>
     <lastmod>2008-11-23T14:09:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/music/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/music/</loc>
     <lastmod>2008-11-23T14:09:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/non-techical/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/non-techical/</loc>
     <lastmod>2008-11-23T14:09:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2008/11/01/const-int-vs.-enum-vs.-define/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2008/11/01/const-int-vs.-enum-vs.-define/</loc>
     <lastmod>2008-11-01T14:02:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/crank/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/crank/</loc>
     <lastmod>2008-02-02T08:16:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2008/02/02/crank-very-early-testing-of-heightmap-and-basic-physics/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2008/02/02/crank-very-early-testing-of-heightmap-and-basic-physics/</loc>
     <lastmod>2008-02-02T08:16:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/call-of-duty-4/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/call-of-duty-4/</loc>
     <lastmod>2007-12-17T08:00:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2007/12/17/call-of-duty-4-ai-and-difficulty-levels/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2007/12/17/call-of-duty-4-ai-and-difficulty-levels/</loc>
     <lastmod>2007-12-17T08:00:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/fps/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/fps/</loc>
     <lastmod>2007-12-17T08:00:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/ghillie/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/ghillie/</loc>
     <lastmod>2007-12-17T08:00:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/go-chris/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/go-chris/</loc>
     <lastmod>2007-11-23T18:38:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/2007/11/23/welcome/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/2007/11/23/welcome/</loc>
     <lastmod>2007-11-23T18:38:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/tags/welcome/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/tags/welcome/</loc>
     <lastmod>2007-11-23T18:38:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
-  </url><url>
-    <loc>https://chris.iluo.net/about/</loc>
+  </url>
+  <url>
+    <loc>https://chris.iluo.net/blog/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>

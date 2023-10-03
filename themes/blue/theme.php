@@ -259,7 +259,6 @@
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Links");
           $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.iluo.net/\"><img alt=\"Iluo\" src=\"/images/link/iluo.png\" /></a>");
-          $this->WriteMenuItem($bIsMainPage, "<a href=\"http://www.opera.com/\"><img alt=\"Opera\" src=\"/images/link/opera.png\" /></a>");
         $this->WriteMenuSectionEnd($bIsMainPage);
         $this->WriteMenuSectionBegin($bIsMainPage, "Server");
           $this->WriteMenuItem($bIsMainPage, date("d/m/y"));

@@ -1,5 +1,6 @@
 <?PHP
   require_once $_SERVER['DOCUMENT_ROOT'] . "/util/translate.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/util/database.php";
 
   if (!function_exists("stripos"))
   {
@@ -28,7 +29,7 @@
     var $full_query;
     var $user_agent;
 
-    function cUtil()
+    function __construct()
     {
       //Do anything here that *has* to be first to do any output
       $config_use_sessions = TRUE;

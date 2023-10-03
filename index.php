@@ -9,7 +9,8 @@ class browser{
   var $UserAgent = "Not reported";
   var $AOL = false;
 
-  function browser($agent){
+  function __construct($agent)
+  {
     // initialize properties
     $bd['platform'] = "Unknown";
     $bd['browser'] = "Unknown";
@@ -198,40 +199,18 @@ class browser{
   $util=new cUtil();
     $util->SetTheme();
 
-    $theme = new cTheme($util->db, $util);
+    $theme = new cTheme($util);
     $theme->header("chris.iluo.net", true);
       $theme->menu(true);
 
-      /*
-      $theme->main_begin();
-        $theme->article_begin("TODO");
-          $user_agent = $_SERVER['HTTP_USER_AGENT'];
-          $br = new Browser($user_agent);
-          $theme->article_addline("$user_agent = $br->Platform, $br->Name version $br->Version");
-
-          $theme->article_addline("<ol>");
-
-            $result=$util->db->Select("todo", "", "", " ORDER BY `todo_priority` ASC");
-            $num=$util->db->GetRows($result);
-
-            for ($i = 0; $i < $num; $i++) {
-              $todo_priority = mysql_result($result, $i, "todo_priority") + 1;
-              $todo_id = mysql_result($result, $i, "todo_id");
-              $todo_content = mysql_result($result, $i, "todo_content");
-              $todo_status = mysql_result($result, $i, "todo_status");
-
-              $theme->article_addline("<li>" . $todo_content . "</li>");
-            }
-
-          $theme->article_addline("</ol>");
-        $theme->article_end();
-      $theme->main_end();*/
+    // We provide a footer here instead of using the theme footer
 ?>
     <p id="conservatory">
       Website and Content Copyright &copy;2006 <a href="mailto:chris.pilkington@gmail.com">Christopher</a> <a href="mailto:chris.pilkington@gmail.com">Pilkington</a><br /><br />
       <a href="http://validator.w3.org/check?uri=referer"><img src="images/valid-xhtml11-blue.png" alt="Valid XHTML 1.1" height="31" width="88" /></a>
     </p>
 <?PHP
+
     $theme->footerEnd();
 
   $util->Delete();

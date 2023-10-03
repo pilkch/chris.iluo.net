@@ -42,16 +42,14 @@
 
     var $gap;
 
-    var $db;
     var $util;
 
-    function cTheme($db, $util)
+    function __construct($util)
     {
-      $this->db=$db;
       $this->util=$util;
       $this->filename="blue";
       $this->name="Blue";
-      $this->description = "Just your basic blue skin";
+      $this->description = "Just a basic blue skin";
 
       $this->author_firstname = "Christopher";
       $this->author_lastname = "Pilkington";

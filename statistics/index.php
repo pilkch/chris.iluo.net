@@ -110,7 +110,7 @@
   $util = new cUtil();
     $util->SetTheme();
 
-    $theme = new cTheme($util->db, $util);
+    $theme = new cTheme($util);
     $theme->header("chris.iluo.net");
       $theme->menu();
 

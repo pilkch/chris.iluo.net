@@ -12,7 +12,6 @@
 
   class cTheme
   {
-    var $page;
     var $home;
     var $dir;
     var $img;
@@ -62,7 +61,6 @@
       $this->home="/";
       $this->dir=$this->home . "themes/" . $this->filename;
       $this->img=$this->dir . "/images";
-      $this->page=$PHP_SELF;
 
       $this->width=990;
       $this->height=768;
@@ -132,17 +130,6 @@
       <tr valign="top">
 <?PHP
       }
-    }
-
-    function form_submitButton($text, $action, $icon)
-    {
-      return "<input type=\"image\" name=\"$text\" alt=\"$text\" title=\"$text\" src=\"/images/action/" . $icon . "\" onclick=\"this.disabled=1; this.form.submit(); return false;\" width=\"16\" height=\"16\">";
-    }
-
-    function form_action($form, $submit_text, $page, $action, $icon)
-    {
-      return  '<form name="form' . $form . '" method="post" action="http://chris.iluo.net/' . $page . '?action=' . $action . '">
-              ' . $this->form_submitButton($submit_text,  $action, $icon) . '</form>';
     }
 
     function menu_write_section($title, $text)

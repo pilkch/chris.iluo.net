@@ -7,8 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright ©, Chris Pilkington; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 21 Nov 2022 23:40:56 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Oct 2023 20:26:27 +0000</lastBuildDate>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Migrating from WordPress to Hugo</title>
+      <link>https://chris.iluo.net/blog/2023/10/03/migrating-from-wordpress-to-hugo/</link>
+      <pubDate>Tue, 03 Oct 2023 20:26:27 +0000</pubDate>
+      <guid>https://chris.iluo.net/blog/2023/10/03/migrating-from-wordpress-to-hugo/</guid>
+      <description>For the last few years I&amp;rsquo;ve been intrigued by the idea of switching from WordPress to a statically generated blog such as Hugo mainly to reduce the attack surface of my web server (I&amp;rsquo;ve always been a bit paranoid of WordPress).
+There are a number of benefits:
+ No PHP or javascript No WordPress and associated vulnerabilities Reduced attack surface Quicker page requests (Not really an issue for my hobbyist blog) Potentially slightly more resilient to high traffic from slashdot/reddit or a DDOS attack (Again not really an issue for this blog) Version controlled in git Could be built and deployed with Continous Integration (I&amp;rsquo;m not doing this yet) Reproducable, if the server is lost or I move hosts I should be able to get up and running again in an hour Themes (Not as many themese, and not as easy to switch themes as WordPress, but not bad)  The main downsides are:</description>
+    </item>
     <item>
       <title>Replacing VSCode and VSCode Remote with VSCodium and Open Remote SSH</title>
       <link>https://chris.iluo.net/blog/2022/11/21/replacing-vscode-and-vscode-remote-with-vscodium-and-open-remote-ssh/</link>

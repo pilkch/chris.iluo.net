@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Migrating from WordPress to Hugo // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Migrating from WordPress to Hugo"/>
+<meta name="twitter:description" content="For the last few years I&rsquo;ve been intrigued by the idea of switching from WordPress to a statically generated blog such as Hugo mainly to reduce the attack surface of my web server (I&rsquo;ve always been a bit paranoid of WordPress).
+There are a number of benefits:
+ No PHP or javascript No WordPress and associated vulnerabilities Reduced attack surface Quicker page requests (Not really an issue for my hobbyist blog) Potentially slightly more resilient to high traffic from slashdot/reddit or a DDOS attack (Again not really an issue for this blog) Version controlled in git Could be built and deployed with Continous Integration (I&rsquo;m not doing this yet) Reproducable, if the server is lost or I move hosts I should be able to get up and running again in an hour Themes (Not as many themese, and not as easy to switch themes as WordPress, but not bad)  The main downsides are:"/>
+
+    <meta property="og:title" content="Migrating from WordPress to Hugo" />
+<meta property="og:description" content="For the last few years I&rsquo;ve been intrigued by the idea of switching from WordPress to a statically generated blog such as Hugo mainly to reduce the attack surface of my web server (I&rsquo;ve always been a bit paranoid of WordPress).
+There are a number of benefits:
+ No PHP or javascript No WordPress and associated vulnerabilities Reduced attack surface Quicker page requests (Not really an issue for my hobbyist blog) Potentially slightly more resilient to high traffic from slashdot/reddit or a DDOS attack (Again not really an issue for this blog) Version controlled in git Could be built and deployed with Continous Integration (I&rsquo;m not doing this yet) Reproducable, if the server is lost or I move hosts I should be able to get up and running again in an hour Themes (Not as many themese, and not as easy to switch themes as WordPress, but not bad)  The main downsides are:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2023/10/03/migrating-from-wordpress-to-hugo/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-10-03T20:26:27+00:00" />
+<meta property="article:modified_time" content="2023-10-03T20:26:27+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Migrating from WordPress to Hugo</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 3, 2023
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="../../../../tags/dev/">dev</a>
+              <a class="tag" href="../../../../tags/web/">web</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>For the last few years I&rsquo;ve been intrigued by the idea of switching from WordPress to a statically generated blog such as Hugo mainly to reduce the attack surface of my web server (I&rsquo;ve always been a bit paranoid of WordPress).</p>
+<p>There are a number of benefits:</p>
+<ul>
+<li>No PHP or javascript</li>
+<li>No WordPress and associated vulnerabilities</li>
+<li>Reduced attack surface</li>
+<li>Quicker page requests (Not really an issue for my hobbyist blog)</li>
+<li>Potentially slightly more resilient to high traffic from slashdot/reddit or a DDOS attack (Again not really an issue for this blog)</li>
+<li>Version controlled in git</li>
+<li>Could be built and deployed with <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continous Integration</a> (I&rsquo;m not doing this yet)</li>
+<li>Reproducable, if the server is lost or I move hosts I should be able to get up and running again in an hour</li>
+<li>Themes (Not as many themese, and not as easy to switch themes as WordPress, but not bad)</li>
+</ul>
+<p>The main downsides are:</p>
+<ul>
+<li>No user input such as comments, surveys, etc.</li>
+<li>No search box, you can only really drill down by date, tags, or categories</li>
+<li>No statistics (Have to look at the apache logs instead)</li>
+<li>No online editor (For a team to collaborate they would need to use github/gitlab or similar, which do provide web based editors)</li>
+<li>No dynamic content apart from what the hugo plugins provide such as allowing embedding of youtube/twitter/instagram/etc. and you can embed raw html/javascript in your posts</li>
+</ul>
+<p>Quirks:</p>
+<ul>
+<li>Content is written in markdown (If you are a programmer this is great, if you&rsquo;ve never used markdown before this may be a bit of a learning curve, although there are editors available)</li>
+<li>As I discovered, Hugo doesn&rsquo;t really like having the blog in a sub directory</li>
+<li>When you add a new blog entry to an existing blog the diff is quite large because it adds the page, and updates the pages of tags,categories, and sitemaps. This is unavoidable though for a statically generated site with tags and categories as indexes. It might be better to not store the output in git, just generate and upload it only, having CI do this step and either rsyncing or just deleting and uploading the whole site each time would allow you to mostly ignore what happens behind the scenes</li>
+</ul>
+<p>I have a few requirements:</p>
+<ul>
+<li>Nothing dynamic, no javascript (Apart from embedding youtube videos)</li>
+<li>Simple theme preferably dark mode</li>
+<li>Similar folder layout at least for the blog entries so that they don&rsquo;t 404 from google</li>
+<li>sitemap.xml</li>
+<li>RSS/Atom feed</li>
+<li>Potential for generating/deploying via CI</li>
+</ul>
+<p>I looked at Jekyll and Hugo. Neither is perfect, but I got up and running with Hugo a lot quicker, it generated nice output, had quiet a few themes, so I went with it. Both have very similar features including themes, sitemaps, feeds, and the option to run a local server to get a live preview of your site before deploying to the real server.</p>
+<h2 id="themes">Themes</h2>
+<p>Switching themes is straightforward, just git clone a new theme, change your config.toml to point to the new theme and rebuild. Unfortunately not all themes are created equally, some support some features, some don&rsquo;t. The first dark mode them I found didn&rsquo;t support some layout or partial so I had to find another.</p>
+<h2 id="rssatom">RSS/Atom</h2>
+<p>The RSS feed seems to be stable although my guids were different to what WordPress was generating so I spammed any subscribers the first time I uploaded the new Hugo generated feed, sorry! I hope that was the last time :(</p>
+<h2 id="output">Output</h2>
+<p>The output wasn&rsquo;t quite what I wanted so I had to run a script to fix it up a bit:</p>
+<ul>
+<li>I struggled a bit with putting my blog in a blog/ sub directory on the server, Hugo says it can support this, but it doesn&rsquo;t really seem to like it, or I am doing it wrong. I ended up not telling Hugo about the sub directory and then adding the sub directory and adjusting the paths before deploying it. Some of the links are still broken, I have to review it. This is a bit of a hack which I&rsquo;d like to get rid of.</li>
+<li>RSS/Atom feeds used relative paths which is not legal, so they had to be rewritten. I also had to remove the About page from it.</li>
+<li>An RSS feed was generated per tag/category as well (WordPress does this too), I&rsquo;d rather people just subscribed to a single feed, so I delete all the feeds except the main one.</li>
+<li>It provides a 404 page which I get rid of in favour of the server 404 page.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>I love it. It is harder to use than WordPress, but you get a lot more control over the output. I sleep safer at night knowing that most of the content is static and I&rsquo;m not running WordPress and plugins.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -61,3 +61,27 @@ ErrorDocument 503 /errors/error_503.php
   # Rewrite atom feed from directory to the index.xml file
   RewriteRule ^blog/feed/atom/$ blog/feed/atom/index.xml
 </IfModule>
+
+# Security headers
+# NOTE: We allow youtube-nocookie.com for embedding youtube videos
+# TODO: Consider just showing an image and providing a link to youtube?
+<IfModule mod_headers.c>
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "same-origin"
+  Header set Content-Security-Policy "default-src 'self' youtube-nocookie.com *.youtube-nocookie.com"
+  Header set Content-Security-Policy "frame-ancestors 'none'"
+
+  # Disallowed functionality
+  Header set Permissions-Policy "accelerometer=(), ambient-light-sensor=(), battery=(), camera=(), display-capture=(), microphone=(), document-domain=(), encrypted-media=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), identity-credentials-get=(), idle-detection=(), local-fonts=(), magnetometer, microphone=(), midi=(), otp-credentials=(), payment=(), publickey-credentials-create=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), speaker-selection=(), storage-access=(), usb=(), xr-spatial-tracking=()"
+  # Allowed functionality
+  Header set Permissions-Policy "autoplay=(self), fullscreen=(self), picture-in-picture=(self), web-share=(self)"
+
+  # So close, just one more security header and we'll have the whole set at https://securityheaders.com/?q=https%3A%2F%2Fchris.iluo.net%2F
+  # I can't get it to work with embedded youtube videos though. I tried, but it nearly broke me. Maybe youtube doesn't support this?
+  #Header set Cross-Origin-Embedder-Policy "require-corp; report-to=\"default\""
+  Header set Cross-Origin-Embedder-Policy-Report-Only "require-corp; report-to=\"default\""
+  Header set Cross-Origin-Opener-Policy "same-origin; report-to=\"default\""
+  Header set Cross-Origin-Opener-Policy-Report-Only "same-origin; report-to=\"default\""
+  Header set Cross-Origin-Resource-Policy "same-origin"
+</IfModule>

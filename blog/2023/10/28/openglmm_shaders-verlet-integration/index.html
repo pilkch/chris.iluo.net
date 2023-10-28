@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>openglmm_shaders Verlet Integration // Coding and Stuff</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Pilkington" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../../../css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="openglmm_shaders Verlet Integration"/>
+<meta name="twitter:description" content="I&rsquo;ve been working on verlet integration lately in my OpenGL 3.3 library and libopenglmm_shaders test.
+Source
+Verlet Integration is a way of simulating some physical interactions. This is not a serious physics engine like ODE/Bullet/Box2D/etc. I&rsquo;m sure verlet integration can be used for serious stuff, I&rsquo;ve just used it as a way to get a basic fun physics simulation, focusing on speed and simple coding. There is a famous paper on verlet integration and many discussions about it online."/>
+
+    <meta property="og:title" content="openglmm_shaders Verlet Integration" />
+<meta property="og:description" content="I&rsquo;ve been working on verlet integration lately in my OpenGL 3.3 library and libopenglmm_shaders test.
+Source
+Verlet Integration is a way of simulating some physical interactions. This is not a serious physics engine like ODE/Bullet/Box2D/etc. I&rsquo;m sure verlet integration can be used for serious stuff, I&rsquo;ve just used it as a way to get a basic fun physics simulation, focusing on speed and simple coding. There is a famous paper on verlet integration and many discussions about it online." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2023/10/28/openglmm_shaders-verlet-integration/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-10-28T10:26:27+00:00" />
+<meta property="article:modified_time" content="2023-10-28T10:26:27+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href=""><img class="app-header-avatar" src="../../../../images/avatar.jpg" alt="Chris Pilkington" /></a>
+      <span class="app-header-title">Coding and Stuff</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="../../../../about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../">Archives</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="../../../../tags/">Tags</a>
+      </nav>
+      <p>With Chris Pilkington</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/pilkch" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">openglmm_shaders Verlet Integration</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 28, 2023
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="../../../../tags/gamedev/">gamedev</a>
+              <a class="tag" href="../../../../tags/opengl/">opengl</a>
+              <a class="tag" href="../../../../tags/openglmm/">openglmm</a>
+              <a class="tag" href="../../../../tags/openglmm_shaders/">openglmm_shaders</a>
+              <a class="tag" href="../../../../tags/verlet/">verlet</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>I&rsquo;ve been working on verlet integration lately in my OpenGL 3.3 library and libopenglmm_shaders test.<br>
+<a href="https://github.com/pilkch/tests/">Source</a></p>
+<p>Verlet Integration is a way of simulating some physical interactions. This is not a serious physics engine like ODE/Bullet/Box2D/etc. I&rsquo;m sure verlet integration can be used for serious stuff, I&rsquo;ve just used it as a way to get a basic fun physics simulation, focusing on speed and simple coding. There is a <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15462-s13/www/lec_slides/Jakobsen.pdf">famous paper on verlet integration</a> and many discussions about it online. The typical way that verlet physics is simulated in games is with particles which provide the basic shape of objects, and springs joining the particles together. The springs have a length that they try to maintain, and a stiffness. They can iteratively keep the particles a certain distance from each other. A rope segment is basically a spring with a maximum length, but no minimum length. A pin is a constraint on a particle to hold it in position. These primitives can then be used to simulate semi-rigid bodies and complex objects. Ragdolls, cloth, grass, tires, rope, hair, bridges, and even destruction can be simulated.</p>
+<p>I&rsquo;ve featured it in my last 3 videos. On a side note, youtube thinks my videos are Second Life and Minecraft.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/NcHnFuvqhxg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video" crossorigin></iframe>
+</div>
+
+<ul>
+<li>Bull with verlet &ldquo;bobble&rdquo; head</li>
+<li>Early verlet grass</li>
+<li>Plus PBR rendering and a whole heap of other stuff</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/LQHXeTFDeFs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video" crossorigin></iframe>
+</div>
+
+<ul>
+<li>Verlet grass with player interaction</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/UTwsyOtwEsM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video" crossorigin></iframe>
+</div>
+
+<ul>
+<li>Verlet hot air balloon</li>
+</ul>
+<p>The hot air balloon is simulated with verlet integration. The basket and red balloon parts are simulated as boxes. Although the balloon is rendered as a much larger balloon, about 4 times larger than the simulated box, the physics is updated, then we work out the approximate position and orientation of the box, and render the balloon there instead. The 4 ropes connecting the basket and red balloon parts actually connect the physics particles, the rendered red balloon is a different diameter so the ropes don&rsquo;t quite line up. I forgot to hit the debug key to show the debug of the underlying physics box, sorry!</p>
+<p>The basket and box are simulated with particles at each corner, linked by springs that try maintain a set length, pushing/pulling the corners into place. You can see the corners of the basket flexing slightly as the balloon goes up and down. All particles try to prevent collisions with the ground, so the basket and balloon can tip over, but not fall through the ground.</p>
+<p>The ropes are all simulated as a line of particles joined by &ldquo;rope&rdquo; joints which are basically &ldquo;one way&rdquo; springs that only have a max length that they try to maintain. The rope gathering is not too bad, it is affected by gravity so it droops nicely, under normal forces it prevents the balloon flying off into the sky, but it does look a bit janky when it is meant to not under tension. There is no particle to particle collision, and there is no collision geometry on each face of the basket for example, so the rope just passes right through.</p>
+<p>The particles in the boxes and ropes are affected by gravity. Lift is applied to the physics box for the balloon, so the top pulls itself up, and the ropes pull the basket up below it. In the video I am increasing and decreasing the lift so that the balloon rises and falls.</p>
+<p>I&rsquo;ve also got some verlet flags in there too which are &ldquo;clothish&rdquo; and blown around by the wind, but I don&rsquo;t seem to have captured them in the videos. I&rsquo;ll try to remember to add that to the next video.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

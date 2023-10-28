@@ -4,7 +4,7 @@
     <title>Pimp My Code Part 1 // Coding and Stuff</title>
     <link rel="shortcut icon" href="../favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Chris Pilkington" />
     <meta name="description" content="" />
@@ -13,10 +13,12 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pimp My Code Part 1"/>
-<meta name="twitter:description" content="inline bool IsSpecial(const char* szValue) {  // Returns true if this is a special value  if (stricmp(szValue, &#34;MySpecialValue&#34;) == 0) {  return true;  }   return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:"/>
+<meta name="twitter:description" content="inline bool IsSpecial(const char* szValue) { // Returns true if this is a special value if (stricmp(szValue, &#34;MySpecialValue&#34;) == 0) { return true; } return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:
+// Returns true if this is a special value inline bool IsSpecial(const char* szValue) { return (stricmp(szValue, &#34;MySpecialValue&#34;) == 0); } If it were up to me I would also use a string class and keep as much of the code as possible in the string “realm” (This makes the code a lot simpler and easier to read):"/>
 
     <meta property="og:title" content="Pimp My Code Part 1" />
-<meta property="og:description" content="inline bool IsSpecial(const char* szValue) {  // Returns true if this is a special value  if (stricmp(szValue, &#34;MySpecialValue&#34;) == 0) {  return true;  }   return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:" />
+<meta property="og:description" content="inline bool IsSpecial(const char* szValue) { // Returns true if this is a special value if (stricmp(szValue, &#34;MySpecialValue&#34;) == 0) { return true; } return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:
+// Returns true if this is a special value inline bool IsSpecial(const char* szValue) { return (stricmp(szValue, &#34;MySpecialValue&#34;) == 0); } If it were up to me I would also use a string class and keep as much of the code as possible in the string “realm” (This makes the code a lot simpler and easier to read):" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2011/12/17/pimp-my-code-part-1/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2011-12-17T09:41:26+00:00" />

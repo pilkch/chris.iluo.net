@@ -637,13 +637,13 @@
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://chris.iluo.net/blog/2007/11/23/welcome/</loc>
+    <loc>https://chris.iluo.net/blog/tags/welcome/</loc>
     <lastmod>2007-11-23T18:38:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://chris.iluo.net/blog/tags/welcome/</loc>
+    <loc>https://chris.iluo.net/blog/2007/11/23/welcome/</loc>
     <lastmod>2007-11-23T18:38:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>

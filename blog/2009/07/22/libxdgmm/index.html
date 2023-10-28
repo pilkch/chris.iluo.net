@@ -4,7 +4,7 @@
     <title>libxdgmm // Coding and Stuff</title>
     <link rel="shortcut icon" href="../favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Chris Pilkington" />
     <meta name="description" content="" />
@@ -16,13 +16,13 @@
 <meta name="twitter:description" content="I think the Portland Project from freedesktop.org, is a great idea and
 everyone should be supporting it in their applications.
 I’ve just created a very small C&#43;&#43; wrapper (libxdgmm) for accessing XDG more easily. To use it, you need libxdgmm.h and libxdgmm.cpp. Just add these to your project and then use them like so:
-#include &lt;libxdgmm/libxdg.h&gt; int main(int argc, char** argv) {  if (!xdg::IsInstalled()) std::cout&lt;&lt;&#34;XDG is not installed&#34;&lt;&lt;std::endl;  else {  std::string data;  xdg::GetDataHome(data);  std::cout&lt;&lt;&#34;data=\&#34;&#34;&lt;&lt;data&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl;   std::string config;  xdg::GetConfigHome(config);  std::cout&lt;&lt;&#34;config=\&#34;&#34;&lt;&lt;config&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl;   // Obviously these have to exist to work."/>
+#include &lt;libxdgmm/libxdg.h&gt; int main(int argc, char** argv) { if (!xdg::IsInstalled()) std::cout&lt;&lt;&#34;XDG is not installed&#34;&lt;&lt;std::endl; else { std::string data; xdg::GetDataHome(data); std::cout&lt;&lt;&#34;data=\&#34;&#34;&lt;&lt;data&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl; std::string config; xdg::GetConfigHome(config); std::cout&lt;&lt;&#34;config=\&#34;&#34;&lt;&lt;config&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl; // Obviously these have to exist to work."/>
 
     <meta property="og:title" content="libxdgmm" />
 <meta property="og:description" content="I think the Portland Project from freedesktop.org, is a great idea and
 everyone should be supporting it in their applications.
 I’ve just created a very small C&#43;&#43; wrapper (libxdgmm) for accessing XDG more easily. To use it, you need libxdgmm.h and libxdgmm.cpp. Just add these to your project and then use them like so:
-#include &lt;libxdgmm/libxdg.h&gt; int main(int argc, char** argv) {  if (!xdg::IsInstalled()) std::cout&lt;&lt;&#34;XDG is not installed&#34;&lt;&lt;std::endl;  else {  std::string data;  xdg::GetDataHome(data);  std::cout&lt;&lt;&#34;data=\&#34;&#34;&lt;&lt;data&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl;   std::string config;  xdg::GetConfigHome(config);  std::cout&lt;&lt;&#34;config=\&#34;&#34;&lt;&lt;config&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl;   // Obviously these have to exist to work." />
+#include &lt;libxdgmm/libxdg.h&gt; int main(int argc, char** argv) { if (!xdg::IsInstalled()) std::cout&lt;&lt;&#34;XDG is not installed&#34;&lt;&lt;std::endl; else { std::string data; xdg::GetDataHome(data); std::cout&lt;&lt;&#34;data=\&#34;&#34;&lt;&lt;data&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl; std::string config; xdg::GetConfigHome(config); std::cout&lt;&lt;&#34;config=\&#34;&#34;&lt;&lt;config&lt;&lt;&#34;\&#34;&#34;&lt;&lt;std::endl; // Obviously these have to exist to work." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2009/07/22/libxdgmm/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2009-07-22T09:46:05+00:00" />

@@ -16,7 +16,7 @@
       <guid>https://chris.iluo.net/blog/2023/10/03/migrating-from-wordpress-to-hugo/</guid>
       <description>For the last few years I&amp;rsquo;ve been intrigued by the idea of switching from WordPress to a statically generated blog such as Hugo mainly to reduce the attack surface of my web server (I&amp;rsquo;ve always been a bit paranoid of WordPress).
 There are a number of benefits:
- No PHP or javascript No WordPress and associated vulnerabilities Reduced attack surface Quicker page requests (Not really an issue for my hobbyist blog) Potentially slightly more resilient to high traffic from slashdot/reddit or a DDOS attack (Again not really an issue for this blog) Version controlled in git Could be built and deployed with Continous Integration (I&amp;rsquo;m not doing this yet) Reproducable, if the server is lost or I move hosts I should be able to get up and running again in an hour Themes (Not as many themese, and not as easy to switch themes as WordPress, but not bad)  The main downsides are:</description>
+No PHP or javascript No WordPress and associated vulnerabilities Reduced attack surface Quicker page requests (Not really an issue for my hobbyist blog) Potentially slightly more resilient to high traffic from slashdot/reddit or a DDOS attack (Again not really an issue for this blog) Version controlled in git Could be built and deployed with Continous Integration (I&amp;rsquo;m not doing this yet) Reproducable, if the server is lost or I move hosts I should be able to get up and running again in an hour Themes (Not as many themese, and not as easy to switch themes as WordPress, but not bad) The main downsides are:</description>
     </item>
     <item>
       <title>Replacing VSCode and VSCode Remote with VSCodium and Open Remote SSH</title>
@@ -42,7 +42,7 @@ We usually represent structured data with fields or key value pairs. The data ca
 What are containers?
 A process or group of processes that are running on the same kernel as the host but in isolation via namespaces, cgroups and images
 Why would you do this?
- Share resources (3 web servers in containers on one physical server for example) Less overhead and quicker to spin up than a VM To experiment in Linux without modifying the host OS settings or filesystem To run software or use libraries that cannot or shouldn’t be run on the host (Mismatched versions, tries to read data from your home folder, tries to mess around with other processes, spams syslog, tries to phone home or query the network, or talk to Linux kernel modules) Consistent behaviour (Developers can run wildly different machines but develop within identical containers, consistent continuous integration, simulate end users’ machines for debugging) Run a collection of containers that can talk to each other but can’t talk to the rest of the network (Local testing, integration testing, load testing, mess around with network configurations and firewall rules without endangering the host) Run a collection of containers that can talk to each other but only one or two of them are public facing (LAMP stack, ELK stack, a cluster, etc.</description>
+Share resources (3 web servers in containers on one physical server for example) Less overhead and quicker to spin up than a VM To experiment in Linux without modifying the host OS settings or filesystem To run software or use libraries that cannot or shouldn’t be run on the host (Mismatched versions, tries to read data from your home folder, tries to mess around with other processes, spams syslog, tries to phone home or query the network, or talk to Linux kernel modules) Consistent behaviour (Developers can run wildly different machines but develop within identical containers, consistent continuous integration, simulate end users’ machines for debugging) Run a collection of containers that can talk to each other but can’t talk to the rest of the network (Local testing, integration testing, load testing, mess around with network configurations and firewall rules without endangering the host) Run a collection of containers that can talk to each other but only one or two of them are public facing (LAMP stack, ELK stack, a cluster, etc.</description>
     </item>
     <item>
       <title>Minecraft Server Cross Platform Compatibility</title>
@@ -50,15 +50,15 @@ Why would you do this?
       <pubDate>Mon, 11 Jan 2021 22:06:07 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2021/01/11/minecraft-server-cross-platform-compatibility/</guid>
       <description>Note: The legacy consoles essentially cannot connect outside their own platform
-References  https://www.reddit.com/r/Minecraft/comments/crlnzp/what_versions_of_minecraft_are_crosscompatible/ https://www.minecraft.net/en-us/store/minecraft-xbox-360 https://minecraft.gamepedia.com/Xbox_360_Edition https://github.com/GeyserMC/Geyser  With GeyserMC and the Java and Bedrock editions there seems to be quite good cross platform compatibility, but alas, I was hoping to connect Xbox 360 to a Java or Bedrock server which I do not think is possible.
-Protocol  &amp;ldquo;The programming language and game engine have little to do with incompatibilities; rather, it is because of differences in various data formats like IDs; for example, in the PC edition each type of wooden fence uses its own block ID*, while in PE they use data values so only one ID is used (the same as oak fences in PC).</description>
+References https://www.reddit.com/r/Minecraft/comments/crlnzp/what_versions_of_minecraft_are_crosscompatible/ https://www.minecraft.net/en-us/store/minecraft-xbox-360 https://minecraft.gamepedia.com/Xbox_360_Edition https://github.com/GeyserMC/Geyser With GeyserMC and the Java and Bedrock editions there seems to be quite good cross platform compatibility, but alas, I was hoping to connect Xbox 360 to a Java or Bedrock server which I do not think is possible.
+Protocol &amp;ldquo;The programming language and game engine have little to do with incompatibilities; rather, it is because of differences in various data formats like IDs; for example, in the PC edition each type of wooden fence uses its own block ID*, while in PE they use data values so only one ID is used (the same as oak fences in PC).</description>
     </item>
     <item>
       <title>Basic HTML5 Soundboard</title>
       <link>https://chris.iluo.net/blog/2017/10/05/basic-html5-soundboard/</link>
       <pubDate>Thu, 05 Oct 2017 22:56:43 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2017/10/05/basic-html5-soundboard/</guid>
-      <description>I made a thing. It has other people’s giant images and audio that I haven’t bothered resizing or compressing so it can take maybe 20 seconds to load as you click through the sounds. I made it as something my kids can play with on a tablet and because I’ve always thought it would be a great use for the new audio APIs in HTML5. The source code is here. Enjoy.</description>
+      <description>I made a thing. It has other people’s giant images and audio that I haven’t bothered resizing or compressing so it can take maybe 20 seconds to load as you click through the sounds. I made it as something my kids can play with on a tablet and because I’ve always thought it would be a great use for the new audio APIs in HTML5. The source code is here.</description>
     </item>
     <item>
       <title>Stop Watch and Time Out Classes</title>
@@ -75,7 +75,7 @@ The stop watch and timer classes use this function to get the system time, we ac
       <pubDate>Tue, 13 Sep 2016 00:22:08 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2016/09/13/colour-picker-added-hex-and-float-conversions/</guid>
       <description>Colour picker hex and float entry.
- The colour pickers I see never have conversions from RGB uint8_t (255, 255, 255) to RGB float (1.0f, 1.0f, 1.0f), so I added it to mine. HSL, HSV and YUV are also shown. There is one bug when typing in a text colour if no single RGB component dominates then the colour palette look up fails, picking full white. It’s in JavaScript, so as usual I am surprised by how quickly and relatively easy this was to implement.</description>
+The colour pickers I see never have conversions from RGB uint8_t (255, 255, 255) to RGB float (1.0f, 1.0f, 1.0f), so I added it to mine. HSL, HSV and YUV are also shown. There is one bug when typing in a text colour if no single RGB component dominates then the colour palette look up fails, picking full white. It’s in JavaScript, so as usual I am surprised by how quickly and relatively easy this was to implement.</description>
     </item>
     <item>
       <title>Some Simple Regexes for Finding If Statements</title>
@@ -96,8 +96,8 @@ Regex101 is really impressive. You can paste a regex and check it against some t
       <guid>https://chris.iluo.net/blog/2015/08/18/openglmm_shaders-test-20150817/</guid>
       <description>Here is a video demo of my OpenGL 3.3 library libopenglmm.
 Source
-  Materials:
- Lambert shading (Mirror’s Edge style) Fog Cube mapping Multitexturing Normal mapping Car paint (Slighty broken, I think a texture look up is incorrect) Glass mixed with dirty metal texture (Similar to an old rusty/broken mirror) Cel shading Smoke particle system with lambert lighting with 4 normals that very roughly approximate a sphere (I think something is wrong with the depth texture look up)  Post render effects:</description>
+Materials:
+Lambert shading (Mirror’s Edge style) Fog Cube mapping Multitexturing Normal mapping Car paint (Slighty broken, I think a texture look up is incorrect) Glass mixed with dirty metal texture (Similar to an old rusty/broken mirror) Cel shading Smoke particle system with lambert lighting with 4 normals that very roughly approximate a sphere (I think something is wrong with the depth texture look up) Post render effects:</description>
     </item>
     <item>
       <title>Colour Picker Released</title>
@@ -114,7 +114,7 @@ I don’t normally use JavaScript, but I had fun doing this.</description>
       <guid>https://chris.iluo.net/blog/2013/09/21/diesel-photo-manager-0.1-released/</guid>
       <description>I couldn&amp;rsquo;t find a photo browser for Linux that also imported my photos in the folder format I wanted so I created my own.
 This is the first release and it has these features:
- Simple interface Thumbnail grid mode Single photo mode Import and sort photos into folders based on the date Convert files to dng Show the background thread progress on the statusbar Check for updates via version.xml Default to dark theme (Can be overridden with the –light command line parameter)  Still to come:</description>
+Simple interface Thumbnail grid mode Single photo mode Import and sort photos into folders based on the date Convert files to dng Show the background thread progress on the statusbar Check for updates via version.xml Default to dark theme (Can be overridden with the –light command line parameter) Still to come:</description>
     </item>
     <item>
       <title>Medusa Music Player 0.9 Released</title>
@@ -122,7 +122,7 @@ This is the first release and it has these features:
       <pubDate>Sat, 21 Sep 2013 12:12:14 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2013/09/21/medusa-music-player-0.9-released/</guid>
       <description>I’ve release a new version of Medusa music player with these features:
- Simple interface Last.fm support Date added and a full file path column Drag and drop from the file manager Moving files to the trash folder Move files to a particular folder and remember the last 5 folders Extra columns Show the background thread progress on the statusbar Import playlist from Rhythmbox and Banshee Autoplay at last track at startup Web server for controlling playback, volume and deleting tracks remotely Check for updates via version.</description>
+Simple interface Last.fm support Date added and a full file path column Drag and drop from the file manager Moving files to the trash folder Move files to a particular folder and remember the last 5 folders Extra columns Show the background thread progress on the statusbar Import playlist from Rhythmbox and Banshee Autoplay at last track at startup Web server for controlling playback, volume and deleting tracks remotely Check for updates via version.</description>
     </item>
     <item>
       <title>Medusa Music Player 0.8 Released</title>
@@ -130,7 +130,7 @@ This is the first release and it has these features:
       <pubDate>Thu, 13 Jun 2013 00:58:27 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2013/06/13/medusa-music-player-0.8-released/</guid>
       <description>I&amp;rsquo;ve release a new version of Medusa music player with these features:
- Simple interface Last.fm support Date added and a full file path column Drag and drop from the file manager Moving files to the trash folder Move files to a particular folder and remember the last 5 folders Extra columns Show the background thread progress on the statusbar Import playlist from Rhythmbox and Banshee Autoplay at last track at startup  New:</description>
+Simple interface Last.fm support Date added and a full file path column Drag and drop from the file manager Moving files to the trash folder Move files to a particular folder and remember the last 5 folders Extra columns Show the background thread progress on the statusbar Import playlist from Rhythmbox and Banshee Autoplay at last track at startup New:</description>
     </item>
     <item>
       <title>Medusa Music Player 0.7 Released</title>
@@ -138,8 +138,8 @@ This is the first release and it has these features:
       <pubDate>Sun, 12 Aug 2012 01:44:58 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2012/08/12/medusa-music-player-0.7-released/</guid>
       <description>I&amp;rsquo;ve release a new version of Medusa music player with these features:
- Simple interface Last.fm support Date added and a full file path column Drag and drop from the file manager Auto play last track at startup Moving files to the trash folder Move files to a particular folder and remember the last 5 folders  New:
- Extra columns Show the background thread progress on the statusbar Import playlist from Rhythmbox and Banshee Add autoplay at last track at startup  Still to come:</description>
+Simple interface Last.fm support Date added and a full file path column Drag and drop from the file manager Auto play last track at startup Moving files to the trash folder Move files to a particular folder and remember the last 5 folders New:
+Extra columns Show the background thread progress on the statusbar Import playlist from Rhythmbox and Banshee Add autoplay at last track at startup Still to come:</description>
     </item>
     <item>
       <title>Medusa Music Player 0.6 Released</title>
@@ -147,9 +147,9 @@ This is the first release and it has these features:
       <pubDate>Tue, 05 Jun 2012 00:36:01 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2012/06/05/medusa-music-player-0.6-released/</guid>
       <description>I&amp;rsquo;ve release a new version of Medusa music player with these features:
- Simple interface Last.fm support Date added and a full file path column  New:
- Drag and drop from the file manager Auto play last track at startup Moving files to the trash folder Move files to a particular folder and remember the last 5 folders  Still to come:
- Easy tag editing for multiple files at once  Download for Linux</description>
+Simple interface Last.fm support Date added and a full file path column New:
+Drag and drop from the file manager Auto play last track at startup Moving files to the trash folder Move files to a particular folder and remember the last 5 folders Still to come:
+Easy tag editing for multiple files at once Download for Linux</description>
     </item>
     <item>
       <title>Java Gotchas</title>
@@ -157,10 +157,10 @@ This is the first release and it has these features:
       <pubDate>Fri, 18 May 2012 23:38:03 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2012/05/18/java-gotchas/</guid>
       <description>Everything is a pointer that initially points to null. Every non-POD type must be newed (I forget this one a lot)
-  The POD types (int, float, enum, etc.) behave just like their C++ counter parts.
+The POD types (int, float, enum, etc.) behave just like their C++ counter parts.
 The boxed versions (Integer, Float) and String in Java are more like a pointer to the POD value.
 For example:
-String a = &amp;#34;chris&amp;#34;; String b = &amp;#34;chris&amp;#34;; if (a == b) System.</description>
+String a = &amp;#34;chris&amp;#34;; String b = &amp;#34;chris&amp;#34;; if (a == b) System.out.println(&amp;#34;The strings are the same&amp;#34;); This test will always fail because operator== for pointers (Instances of anything derived from java.</description>
     </item>
     <item>
       <title>Medusa Music Player 0.5 Released</title>
@@ -191,14 +191,15 @@ Use assert&amp;hellip; Assert will help you find errors before you even knew the
       <pubDate>Thu, 22 Dec 2011 22:06:07 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2011/12/22/pimp-my-code-part-1-redux/</guid>
       <description>Not exactly a redux, but very similar to last time:
-bIsNotEmpty = false; if (vNests.GetSize() != 0) {  if (vNests[0]-&amp;gt;vEggs.GetSize() != 0) bIsNotEmpty = true; } First of all we don’t actually care about the size, we just care that we have (Or don’t have) a nest with eggs in it. Depending on the container GetSize may or may not be a variable look up. IsEmpty is always a variable lookup:</description>
+bIsNotEmpty = false; if (vNests.GetSize() != 0) { if (vNests[0]-&amp;gt;vEggs.GetSize() != 0) bIsNotEmpty = true; } First of all we don’t actually care about the size, we just care that we have (Or don’t have) a nest with eggs in it. Depending on the container GetSize may or may not be a variable look up. IsEmpty is always a variable lookup:</description>
     </item>
     <item>
       <title>Pimp My Code Part 1</title>
       <link>https://chris.iluo.net/blog/2011/12/17/pimp-my-code-part-1/</link>
       <pubDate>Sat, 17 Dec 2011 09:41:26 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2011/12/17/pimp-my-code-part-1/</guid>
-      <description>inline bool IsSpecial(const char* szValue) {  // Returns true if this is a special value  if (stricmp(szValue, &amp;#34;MySpecialValue&amp;#34;) == 0) {  return true;  }   return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:</description>
+      <description>inline bool IsSpecial(const char* szValue) { // Returns true if this is a special value if (stricmp(szValue, &amp;#34;MySpecialValue&amp;#34;) == 0) { return true; } return false; } I see this sort of thing all the time. For boolean functions that call boolean functions the if and return statements are usually superflous, we can use the return value of (stricmp(szValue, “MySpecialValue”) == 0) itself:
+// Returns true if this is a special value inline bool IsSpecial(const char* szValue) { return (stricmp(szValue, &amp;#34;MySpecialValue&amp;#34;) == 0); } If it were up to me I would also use a string class and keep as much of the code as possible in the string “realm” (This makes the code a lot simpler and easier to read):</description>
     </item>
     <item>
       <title>Converting Pentax PEF Files to PNG</title>
@@ -222,7 +223,7 @@ PNG version:</description>
       <pubDate>Wed, 22 Jun 2011 09:41:24 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2011/06/22/java/</guid>
       <description>I&amp;rsquo;ve been getting back into Java in my spare time recently, as I think about possibly making a few Android games. These are some notes about the differences between Java and C++.
- In Java (almost) everything is an object. Strings, Floats and Ints are first class types. In C++ we usually don’t have to stress too much about performance. We can usually afford to do extra processing, create and pass around as many temporaries as we like, use extra ram and hold onto large amounts of ram.</description>
+In Java (almost) everything is an object. Strings, Floats and Ints are first class types. In C++ we usually don’t have to stress too much about performance. We can usually afford to do extra processing, create and pass around as many temporaries as we like, use extra ram and hold onto large amounts of ram.</description>
     </item>
     <item>
       <title>Version Control 2.0</title>
@@ -252,7 +253,7 @@ Create a new playlist and add all the videos from your favourites (Note: A playl
       <link>https://chris.iluo.net/blog/2010/01/10/malloc-double-free/non-aligned-pointer-being-freed-set-a-breakpoint-in-malloc_error_break-to-debug/</link>
       <pubDate>Sun, 10 Jan 2010 10:00:22 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2010/01/10/malloc-double-free/non-aligned-pointer-being-freed-set-a-breakpoint-in-malloc_error_break-to-debug/</guid>
-      <description>malloc: *** error for object 0x3874a0: double free ***set a breakpoint in malloc_error_break to debug  malloc: *** error for object 0x18a138: Non- aligned pointer being freed *** set a breakpoint in malloc_error_break to debug So basically something in your code is screwing around with memory.
+      <description>malloc: *** error for object 0x3874a0: double free ***set a breakpoint in malloc_error_break to debug malloc: *** error for object 0x18a138: Non- aligned pointer being freed *** set a breakpoint in malloc_error_break to debug So basically something in your code is screwing around with memory.
 Either releasing something that has already been released:
 int* x = new x[10]; delete [] x; delete [] x; Or releasing something that is not pointing to the start of an allocated block of memory:</description>
     </item>
@@ -276,7 +277,7 @@ Cannot open /dev/sda1: Device or resource busy It turned out that this was a dmr
       <link>https://chris.iluo.net/blog/2009/09/26/how-to-find-and-remove-folders-recursively-in-linux/unix-because-i-always-forget-this/</link>
       <pubDate>Sat, 26 Sep 2009 09:33:04 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2009/09/26/how-to-find-and-remove-folders-recursively-in-linux/unix-because-i-always-forget-this/</guid>
-      <description># Recursively search for folders called .svn and delete them (Even if not empty) find . -name .svn -type d -print | xargs rm -rf  # Recursively search for files called *~ (gedit creates these for temporarily saving to) and delete them find . -name \*~ -print | xargs rm -rf  # Recursively search for files called *.h or *.cpp and print them find -name &amp;#39;*.h&amp;#39; -o -name &amp;#39;*.</description>
+      <description># Recursively search for folders called .svn and delete them (Even if not empty) find . -name .svn -type d -print | xargs rm -rf # Recursively search for files called *~ (gedit creates these for temporarily saving to) and delete them find . -name \*~ -print | xargs rm -rf # Recursively search for files called *.h or *.cpp and print them find -name &amp;#39;*.h&amp;#39; -o -name &amp;#39;*.cpp&amp;#39; -print </description>
     </item>
     <item>
       <title>Blender Export OBJ Python Script</title>
@@ -299,7 +300,7 @@ OpenMoko
 Palm Pre
 However, a new hotness has just been born.
 The Nokia n900.
- 32 GB internal storage Expandable to up to 48 GB with external microSD card 3.5G mobile network Quadband GSM with GPRS and EDGE Data transfers over a cellular network 10/2Mbps Data transfers over Wi-Fi 54Mbps Flash 9.4 support (In your face iPhone users, Nokia loves me) 5-megapixel (2584 × 1938 resolution) digital camera (iPhone is up to 3.</description>
+32 GB internal storage Expandable to up to 48 GB with external microSD card 3.5G mobile network Quadband GSM with GPRS and EDGE Data transfers over a cellular network 10/2Mbps Data transfers over Wi-Fi 54Mbps Flash 9.4 support (In your face iPhone users, Nokia loves me) 5-megapixel (2584 × 1938 resolution) digital camera (iPhone is up to 3.</description>
     </item>
     <item>
       <title>Moving from SVN to GIT</title>
@@ -329,7 +330,7 @@ s Socket link.</description>
       <description>I think the Portland Project from freedesktop.org, is a great idea and
 everyone should be supporting it in their applications.
 I’ve just created a very small C++ wrapper (libxdgmm) for accessing XDG more easily. To use it, you need libxdgmm.h and libxdgmm.cpp. Just add these to your project and then use them like so:
-#include &amp;lt;libxdgmm/libxdg.h&amp;gt; int main(int argc, char** argv) {  if (!xdg::IsInstalled()) std::cout&amp;lt;&amp;lt;&amp;#34;XDG is not installed&amp;#34;&amp;lt;&amp;lt;std::endl;  else {  std::string data;  xdg::GetDataHome(data);  std::cout&amp;lt;&amp;lt;&amp;#34;data=\&amp;#34;&amp;#34;&amp;lt;&amp;lt;data&amp;lt;&amp;lt;&amp;#34;\&amp;#34;&amp;#34;&amp;lt;&amp;lt;std::endl;   std::string config;  xdg::GetConfigHome(config);  std::cout&amp;lt;&amp;lt;&amp;#34;config=\&amp;#34;&amp;#34;&amp;lt;&amp;lt;config&amp;lt;&amp;lt;&amp;#34;\&amp;#34;&amp;#34;&amp;lt;&amp;lt;std::endl;   // Obviously these have to exist to work.</description>
+#include &amp;lt;libxdgmm/libxdg.h&amp;gt; int main(int argc, char** argv) { if (!xdg::IsInstalled()) std::cout&amp;lt;&amp;lt;&amp;#34;XDG is not installed&amp;#34;&amp;lt;&amp;lt;std::endl; else { std::string data; xdg::GetDataHome(data); std::cout&amp;lt;&amp;lt;&amp;#34;data=\&amp;#34;&amp;#34;&amp;lt;&amp;lt;data&amp;lt;&amp;lt;&amp;#34;\&amp;#34;&amp;#34;&amp;lt;&amp;lt;std::endl; std::string config; xdg::GetConfigHome(config); std::cout&amp;lt;&amp;lt;&amp;#34;config=\&amp;#34;&amp;#34;&amp;lt;&amp;lt;config&amp;lt;&amp;lt;&amp;#34;\&amp;#34;&amp;#34;&amp;lt;&amp;lt;std::endl; // Obviously these have to exist to work.</description>
     </item>
     <item>
       <title>AHGotoPage Doesn't Work Argh!</title>
@@ -361,7 +362,7 @@ Section &amp;#34;Files&amp;#34; ModulePath &amp;#34;/usr/lib64/xorg/modules/exte
       <link>https://chris.iluo.net/blog/2009/02/25/yearly-update/</link>
       <pubDate>Wed, 25 Feb 2009 09:17:01 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2009/02/25/yearly-update/</guid>
-      <description>[Skysytem background, testing wireframe grid, TombRaider MD3 model, testing material boxes, particle systems, frames per second messages, pegs, shocks, all the necessary elements of a Sudoku game.
+      <description>[ Skysytem background, testing wireframe grid, TombRaider MD3 model, testing material boxes, particle systems, frames per second messages, pegs, shocks, all the necessary elements of a Sudoku game.
 It’s been a while, I have like 20 draft entries in WordPress ranging from 1 paragraph comments up to 10 paragraph full on entries that still need that final once over and edit before going live. Actually it might be cool if there was (There probably is) a plugin so that people could optionally go to a page on my blog where they can see everything that hasn’t been published yet, like tagged with “draft” or something and comment on which ones I should flesh out and which ones I should ditch before they are even finished.</description>
     </item>
     <item>
@@ -370,7 +371,7 @@ It’s been a while, I have like 20 draft entries in WordPress ranging from 1 pa
       <pubDate>Mon, 15 Dec 2008 16:10:02 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2008/12/15/x86_64-linux-c/c-test/</guid>
       <description>I use:
- gcc cmake KDevelop RapidSVN Meld  However, don’t go the websites, all of these are available in the (Default?) repositories, so you can either install them via yum, PackageKit or apt-get. Also note: RapidSVN and Meld are only needed if you want to use SVN. Even KDevelop is not required if you have another text editor that you prefer such as gedit/vi/emacs. If you want to create your provide your own make file then you don’t need cmake either.</description>
+gcc cmake KDevelop RapidSVN Meld However, don’t go the websites, all of these are available in the (Default?) repositories, so you can either install them via yum, PackageKit or apt-get. Also note: RapidSVN and Meld are only needed if you want to use SVN. Even KDevelop is not required if you have another text editor that you prefer such as gedit/vi/emacs. If you want to create your provide your own make file then you don’t need cmake either.</description>
     </item>
     <item>
       <title>Linux x86_64</title>
@@ -395,7 +396,8 @@ I heart covers. No wait, I heart covers more than everyone in the world put toge
       <pubDate>Sat, 01 Nov 2008 14:02:56 +0000</pubDate>
       <guid>https://chris.iluo.net/blog/2008/11/01/const-int-vs.-enum-vs.-define/</guid>
       <description>Example A:
-int GetValue0() {  return 10; }  int GetValue1() {  return 10 + 10; }  int GetValue2() {  return 10 * 10; } So if all of the values 10 represent a common magic number then you are going to want to extract that value to one location instead of the 5 that it is in at the moment. How do we do this?</description>
+int GetValue0() { return 10; } int GetValue1() { return 10 + 10; } int GetValue2() { return 10 * 10; } So if all of the values 10 represent a common magic number then you are going to want to extract that value to one location instead of the 5 that it is in at the moment. How do we do this?
+Say we call the value MAGIC_NUMBER (Of course, in a real life situation you would use a better name than this, wouldn’t you?</description>
     </item>
     <item>
       <title>Crank very early testing of heightmap and basic physics</title>

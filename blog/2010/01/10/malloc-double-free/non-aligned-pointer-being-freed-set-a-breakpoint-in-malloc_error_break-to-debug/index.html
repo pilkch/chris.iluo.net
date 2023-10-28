@@ -4,7 +4,7 @@
     <title>malloc double free/non- aligned pointer being freed set a breakpoint in malloc_error_break to debug // Coding and Stuff</title>
     <link rel="shortcut icon" href="../favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Chris Pilkington" />
     <meta name="description" content="" />
@@ -13,12 +13,12 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="malloc double free/non- aligned pointer being freed set a breakpoint in malloc_error_break to debug"/>
-<meta name="twitter:description" content="malloc: *** error for object 0x3874a0: double free ***set a breakpoint in malloc_error_break to debug  malloc: *** error for object 0x18a138: Non- aligned pointer being freed *** set a breakpoint in malloc_error_break to debug So basically something in your code is screwing around with memory.
+<meta name="twitter:description" content="malloc: *** error for object 0x3874a0: double free ***set a breakpoint in malloc_error_break to debug malloc: *** error for object 0x18a138: Non- aligned pointer being freed *** set a breakpoint in malloc_error_break to debug So basically something in your code is screwing around with memory.
 Either releasing something that has already been released:
 int* x = new x[10]; delete [] x; delete [] x; Or releasing something that is not pointing to the start of an allocated block of memory:"/>
 
     <meta property="og:title" content="malloc double free/non- aligned pointer being freed set a breakpoint in malloc_error_break to debug" />
-<meta property="og:description" content="malloc: *** error for object 0x3874a0: double free ***set a breakpoint in malloc_error_break to debug  malloc: *** error for object 0x18a138: Non- aligned pointer being freed *** set a breakpoint in malloc_error_break to debug So basically something in your code is screwing around with memory.
+<meta property="og:description" content="malloc: *** error for object 0x3874a0: double free ***set a breakpoint in malloc_error_break to debug malloc: *** error for object 0x18a138: Non- aligned pointer being freed *** set a breakpoint in malloc_error_break to debug So basically something in your code is screwing around with memory.
 Either releasing something that has already been released:
 int* x = new x[10]; delete [] x; delete [] x; Or releasing something that is not pointing to the start of an allocated block of memory:" />
 <meta property="og:type" content="article" />

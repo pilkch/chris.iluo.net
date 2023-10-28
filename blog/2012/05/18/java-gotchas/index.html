@@ -4,7 +4,7 @@
     <title>Java Gotchas // Coding and Stuff</title>
     <link rel="shortcut icon" href="../favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.93.3" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Chris Pilkington" />
     <meta name="description" content="" />
@@ -14,17 +14,17 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java Gotchas"/>
 <meta name="twitter:description" content="Everything is a pointer that initially points to null. Every non-POD type must be newed (I forget this one a lot)
-  The POD types (int, float, enum, etc.) behave just like their C&#43;&#43; counter parts.
+The POD types (int, float, enum, etc.) behave just like their C&#43;&#43; counter parts.
 The boxed versions (Integer, Float) and String in Java are more like a pointer to the POD value.
 For example:
-String a = &#34;chris&#34;; String b = &#34;chris&#34;; if (a == b) System."/>
+String a = &#34;chris&#34;; String b = &#34;chris&#34;; if (a == b) System.out.println(&#34;The strings are the same&#34;); This test will always fail because operator== for pointers (Instances of anything derived from java."/>
 
     <meta property="og:title" content="Java Gotchas" />
 <meta property="og:description" content="Everything is a pointer that initially points to null. Every non-POD type must be newed (I forget this one a lot)
-  The POD types (int, float, enum, etc.) behave just like their C&#43;&#43; counter parts.
+The POD types (int, float, enum, etc.) behave just like their C&#43;&#43; counter parts.
 The boxed versions (Integer, Float) and String in Java are more like a pointer to the POD value.
 For example:
-String a = &#34;chris&#34;; String b = &#34;chris&#34;; if (a == b) System." />
+String a = &#34;chris&#34;; String b = &#34;chris&#34;; if (a == b) System.out.println(&#34;The strings are the same&#34;); This test will always fail because operator== for pointers (Instances of anything derived from java." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2012/05/18/java-gotchas/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2012-05-18T23:38:03+00:00" />
